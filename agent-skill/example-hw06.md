@@ -173,7 +173,7 @@ When Newman execution was run on the full suite, a significant number of failure
 
 This is the key lesson that motivated the root-cause triage stage in the skill design: **many test failures ≠ many independent defects**.
 
-Three GitHub issues were confirmed as genuine SUT defects after human review.
+Three GitHub issues were confirmed after human review: two confirmed SUT defects (Issues #1 and #2) and one confirmed documentation defect (Issue #3).
 
 ---
 
