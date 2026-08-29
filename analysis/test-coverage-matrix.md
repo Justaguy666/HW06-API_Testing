@@ -166,3 +166,127 @@ This Prompt 005 artifact contains no concrete data, payload, automation, or exec
 - DEFERRED_EXPLORATORY identifies observation-only coverage without a requirement-backed pass/fail oracle.
 - NOT_SELECTED is zero because secondary coverage and selected probes account for every EP without inventing expectations.
 
+
+## 4. Prompt 006 Scope and Quota Addendum
+
+This addendum is authoritative for scope and quota after the Prompt 006 audit. It does not overwrite the historical Prompt 005 partition/requirement dispositions.
+
+### 4.1 Corrected scope totals
+
+| Feature | Existing cases | Existing IN_SCOPE | Existing cross-feature/supporting | New IN_SCOPE | Final quota-eligible |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| FR-02 | 13 | 13 | 0 | 22 | 35 |
+| FR-09 | 32 | 15 | 17 | 20 | 35 |
+| FR-18 | 28 | 21 | 7 | 14 | 35 |
+| **Total** | **73** | **49** | **24** | **56** | **105** |
+
+- TC-API-029–045 are CROSS_FEATURE coupon-management cases and are not quota-eligible for FR-09.
+- TC-API-067–073 are CROSS_FEATURE generic/user cancellation cases and are not quota-eligible for FR-18.
+- TC-API-074–129 are all IN_SCOPE and AI_GENERATED.
+
+### 4.2 New-case traceability
+
+| Test ID | Feature | Endpoint | Requirement References | Partition References | Primary Technique | Readiness | Scope | Quota Eligible |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TC-API-074 | FR-02 | `POST /api/login` | TB-FR02-004, TB-FR02-005, TB-FR02-006 | EP-FR02-001, EP-FR02-006 | SCHEMA | READY | IN_SCOPE | YES |
+| TC-API-075 | FR-02 | `POST /api/login` | TB-FR02-004, TB-FR02-006 | EP-FR02-001, EP-FR02-006 | SCHEMA | READY | IN_SCOPE | YES |
+| TC-API-076 | FR-02 | `POST /api/login` | TB-FR02-005, TB-FR02-006 | EP-FR02-001, EP-FR02-006 | SCHEMA | READY | IN_SCOPE | YES |
+| TC-API-077 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-003 | EP-FR02-002, EP-FR02-007 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-078 | FR-02 | `POST /api/login` | TB-FR02-001, TB-FR02-002, TB-FR02-003 | EP-FR02-003, EP-FR02-008 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-079 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-003 | EP-FR02-003, EP-FR02-008 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-080 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-003 | EP-FR02-004, EP-FR02-009 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-081 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-003 | EP-FR02-001, EP-FR02-006 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-082 | FR-02 | `POST /api/login` | TB-FR02-002 | EP-FR02-001, EP-FR02-002 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-083 | FR-02 | `POST /api/login` | TB-FR02-003 | EP-FR02-006, EP-FR02-007 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-084 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-007 | EP-FR02-001, EP-FR02-002 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-085 | FR-02 | `POST /api/login` | TB-FR02-003, TB-FR02-007 | EP-FR02-006, EP-FR02-007 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-086 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-007 | EP-FR02-001, EP-FR02-002 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-087 | FR-02 | `POST /api/login` | TB-FR02-003, TB-FR02-007 | EP-FR02-006, EP-FR02-007 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-088 | FR-02 | `POST /api/login` | TB-FR02-001 | N/A | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-089 | FR-02 | `POST /api/login` | TB-FR02-004, TB-FR02-006 | EP-FR02-001, EP-FR02-006 | AUTHENTICATION | BLOCKED | IN_SCOPE | YES |
+| TC-API-090 | FR-02 | `POST /api/login` | TB-FR02-007 | EP-FR02-001, EP-FR02-006, EP-FR02-007 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-091 | FR-02 | `POST /api/login` | TB-FR02-007 | EP-FR02-001, EP-FR02-006, EP-FR02-007 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-092 | FR-02 | `POST /api/login` | TB-FR02-007 | N/A | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-093 | FR-02 | `POST /api/login` | TB-FR02-007 | N/A | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-094 | FR-02 | `POST /api/login` | TB-FR02-002, TB-FR02-003, TB-FR02-007 | EP-FR02-002, EP-FR02-007 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-095 | FR-02 | `POST /api/login` | TB-FR02-006 | EP-FR02-001, EP-FR02-006 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-096 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-006 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | SCHEMA | BLOCKED | IN_SCOPE | YES |
+| TC-API-097 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-007 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | SCHEMA | BLOCKED | IN_SCOPE | YES |
+| TC-API-098 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | SCHEMA | BLOCKED | IN_SCOPE | YES |
+| TC-API-099 | FR-09 | `POST /api/apply-coupon` | TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-100 | FR-09 | `POST /api/apply-coupon` | TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-101 | FR-09 | `POST /api/apply-coupon` | TB-FR09-002 | EP-FR09-001, EP-FR09-002 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-102 | FR-09 | `POST /api/apply-coupon` | TB-FR09-002 | EP-FR09-001, EP-FR09-002 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-103 | FR-09 | `POST /api/apply-coupon` | TB-FR09-002 | EP-FR09-002 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-104 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-105 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-106 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-107 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004 | EP-FR09-010, EP-FR09-016 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-108 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004, TB-FR09-005 | EP-FR09-001, EP-FR09-010 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-109 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005 | EP-FR09-001 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-110 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004, TB-FR09-005 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | STATE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-111 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-112 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-113 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-114 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004 | EP-FR09-012, EP-FR09-016 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-115 | FR-09 | `POST /api/apply-coupon` | TB-FR09-001, TB-FR09-002, TB-FR09-003, TB-FR09-004 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-116 | FR-18 | `GET /api/admin/orders` | TB-FR18-001, TB-FR18-002, TB-FR18-003, TB-FR18-004 | EP-FR18-001 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-117 | FR-18 | `GET /api/admin/orders` | TB-FR18-001, TB-FR18-002, TB-FR18-003, TB-FR18-004 | EP-FR18-001 | BUSINESS_RULE | READY | IN_SCOPE | YES |
+| TC-API-118 | FR-18 | `GET /api/admin/orders` | TB-FR18-001, TB-FR18-002 | EP-FR18-001 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-119 | FR-18 | `GET /api/admin/orders` | TB-FR18-001 | EP-FR18-001 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-120 | FR-18 | `GET /api/admin/orders` | TB-FR18-001, TB-FR18-002 | EP-FR18-001 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-121 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006, TB-FR18-007, TB-FR18-008 | EP-FR18-009, EP-FR18-013 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-122 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006 | EP-FR18-019 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-123 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006 | EP-FR18-019 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-124 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006, TB-FR18-007 | EP-FR18-009, EP-FR18-013 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-125 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-007, TB-FR18-008 | EP-FR18-013, EP-FR18-014, EP-FR18-015, EP-FR18-016, EP-FR18-017 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-126 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-007, TB-FR18-008 | EP-FR18-009, EP-FR18-013, EP-FR18-014 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-127 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-008 | EP-FR18-009, EP-FR18-013 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-128 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-002, TB-FR18-005, TB-FR18-008 | EP-FR18-001, EP-FR18-009, EP-FR18-013 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-129 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-006, TB-FR18-007, TB-FR18-009, TB-FR18-010 | EP-FR18-006, EP-FR18-018 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
+
+### 4.3 Requirement traceability additions
+
+| TB ID | Added Prompt 006 Test IDs | Disposition effect |
+| --- | --- | --- |
+| TB-FR02-001 | TC-API-078, TC-API-088 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-002 | TC-API-077–TC-API-082, TC-API-084, TC-API-086, TC-API-094 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-003 | TC-API-077–TC-API-081, TC-API-083, TC-API-085, TC-API-087, TC-API-094 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-004 | TC-API-074–TC-API-075, TC-API-089 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-005 | TC-API-074, TC-API-076 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-006 | TC-API-074–TC-API-076, TC-API-089, TC-API-095 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR02-007 | TC-API-084–TC-API-087, TC-API-090–TC-API-094 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-001 | TC-API-115 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-002 | TC-API-101–TC-API-103, TC-API-115 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-003 | TC-API-104–TC-API-106, TC-API-111–TC-API-112, TC-API-115 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-004 | TC-API-107–TC-API-108, TC-API-110, TC-API-114–TC-API-115 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-005 | TC-API-096–TC-API-098, TC-API-104–TC-API-106, TC-API-108–TC-API-113 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-006 | TC-API-096, TC-API-098–TC-API-100, TC-API-113 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR09-007 | TC-API-097–TC-API-100, TC-API-113 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-001 | TC-API-116–TC-API-120 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-002 | TC-API-116–TC-API-118, TC-API-120, TC-API-128 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-003 | TC-API-116–TC-API-117 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-004 | TC-API-116–TC-API-117 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-005 | TC-API-121–TC-API-124, TC-API-126–TC-API-128 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-006 | TC-API-121–TC-API-124, TC-API-129 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-007 | TC-API-121, TC-API-124–TC-API-126, TC-API-129 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-008 | TC-API-121, TC-API-125–TC-API-128 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-009 | TC-API-129 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+| TB-FR18-010 | TC-API-129 | Adds focused logical coverage; existing COVERED/PARTIAL/BLOCKED status is preserved. |
+
+### 4.4 Coverage totals after expansion
+
+| Coverage family | Status | Count |
+| --- | --- | ---: |
+| Partition | COVERED | 29 |
+| Partition | BLOCKED | 22 |
+| Partition | DEFERRED_EXPLORATORY | 40 |
+| Partition | NOT_SELECTED | 0 |
+| Partition | **TOTAL** | **91** |
+| Requirement | COVERED | 18 |
+| Requirement | PARTIAL | 12 |
+| Requirement | BLOCKED | 6 |
+| Requirement | NOT_TESTABLE | 0 |
+| Requirement | **TOTAL** | **36** |
+
+The numeric dispositions remain unchanged because the new cases intentionally retain the original blockers. Their value is added schema, state-sequence, security-observation, robustness, and interaction coverage—not fabricated certainty.

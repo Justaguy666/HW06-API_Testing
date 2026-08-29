@@ -5,7 +5,9 @@
 - Prompt 002–004 logs only where needed for decision context.
 - No source code, README, database, runtime, Postman suite, or implementation behavior was inspected.
 
-## B. Test Design Summary
+## B. Test Design Summary (Prompt 005 Baseline)
+
+The figures below preserve the 73-case baseline before the Prompt 006 scope audit and expansion. The authoritative updated totals are in section P.
 
 ```text
 Parameters: 27
@@ -24,7 +26,7 @@ BLOCKED: 11
 EXPLORATORY_ONLY: 39
 ```
 
-## C. Test Cases by Endpoint
+## C. Test Cases by Endpoint (Prompt 005 Baseline)
 
 | Endpoint / Operation | Positive | Negative | Conditional | Exploratory | Total |
 | -------------------- | -------: | -------: | ----------: | ----------: | ----: |
@@ -38,7 +40,7 @@ EXPLORATORY_ONLY: 39
 | `PUT /api/orders/:id/cancel` | 0 | 3 | 2 | 2 | 7 |
 | **Total** | **3** | **20** | **11** | **39** | **73** |
 
-## D. Test Case Inventory
+## D. Test Case Inventory (TC-API-001–073 Baseline)
 
 | Test ID | Endpoint | Primary Objective | Primary Partition | Category | Executability |
 | ------- | -------- | ----------------- | ----------------- | -------- | ------------- |
@@ -2762,3 +2764,1546 @@ Status: PENDING STUDENT REVIEW
 
 After student review, derive concrete and reusable API test data for the approved logical test cases while preserving partition and requirement traceability.
 
+
+## P. Prompt 006 Scope-Compliant AI Expansion
+
+This section adds exactly 56 in-scope, quota-eligible logical cases after the scope audit: 22 for FR-02, 20 for FR-09, and 14 for FR-18. Every case remains abstract and is marked `AI_GENERATED`; no concrete data, request payload, attack string, or fabricated response contract is introduced.
+
+### Updated suite totals
+
+| Metric | Count |
+| --- | ---: |
+| Existing Prompt 005 cases | 73 |
+| Existing in-scope quota-eligible cases | 49 |
+| Existing cross-feature/supporting cases | 24 |
+| New Prompt 006 in-scope cases | 56 |
+| Final logical suite | 129 |
+| Final in-scope quota-eligible cases | 105 |
+
+### Updated classification and readiness totals
+
+| Dimension | Value | Count |
+| --- | --- | ---: |
+| Expected Classification | POSITIVE | 7 |
+| Expected Classification | NEGATIVE | 20 |
+| Expected Classification | CONDITIONAL | 27 |
+| Expected Classification | EXPLORATORY | 75 |
+| Readiness | READY | 27 |
+| Readiness | BLOCKED | 27 |
+| Readiness | EXPLORATORY_ONLY | 75 |
+
+## P.02 FR-02 New In-Scope Cases
+
+### TC-API-074 — Validate the documented successful-login transport status.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-074 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Validate the documented successful-login transport status. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR02-004, TB-FR02-005, TB-FR02-006 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account and matching credential pair are available. |
+| Input Condition | Documented matching credential classes. |
+| Action | Submit the login operation. |
+| Transport Oracle | 200 OK. |
+| Schema Oracle | Response represents the documented success result. |
+| Semantic Oracle | A JWT token and user information are returned. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | POSITIVE |
+| Readiness | READY |
+| Blocker | N/A |
+| Coverage Added | TB-FR02-005; success transport oracle |
+| Why Non-Duplicate | Separates the explicit status assertion from TC-API-001's broad happy-path objective. |
+
+### TC-API-075 — Validate that successful login returns a JWT token value.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-075 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Validate that successful login returns a JWT token value. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR02-004, TB-FR02-006 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account and matching credential pair are available. |
+| Input Condition | Documented matching credential classes. |
+| Action | Submit the login operation. |
+| Transport Oracle | 200 OK. |
+| Schema Oracle | A token element is present and represents a string JWT token as documented. |
+| Semantic Oracle | The response supplies the authentication token. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | POSITIVE |
+| Readiness | READY |
+| Blocker | N/A |
+| Coverage Added | TB-FR02-004; token schema focus |
+| Why Non-Duplicate | Adds a dedicated token contract check rather than only exercising successful authentication. |
+
+### TC-API-076 — Validate that successful login returns user information.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-076 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Validate that successful login returns user information. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR02-005, TB-FR02-006 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account and matching credential pair are available. |
+| Input Condition | Documented matching credential classes. |
+| Action | Submit the login operation. |
+| Transport Oracle | 200 OK. |
+| Schema Oracle | User information is present; its undocumented internal fields are not asserted. |
+| Semantic Oracle | The response includes user information. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | POSITIVE |
+| Readiness | READY |
+| Blocker | N/A |
+| Coverage Added | TB-FR02-006; user-information presence |
+| Why Non-Duplicate | Adds the documented user-information presence oracle while preserving the incomplete schema blocker. |
+
+### TC-API-077 — Characterize the response contract for unsuccessful login.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-077 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize the response contract for unsuccessful login. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR02-002, TB-FR02-003 |
+| Partition References | EP-FR02-002, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A credential pair that does not authenticate is available. |
+| Input Condition | One credential is outside the matching-pair class while the other remains nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe status, media type, and error-body shape without asserting undocumented fields. |
+| Semantic Oracle | Authentication does not succeed; exact failure representation is observed. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-004 |
+| Coverage Added | Failure-response schema observation |
+| Why Non-Duplicate | Existing invalid-credential cases focus on input classes, not a consolidated failure-contract observation. |
+
+### TC-API-078 — Observe handling when the request body is absent.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-078 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe handling when the request body is absent. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-001, TB-FR02-002, TB-FR02-003 |
+| Partition References | EP-FR02-003, EP-FR02-008 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | The login endpoint is reachable. |
+| Input Condition | No request body is supplied. |
+| Action | Invoke login without a body. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether the operation rejects, defaults, or otherwise handles the absent body. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Body-level robustness interaction |
+| Why Non-Duplicate | TC-API-003 and TC-API-007 omit one field at a time; this case targets absence of the body container. |
+
+### TC-API-079 — Observe handling of an empty JSON object.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-079 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe handling of an empty JSON object. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-002, TB-FR02-003 |
+| Partition References | EP-FR02-003, EP-FR02-008 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | JSON request handling is available. |
+| Input Condition | The body is a JSON object with neither documented field. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe handling of the intentionally combined missing-field interaction. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Missing-email × missing-password interaction |
+| Why Non-Duplicate | Distinct from single-field omission because the interaction itself is the objective. |
+
+### TC-API-080 — Observe handling when both documented credential fields are null-like.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-080 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe handling when both documented credential fields are null-like. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-002, TB-FR02-003 |
+| Partition References | EP-FR02-004, EP-FR02-009 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | JSON request handling is available. |
+| Input Condition | Both documented credential fields use null-like JSON values. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe handling of the combined null-like credential interaction. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Null-email × null-password interaction |
+| Why Non-Duplicate | Single-field null cases already exist; this deliberately audits their interaction. |
+
+### TC-API-081 — Observe tolerance of an undocumented login request member.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-081 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe tolerance of an undocumented login request member. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-002, TB-FR02-003 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A matching credential pair is available. |
+| Input Condition | Nominal documented fields plus one additional undocumented member. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe whether the response contract changes. |
+| Semantic Oracle | Observe whether the extra member is ignored, rejected, or otherwise handled. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Unknown-member robustness class |
+| Why Non-Duplicate | No existing case examines request extensibility or unknown-member handling. |
+
+### TC-API-082 — Observe duplicate email-member handling at the representation layer.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-082 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe duplicate email-member handling at the representation layer. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-002 |
+| Partition References | EP-FR02-001, EP-FR02-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A request representation capable of expressing duplicate members is available. |
+| Input Condition | Two email members represent conflicting account-association classes; password remains nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe parsing and response shape. |
+| Semantic Oracle | Observe which representation rule, rejection, or other handling occurs. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Duplicate-member parsing interaction |
+| Why Non-Duplicate | No existing test addresses ambiguous duplicate representation of the email member. |
+
+### TC-API-083 — Observe duplicate password-member handling at the representation layer.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-083 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe duplicate password-member handling at the representation layer. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-003 |
+| Partition References | EP-FR02-006, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A request representation capable of expressing duplicate members is available. |
+| Input Condition | Two password members represent matching and non-matching classes; email remains nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe parsing and response shape. |
+| Semantic Oracle | Observe which representation rule, rejection, or other handling occurs. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Duplicate-member parsing interaction |
+| Why Non-Duplicate | Complements the email duplicate case with a distinct authentication-sensitive member. |
+
+### TC-API-084 — Characterize surrounding-whitespace handling for email.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-084 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize surrounding-whitespace handling for email. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR02-002, TB-FR02-007 |
+| Partition References | EP-FR02-001, EP-FR02-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account credential pair is available. |
+| Input Condition | Email representation differs from the associated account only by surrounding whitespace; password is nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether email whitespace is preserved, normalized, or rejected. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Email normalization class |
+| Why Non-Duplicate | Existing email partitions do not distinguish normalization behavior. |
+
+### TC-API-085 — Characterize surrounding-whitespace handling for password.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-085 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize surrounding-whitespace handling for password. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR02-003, TB-FR02-007 |
+| Partition References | EP-FR02-006, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account credential pair is available. |
+| Input Condition | Password representation differs from the matching credential only by surrounding whitespace; email is nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether password whitespace is preserved, normalized, or rejected. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Password normalization class |
+| Why Non-Duplicate | Adds a credential-specific normalization observation not represented by generic mismatch. |
+
+### TC-API-086 — Characterize email case-normalization behavior.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-086 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize email case-normalization behavior. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR02-002, TB-FR02-007 |
+| Partition References | EP-FR02-001, EP-FR02-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An account with alphabetic email characters is available. |
+| Input Condition | Email differs only in letter case from the associated account; password is nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether email comparison is case-normalized or case-sensitive. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Email comparison class |
+| Why Non-Duplicate | No existing case distinguishes account identity normalization from an unrelated email. |
+
+### TC-API-087 — Characterize password case sensitivity.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-087 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize password case sensitivity. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR02-003, TB-FR02-007 |
+| Partition References | EP-FR02-006, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A matching password containing alphabetic characters is available. |
+| Input Condition | Password differs only in letter case; email is nominal. |
+| Action | Submit the login operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe credential comparison behavior without assuming a password policy. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Password comparison class |
+| Why Non-Duplicate | Distinguishes a controlled comparison property from the broad wrong-password partition. |
+
+### TC-API-088 — Observe malformed JSON representation handling.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-088 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Observe malformed JSON representation handling. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR02-001 |
+| Partition References | N/A |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | The endpoint accepts an HTTP request body. |
+| Input Condition | Body representation is not parseable as JSON; no concrete malformed string is defined. |
+| Action | Invoke login with the malformed-representation class. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe response status, media type, and body shape. |
+| Semantic Oracle | Observe parser-level handling without an attack payload. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-001, BLK-FR02-004 |
+| Coverage Added | Malformed-representation robustness class |
+| Why Non-Duplicate | Existing cases change values or media type but do not target JSON parse failure. |
+
+### TC-API-089 — Characterize token behavior across repeated successful logins.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-089 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize token behavior across repeated successful logins. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | AUTHENTICATION |
+| Requirement References | TB-FR02-004, TB-FR02-006 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account and matching credential pair are available. |
+| Input Condition | The same documented matching credential class is used in repeated login operations. |
+| Action | Perform two successful login operations and compare observable token properties. |
+| Transport Oracle | 200 OK for each successful operation. |
+| Schema Oracle | Each success includes a token and user information; token relationship is unspecified. |
+| Semantic Oracle | Observe whether tokens are reused or newly issued. |
+| State Oracle | Observe any externally visible token-lifecycle effect. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR02-006 |
+| Coverage Added | JWT lifecycle sequence |
+| Why Non-Duplicate | TC-API-001 validates one success; this case targets repeated-login token lifecycle. |
+
+### TC-API-090 — Characterize failed-attempt counter behavior after a successful login.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-090 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize failed-attempt counter behavior after a successful login. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR02-007 |
+| Partition References | EP-FR02-001, EP-FR02-006, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An account exists and its failed-attempt state can be observed once defined. |
+| Input Condition | A successful login is followed by a non-matching credential attempt. |
+| Action | Perform the ordered login sequence. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | Expected counter effect is UNSPECIFIED until lockout rules exist. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR02-002, BLK-FR02-004 |
+| Coverage Added | Account-lockout sequence ordering |
+| Why Non-Duplicate | TC-API-013 covers repeated failures generally; this sequence isolates success-before-failure behavior. |
+
+### TC-API-091 — Characterize whether successful login resets prior failed attempts.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-091 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize whether successful login resets prior failed attempts. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR02-007 |
+| Partition References | EP-FR02-001, EP-FR02-006, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An account has accumulated observable failed attempts below any eventual threshold. |
+| Input Condition | One or more failed attempts are followed by a matching credential pair. |
+| Action | Perform the ordered login sequence. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Successful authentication behavior is known, but counter-reset semantics are not. |
+| State Oracle | Expected counter reset is UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR02-002, BLK-FR02-004 |
+| Coverage Added | Failed-then-success state sequence |
+| Why Non-Duplicate | Adds reset semantics rather than another threshold repetition. |
+
+### TC-API-092 — Characterize login behavior while an account is in a locked state.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-092 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize login behavior while an account is in a locked state. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR02-007 |
+| Partition References | N/A |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A reproducibly locked account can be established once lockout rules are supplied. |
+| Input Condition | Matching credentials are submitted while the account is locked. |
+| Action | Submit the login operation in the locked state. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | Locked-state handling is UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR02-002, BLK-FR02-003, BLK-FR02-004 |
+| Coverage Added | Locked-account state condition |
+| Why Non-Duplicate | Targets the locked state itself, whereas TC-API-013 targets the transition into it. |
+
+### TC-API-093 — Characterize login behavior after any lock duration elapses.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-093 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Characterize login behavior after any lock duration elapses. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR02-007 |
+| Partition References | N/A |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A locked account and controllable elapsed-time condition can be established once defined. |
+| Input Condition | Matching credentials are submitted after the eventual unlock condition. |
+| Action | Submit login after the specified unlock condition once authoritative rules exist. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | Unlock and post-unlock behavior are UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR02-002, BLK-FR02-003, BLK-FR02-004 |
+| Coverage Added | Time-dependent unlock state |
+| Why Non-Duplicate | Adds post-lock temporal recovery coverage distinct from lock-entry behavior. |
+
+### TC-API-094 — Compare failure disclosure for unknown account and wrong password classes.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-094 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Compare failure disclosure for unknown account and wrong password classes. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SECURITY |
+| Requirement References | TB-FR02-002, TB-FR02-003, TB-FR02-007 |
+| Partition References | EP-FR02-002, EP-FR02-007 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | Both non-associated-email and wrong-password conditions can be represented abstractly. |
+| Input Condition | Run the two failure classes with otherwise nominal requests. |
+| Action | Compare observable failure statuses and response shapes. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe whether failure representations differ. |
+| Semantic Oracle | Observe possible account-enumeration disclosure without asserting a required equivalence. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-004, BLK-ALL-001 |
+| Coverage Added | Security-oriented failure-disclosure comparison |
+| Why Non-Duplicate | Existing cases observe each invalid credential independently but do not compare disclosure. |
+
+### TC-API-095 — Audit successful user information for unintended sensitive-field exposure.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-095 |
+| Feature | FR-02 |
+| Endpoint / Operation | POST /api/login |
+| Title | Audit successful user information for unintended sensitive-field exposure. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SECURITY |
+| Requirement References | TB-FR02-006 |
+| Partition References | EP-FR02-001, EP-FR02-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing account and matching credential pair are available. |
+| Input Condition | Documented matching credential classes. |
+| Action | Submit login and inspect only the returned user-information field set. |
+| Transport Oracle | 200 OK. |
+| Schema Oracle | User information is present; allowed and forbidden internal fields are UNSPECIFIED. |
+| Semantic Oracle | Record exposed field names for human security review without inventing a forbidden-field list. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR02-005, BLK-ALL-001 |
+| Coverage Added | Sensitive-field exposure observation |
+| Why Non-Duplicate | TC-API-076 checks presence; this case separately audits disclosure risk. |
+## P.09 FR-09 New In-Scope Cases
+
+### TC-API-096 — Validate presence of documented discount_amount in a successful application response.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-096 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Validate presence of documented discount_amount in a successful application response. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR09-005, TB-FR09-006 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing eligible coupon/user combination and valid total can be established once rules exist. |
+| Input Condition | Nominal documented input classes. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Response JSON contains discount_amount; type is UNSPECIFIED. |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | TB-FR09-006; response-field presence |
+| Why Non-Duplicate | TC-API-014 broadly targets calculation; this case isolates one documented response member. |
+
+### TC-API-097 — Validate presence of documented final_amount in a successful application response.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-097 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Validate presence of documented final_amount in a successful application response. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR09-005, TB-FR09-007 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing eligible coupon/user combination and valid total can be established once rules exist. |
+| Input Condition | Nominal documented input classes. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Response JSON contains final_amount; type is UNSPECIFIED. |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | TB-FR09-007; response-field presence |
+| Why Non-Duplicate | Isolates the second documented response member for diagnosable schema coverage. |
+
+### TC-API-098 — Validate the documented successful response as JSON.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-098 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Validate the documented successful response as JSON. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR09-005, TB-FR09-006, TB-FR09-007 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An eligible application can be established once eligibility is defined. |
+| Input Condition | Nominal documented input classes. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Successful response is JSON and contains the two documented field names; other structure is not asserted. |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-006 |
+| Coverage Added | Successful response media/schema container |
+| Why Non-Duplicate | Adds the explicit JSON-container contract rather than a calculation oracle. |
+
+### TC-API-099 — Characterize types of the documented response amount fields.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-099 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize types of the documented response amount fields. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR09-006, TB-FR09-007 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A response containing the documented fields can be obtained. |
+| Input Condition | Nominal application input classes. |
+| Action | Apply the coupon and inspect the two field representations. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Record the runtime types of discount_amount and final_amount; expected types are UNSPECIFIED. |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-006 |
+| Coverage Added | Response-field type observation |
+| Why Non-Duplicate | Presence is covered separately; this targets the explicitly blocked type contract. |
+
+### TC-API-100 — Characterize undocumented members in the coupon-application response.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-100 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize undocumented members in the coupon-application response. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR09-006, TB-FR09-007 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A coupon-application response can be obtained. |
+| Input Condition | Nominal documented input classes. |
+| Action | Apply the coupon and inventory top-level response members. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Record additional members without asserting they are prohibited. |
+| Semantic Oracle | UNSPECIFIED |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-006 |
+| Coverage Added | Response-shape discovery |
+| Why Non-Duplicate | Existing cases do not inventory the incomplete response schema. |
+
+### TC-API-101 — Characterize coupon-code case-normalization behavior.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-101 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize coupon-code case-normalization behavior. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR09-002 |
+| Partition References | EP-FR09-001, EP-FR09-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A stored coupon code with alphabetic characters exists. |
+| Input Condition | Code differs from the stored representation only by letter case; other inputs remain nominal. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether code lookup is case-normalized or case-sensitive. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-002, BLK-FR09-006 |
+| Coverage Added | Coupon-code comparison class |
+| Why Non-Duplicate | Distinct from non-existing code because the relationship to an existing code is controlled. |
+
+### TC-API-102 — Characterize surrounding-whitespace handling for coupon code.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-102 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize surrounding-whitespace handling for coupon code. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR09-002 |
+| Partition References | EP-FR09-001, EP-FR09-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A stored coupon code exists. |
+| Input Condition | Code differs from the stored representation only by surrounding whitespace; other inputs remain nominal. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether code whitespace is preserved, normalized, or rejected. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-002, BLK-FR09-006 |
+| Coverage Added | Coupon-code normalization class |
+| Why Non-Duplicate | Adds whitespace normalization coverage rather than another arbitrary unknown code. |
+
+### TC-API-103 — Observe handling of an empty-string coupon-code class.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-103 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Observe handling of an empty-string coupon-code class. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR09-002 |
+| Partition References | EP-FR09-002 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | Other documented inputs use nominal classes. |
+| Input Condition | Code is a string representation with no content. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe handling without assuming requiredness or minimum length. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-002, BLK-FR09-006 |
+| Coverage Added | Distinct string-content class |
+| Why Non-Duplicate | Existing cases cover omitted, null, non-string, and unknown code but not the empty string class. |
+
+### TC-API-104 — Characterize a non-positive total_amount class.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-104 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize a non-positive total_amount class. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR09-003, TB-FR09-005 |
+| Partition References | EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing coupon/user combination is available. |
+| Input Condition | total_amount is numeric but belongs to a non-positive conceptual class; no concrete boundary value is selected. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe eligibility/calculation handling without asserting an unsupported numeric rule. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Numeric sign-class coverage |
+| Why Non-Duplicate | TC-API-019–021 cover absence/null/type, not a distinct numeric semantic class. |
+
+### TC-API-105 — Characterize a fractional total_amount representation.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-105 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize a fractional total_amount representation. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | DOMAIN |
+| Requirement References | TB-FR09-003, TB-FR09-005 |
+| Partition References | EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing coupon/user combination is available. |
+| Input Condition | total_amount is represented by a fractional numeric value; no concrete amount is defined. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe field representation in the response. |
+| Semantic Oracle | Observe acceptance and any calculation/rounding behavior. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Fractional-number class |
+| Why Non-Duplicate | Adds rounding-sensitive representation coverage without fabricating a rounding oracle. |
+
+### TC-API-106 — Characterize a very-large-magnitude total_amount class.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-106 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize a very-large-magnitude total_amount class. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR09-003, TB-FR09-005 |
+| Partition References | EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing coupon/user combination is available. |
+| Input Condition | total_amount is numeric with a very large representable magnitude; no concrete threshold is claimed. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe numeric handling without treating any invented magnitude as a boundary. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Numeric-magnitude robustness class |
+| Why Non-Duplicate | Tests representation robustness distinct from type-invalid and ordinary-number classes. |
+
+### TC-API-107 — Characterize user_id and authenticated-identity mismatch.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-107 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize user_id and authenticated-identity mismatch. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SECURITY |
+| Requirement References | TB-FR09-004 |
+| Partition References | EP-FR09-010, EP-FR09-016 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | Two abstract user identities and an authentication context can be represented. |
+| Input Condition | Body user_id identifies a different user from the authenticated context; other fields are nominal. |
+| Action | Apply the coupon under the mismatched identity condition. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether identity ownership is enforced; expected behavior is UNSPECIFIED. |
+| State Oracle | Observe any usage attribution only if externally visible. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-004, BLK-FR09-005, BLK-FR09-006, BLK-ALL-001 |
+| Coverage Added | Identity-binding security interaction |
+| Why Non-Duplicate | TC-API-026 observes token presence generally; this case controls a specific mismatch. |
+
+### TC-API-108 — Characterize repeated application of the same coupon by the same user.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-108 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize repeated application of the same coupon by the same user. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR09-004, TB-FR09-005 |
+| Partition References | EP-FR09-001, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An applicable coupon/user combination can be established and repeated use can be observed. |
+| Input Condition | The same nominal application condition is submitted more than once. |
+| Action | Perform the application sequence. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Calculation behavior is UNSPECIFIED after repeated use. |
+| State Oracle | Usage persistence and enforcement are UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-005, BLK-FR09-006 |
+| Coverage Added | Per-user usage state |
+| Why Non-Duplicate | No existing case targets state persistence across applications. |
+
+### TC-API-109 — Characterize application of an expired coupon condition.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-109 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize application of an expired coupon condition. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR09-005 |
+| Partition References | EP-FR09-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A coupon whose expiration condition can be established from authoritative data is available. |
+| Input Condition | Coupon is in an expired condition; total and user classes are otherwise nominal. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Eligibility result is UNSPECIFIED because expiration semantics are absent. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-006 |
+| Coverage Added | Expiration eligibility condition |
+| Why Non-Duplicate | Non-existing code is already covered; this adds a distinct existing-but-expired condition. |
+
+### TC-API-110 — Characterize application of the same coupon across two user identities.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-110 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize application of the same coupon across two user identities. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR09-004, TB-FR09-005 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An existing coupon, a nominal total class, and two existing user identities are available. |
+| Input Condition | The same coupon and total classes are applied once for each distinct user_id. |
+| Action | Perform the two application operations as an ordered observation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe both response representations. |
+| Semantic Oracle | Observe whether results differ by user identity without inventing an eligibility rule. |
+| State Oracle | Cross-user usage and attribution behavior are UNSPECIFIED. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-004, BLK-FR09-005, BLK-FR09-006 |
+| Coverage Added | Cross-user coupon-usage interaction |
+| Why Non-Duplicate | TC-API-108 repeats use by one user; this case isolates whether usage or eligibility is scoped across distinct user identities. |
+
+### TC-API-111 — Characterize total_amount below a coupon's stored minimum-order relation.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-111 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize total_amount below a coupon's stored minimum-order relation. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR09-003, TB-FR09-005 |
+| Partition References | EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A coupon exposing a minimum-order attribute exists; semantics are not assumed. |
+| Input Condition | total_amount is lower than that stored attribute; no concrete values are selected. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe the relationship outcome without asserting threshold semantics. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Minimum-order relational class |
+| Why Non-Duplicate | Adds a cross-field relation supported by the documented coupon-management model, not an invented numeric boundary. |
+
+### TC-API-112 — Characterize total_amount equal to a coupon's stored minimum-order relation.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-112 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize total_amount equal to a coupon's stored minimum-order relation. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR09-003, TB-FR09-005 |
+| Partition References | EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A coupon exposing a minimum-order attribute exists; semantics are not assumed. |
+| Input Condition | total_amount equals that stored attribute abstractly; no concrete boundary is fabricated. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe equality handling without claiming inclusive/exclusive semantics. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Minimum-order equality relation |
+| Why Non-Duplicate | Complements the below relation with the equality interaction needed to learn inclusivity. |
+
+### TC-API-113 — Characterize discount type and discount value interaction.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-113 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize discount type and discount value interaction. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR09-005, TB-FR09-006, TB-FR09-007 |
+| Partition References | EP-FR09-001, EP-FR09-006 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A coupon with observable discount type/value attributes exists. |
+| Input Condition | Nominal application inputs target one documented stored coupon configuration. |
+| Action | Apply the coupon and compare returned amounts to the coupon configuration only after rules are supplied. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Documented response fields are expected; their types remain UNSPECIFIED. |
+| Semantic Oracle | Formula and rounding outcome are UNSPECIFIED. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR09-003, BLK-FR09-006 |
+| Coverage Added | Discount-configuration interaction |
+| Why Non-Duplicate | Adds business-rule interaction coverage rather than another code/input validity case. |
+
+### TC-API-114 — Characterize Authorization identity when body user_id is omitted.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-114 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Characterize Authorization identity when body user_id is omitted. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SECURITY |
+| Requirement References | TB-FR09-004 |
+| Partition References | EP-FR09-012, EP-FR09-016 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated context is available. |
+| Input Condition | Body omits user_id while Authorization supplies an identity; code and total are nominal. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether authenticated identity substitutes for, conflicts with, or does not affect the omitted body identity. |
+| State Oracle | Observe attribution only if externally visible. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-004, BLK-FR09-005, BLK-FR09-006, BLK-ALL-001 |
+| Coverage Added | Omitted-body-identity × authenticated-context interaction |
+| Why Non-Duplicate | TC-API-023 omits user_id without making authenticated identity the purpose. |
+
+### TC-API-115 — Observe tolerance of an undocumented coupon-application request member.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-115 |
+| Feature | FR-09 |
+| Endpoint / Operation | POST /api/apply-coupon |
+| Title | Observe tolerance of an undocumented coupon-application request member. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR09-001, TB-FR09-002, TB-FR09-003, TB-FR09-004 |
+| Partition References | EP-FR09-001, EP-FR09-006, EP-FR09-010 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | Nominal documented input classes can be represented. |
+| Input Condition | Nominal fields plus one additional undocumented member. |
+| Action | Apply the coupon. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe whether the response contract changes. |
+| Semantic Oracle | Observe whether the extra member is ignored, rejected, or otherwise handled. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR09-001, BLK-FR09-006 |
+| Coverage Added | Unknown-member robustness class |
+| Why Non-Duplicate | No existing coupon-application case examines request extensibility. |
+## P.18 FR-18 New In-Scope Cases
+
+### TC-API-116 — Characterize the admin order-list response schema.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-116 |
+| Feature | FR-18 |
+| Endpoint / Operation | GET /api/admin/orders |
+| Title | Characterize the admin order-list response schema. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR18-001, TB-FR18-002, TB-FR18-003, TB-FR18-004 |
+| Partition References | EP-FR18-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin context exists. |
+| Input Condition | Documented Admin Bearer context. |
+| Action | Retrieve the system-wide order list. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Record response media type, container shape, and member fields; all are UNSPECIFIED. |
+| Semantic Oracle | Response represents system-wide orders. |
+| State Oracle | No state change is expected from the read operation, but idempotence is not specified. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-005 |
+| Coverage Added | Admin-list response-shape discovery |
+| Why Non-Duplicate | TC-API-046 tests access and semantics but lacks a dedicated incomplete-schema observation. |
+
+### TC-API-117 — Verify that Admin order listing is system-wide.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-117 |
+| Feature | FR-18 |
+| Endpoint / Operation | GET /api/admin/orders |
+| Title | Verify that Admin order listing is system-wide. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR18-001, TB-FR18-002, TB-FR18-003, TB-FR18-004 |
+| Partition References | EP-FR18-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin context and orders attributable to more than one user exist. |
+| Input Condition | Documented Admin Bearer context. |
+| Action | Retrieve the Admin order list. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Returned order collection represents orders for the entire system, not only the Admin's personal orders. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | POSITIVE |
+| Readiness | READY |
+| Blocker | N/A |
+| Coverage Added | TB-FR18-002; system-wide inclusion semantics |
+| Why Non-Duplicate | TC-API-046 establishes retrieval generally; this isolates the explicit toàn hệ thống requirement. |
+
+### TC-API-118 — Characterize the response shape when the system has no orders.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-118 |
+| Feature | FR-18 |
+| Endpoint / Operation | GET /api/admin/orders |
+| Title | Characterize the response shape when the system has no orders. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR18-001, TB-FR18-002 |
+| Partition References | EP-FR18-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin context and an abstract no-orders state can be established. |
+| Input Condition | Documented Admin Bearer context in a system with no orders. |
+| Action | Retrieve the Admin order list. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the empty-result representation; exact container is UNSPECIFIED. |
+| Semantic Oracle | Observe representation of the system-wide no-orders condition. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-005 |
+| Coverage Added | Empty-collection schema variant |
+| Why Non-Duplicate | Existing list cases do not target the empty domain state. |
+
+### TC-API-119 — Observe handling of an undocumented query parameter.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-119 |
+| Feature | FR-18 |
+| Endpoint / Operation | GET /api/admin/orders |
+| Title | Observe handling of an undocumented query parameter. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR18-001 |
+| Partition References | EP-FR18-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin context exists. |
+| Input Condition | The documented path includes an additional unspecified query member. |
+| Action | Retrieve the Admin order list. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe whether the extra query member is ignored, rejected, or changes behavior. |
+| State Oracle | UNSPECIFIED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-005 |
+| Coverage Added | Query extensibility robustness class |
+| Why Non-Duplicate | No existing Admin-list case examines undocumented query handling. |
+
+### TC-API-120 — Characterize consistency across repeated Admin order-list reads.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-120 |
+| Feature | FR-18 |
+| Endpoint / Operation | GET /api/admin/orders |
+| Title | Characterize consistency across repeated Admin order-list reads. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR18-001, TB-FR18-002 |
+| Partition References | EP-FR18-001 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin context exists and no intervening order mutation occurs. |
+| Input Condition | The same documented read condition is repeated. |
+| Action | Retrieve the Admin order list twice without an intervening mutation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe both response shapes. |
+| Semantic Oracle | Compare observable collections without asserting ordering or idempotence rules absent from the specification. |
+| State Oracle | No mutation should be inferred; formal idempotence oracle is UNSPECIFIED. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-005 |
+| Coverage Added | Repeated-read interaction |
+| Why Non-Duplicate | Adds read-consistency observation distinct from one-time retrieval. |
+
+### TC-API-121 — Characterize the successful status-update response schema.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-121 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Characterize the successful status-update response schema. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SCHEMA |
+| Requirement References | TB-FR18-005, TB-FR18-006, TB-FR18-007, TB-FR18-008 |
+| Partition References | EP-FR18-009, EP-FR18-013 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin, existing order, and allowed source/target relation can be established once transitions are defined. |
+| Input Condition | Existing order identifier and one documented status class. |
+| Action | Update the order status. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Record response media type, container, and fields; all are UNSPECIFIED. |
+| Semantic Oracle | Observe acknowledgement of the targeted status update. |
+| State Oracle | Observe the resulting status if externally visible. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-001, BLK-FR18-005 |
+| Coverage Added | Admin-update success schema discovery |
+| Why Non-Duplicate | Existing status cases focus on target classes and authorization, not the update response schema. |
+
+### TC-API-122 — Observe handling when the status-update request body is absent.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-122 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Observe handling when the status-update request body is absent. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR18-005, TB-FR18-006 |
+| Partition References | EP-FR18-019 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin and existing order are available. |
+| Input Condition | No request body is supplied. |
+| Action | Invoke the Admin status-update operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe body-level handling without asserting requiredness. |
+| State Oracle | Observe whether order state remains unchanged if it can be verified; exact oracle is UNSPECIFIED. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-003, BLK-FR18-005 |
+| Coverage Added | Absent-body robustness class |
+| Why Non-Duplicate | TC-API-062 omits status within a body; this targets absence of the body container. |
+
+### TC-API-123 — Observe handling of an empty JSON object for status update.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-123 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Observe handling of an empty JSON object for status update. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR18-005, TB-FR18-006 |
+| Partition References | EP-FR18-019 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin and existing order are available. |
+| Input Condition | A JSON object contains no status member. |
+| Action | Invoke the Admin status-update operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation. |
+| Semantic Oracle | Observe empty-object handling without asserting requiredness. |
+| State Oracle | Observe whether order state remains unchanged if externally verifiable; exact oracle is UNSPECIFIED. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-003, BLK-FR18-005 |
+| Coverage Added | Empty-object representation class |
+| Why Non-Duplicate | Separates an explicit empty object from both an absent body and single-member omission representation. |
+
+### TC-API-124 — Observe tolerance of an undocumented request member during a nominal status update.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-124 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Observe tolerance of an undocumented request member during a nominal status update. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | ROBUSTNESS |
+| Requirement References | TB-FR18-005, TB-FR18-006, TB-FR18-007 |
+| Partition References | EP-FR18-009, EP-FR18-013 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin and an allowed update context are available once transition rules exist. |
+| Input Condition | A documented status class plus one additional undocumented member. |
+| Action | Invoke the Admin status-update operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe whether the response contract changes. |
+| Semantic Oracle | Observe whether the extra member is ignored, rejected, or otherwise handled. |
+| State Oracle | Observe the target state only after an allowed transition is defined. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-001, BLK-FR18-003, BLK-FR18-005 |
+| Coverage Added | Unknown-member robustness class |
+| Why Non-Duplicate | No existing Admin update case examines request extensibility. |
+
+### TC-API-125 — Characterize an update whose target status equals the current status.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-125 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Characterize an update whose target status equals the current status. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR18-007, TB-FR18-008 |
+| Partition References | EP-FR18-013, EP-FR18-014, EP-FR18-015, EP-FR18-016, EP-FR18-017 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin and an order with a known current documented status are available. |
+| Input Condition | Target status is the same documented value as the current status. |
+| Action | Invoke the Admin status-update operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Same-state update semantics are UNSPECIFIED. |
+| State Oracle | Idempotence and resulting state behavior are UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
+| Coverage Added | Same-state transition condition |
+| Why Non-Duplicate | TC-API-050–054 cover target values, not the source-equals-target relation. |
+
+### TC-API-126 — Characterize conflicting status updates to the same order.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-126 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Characterize conflicting status updates to the same order. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR18-005, TB-FR18-007, TB-FR18-008 |
+| Partition References | EP-FR18-009, EP-FR18-013, EP-FR18-014 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin and existing order are available; two distinct documented target statuses are selected abstractly. |
+| Input Condition | Two update operations target the same order with distinct documented status classes. |
+| Action | Issue the logically conflicting updates under a controlled ordering or concurrency model once defined. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Conflict resolution is UNSPECIFIED. |
+| State Oracle | Final state and ordering behavior are UNSPECIFIED. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
+| Coverage Added | Multi-update state interaction |
+| Why Non-Duplicate | Existing cases are single-operation target-state checks. |
+
+### TC-API-127 — Observe isolation of an Admin status update to the targeted order.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-127 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Observe isolation of an Admin status update to the targeted order. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | BUSINESS_RULE |
+| Requirement References | TB-FR18-005, TB-FR18-008 |
+| Partition References | EP-FR18-009, EP-FR18-013 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | Two existing orders and an authenticated Admin are available; an allowed transition is established once rules exist. |
+| Input Condition | One order identifier is targeted; another order acts as a non-target control. |
+| Action | Update the targeted order and observe both orders through an available in-scope read. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | UNSPECIFIED |
+| Semantic Oracle | Observe whether only the identified order is affected; exact transition result remains dependent on rules. |
+| State Oracle | Observe target and non-target states without inventing transition semantics. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
+| Coverage Added | Target-isolation interaction |
+| Why Non-Duplicate | No existing case uses a second order as a control for identifier targeting. |
+
+### TC-API-128 — Characterize update persistence through subsequent Admin order listing.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-128 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Characterize update persistence through subsequent Admin order listing. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | STATE |
+| Requirement References | TB-FR18-002, TB-FR18-005, TB-FR18-008 |
+| Partition References | EP-FR18-001, EP-FR18-009, EP-FR18-013 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | An authenticated Admin, existing order, and allowed transition are available once the transition matrix exists. |
+| Input Condition | Existing order identifier and a documented target status. |
+| Action | Update the order, then retrieve the system-wide Admin order list. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | List and update response schemas are UNSPECIFIED. |
+| Semantic Oracle | Observe whether the read reflects the update. |
+| State Oracle | Persistence and final-state oracle are UNSPECIFIED until transition rules and schemas exist. |
+| Expected Classification | CONDITIONAL |
+| Readiness | BLOCKED |
+| Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
+| Coverage Added | Cross-operation state persistence |
+| Why Non-Duplicate | Existing cases do not connect the two in-scope Admin operations in a state-verification sequence. |
+
+### TC-API-129 — Characterize authorization-versus-validation precedence.
+
+| Field | Required Content |
+| --- | --- |
+| Test ID | TC-API-129 |
+| Feature | FR-18 |
+| Endpoint / Operation | PUT /api/admin/orders/:id/status |
+| Title | Characterize authorization-versus-validation precedence. |
+| Test Origin | AI_GENERATED |
+| Primary Technique | SECURITY |
+| Requirement References | TB-FR18-006, TB-FR18-007, TB-FR18-009, TB-FR18-010 |
+| Partition References | EP-FR18-006, EP-FR18-018 |
+| BVA References | N/A |
+| Security Reference | N/A |
+| Preconditions | A non-Admin authenticated context and an existing order are available. |
+| Input Condition | Insufficient role is intentionally combined with a status outside the documented vocabulary to study precedence. |
+| Action | Invoke the Admin status-update operation. |
+| Transport Oracle | UNSPECIFIED |
+| Schema Oracle | Observe the response representation without asserting precedence. |
+| Semantic Oracle | Observe whether authorization or validation is evaluated first; no preferred result is invented. |
+| State Oracle | Observe that no state conclusion is made unless externally verified. |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
+| Blocker | BLK-FR18-005, BLK-FR18-006, BLK-ALL-001 |
+| Coverage Added | Authorization × validation precedence |
+| Why Non-Duplicate | TC-API-055 and TC-API-061 isolate each fault; this case deliberately studies their interaction. |
