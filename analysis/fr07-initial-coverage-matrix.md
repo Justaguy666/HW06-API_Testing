@@ -1,12 +1,17 @@
-# FR-07 Initial Coverage Matrix — Prompt 015
+# FR-07 Initial Coverage Matrix — Finalized by Prompt 016
 
-This artifact is the coverage-focused companion to `analysis/fr07-initial-test-case-design.md`. It preserves the same Prompt 015 decisions and contains no additional testcase IDs.
+```text
+FR-07 PRE-HUMAN-AUDIT SUITE:
+FINALIZED BY PROMPT 016
+```
+
+This artifact is the coverage-focused companion to `analysis/fr07-initial-test-case-design.md`. It includes the retained Prompt 015 suite plus TC-API-164.
 
 ## Coverage Baseline
 
-- Testcase range: `TC-API-130`–`TC-API-163`
-- Generated / quota eligible: 34 / 34
-- FR-07 quota: 34 / 35 — SHORTFALL
+- Testcase range: `TC-API-130`–`TC-API-164`
+- Generated / quota eligible: 35 / 35
+- FR-07 quota: 35 / 35 — PASS
 - EPs: 36 total; 27 covered, 3 covered via interaction, 6 blocked
 - Interactions: 11 total; 6 covered, 1 partial, 4 blocked
 - TB items: 13 total; 0 unaccounted
@@ -39,10 +44,10 @@ This artifact is the coverage-focused companion to `analysis/fr07-initial-test-c
 | EP-FR07-020 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-148 | COVERED |
 | EP-FR07-021 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-149 | COVERED |
 | EP-FR07-022 | VALID | READY | TC-API-133 | COVERED |
-| EP-FR07-023 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-150, TC-API-153 | COVERED |
+| EP-FR07-023 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-150, TC-API-153, TC-API-164 | COVERED |
 | EP-FR07-024 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-151 | COVERED |
 | EP-FR07-025 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-152 | COVERED |
-| EP-FR07-026 | CONDITIONAL | BLOCKED | TC-API-154 | BLOCKED |
+| EP-FR07-026 | CONDITIONAL | BLOCKED | TC-API-154, TC-API-164 | BLOCKED |
 | EP-FR07-027 | CONDITIONAL | BLOCKED | TC-API-155 | BLOCKED |
 | EP-FR07-028 | CONDITIONAL | BLOCKED | TC-API-156 | BLOCKED |
 | EP-FR07-029 | EXPLORATORY | BLOCKED | TC-API-157 | BLOCKED |
@@ -50,7 +55,7 @@ This artifact is the coverage-focused companion to `analysis/fr07-initial-test-c
 | EP-FR07-031 | EXPLORATORY | BLOCKED | TC-API-158 | BLOCKED |
 | EP-FR07-032 | VALID | READY | TC-API-130, TC-API-131, TC-API-159, TC-API-162 | COVERED |
 | EP-FR07-033 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-159 | COVERED_VIA_INTERACTION |
-| EP-FR07-034 | VALID | READY | TC-API-132, TC-API-133, TC-API-134, TC-API-160, TC-API-161, TC-API-163 | COVERED |
+| EP-FR07-034 | VALID | READY | TC-API-132, TC-API-133, TC-API-134, TC-API-160, TC-API-161, TC-API-163, TC-API-164 | COVERED |
 | EP-FR07-035 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-160 | COVERED_VIA_INTERACTION |
 | EP-FR07-036 | EXPLORATORY | EXPLORATORY_ONLY | TC-API-161 | COVERED_VIA_INTERACTION |
 
@@ -64,7 +69,7 @@ Coverage totals: 27 `COVERED`, 3 `COVERED_VIA_INTERACTION`, 6 `BLOCKED`, 0 `DEFE
 | INT-FR07-002 | TC-API-132, TC-API-134, TC-API-137, TC-API-138 | COVERED | POST authentication classes are isolated against the add operation. |
 | INT-FR07-003 | TC-API-133, TC-API-139–TC-API-152 | COVERED | Body representation and each documented member class receive focused coverage. |
 | INT-FR07-004 | TC-API-154, TC-API-155 | BLOCKED | Cases exist, but body-id-to-resource setup cannot be established from the specification. |
-| INT-FR07-005 | None | BLOCKED | Quantity-to-product/stock relationship is unspecified and cannot be established. |
+| INT-FR07-005 | TC-API-164 | BLOCKED | A dedicated case now represents the interaction, but quantity-to-product/stock setup and behavior remain unspecified. |
 | INT-FR07-006 | TC-API-153 | COVERED | Focused observational price × quantity interaction. |
 | INT-FR07-007 | TC-API-156, TC-API-157 | BLOCKED | Ownership context requires unavailable token-to-Cart rules/setup. |
 | INT-FR07-008 | TC-API-158 | BLOCKED | First/later lifecycle context cannot be reproduced authoritatively. |
@@ -83,11 +88,11 @@ Interaction totals: 6 `COVERED`, 1 `PARTIAL`, 0 `DEFERRED`, and 4 `BLOCKED`.
 | TB-FR07-003 | TC-API-131, TC-API-156–TC-API-159, TC-API-161, TC-API-162 | PARTIAL | PARTIAL |
 | TB-FR07-004 | TC-API-132, TC-API-134, TC-API-160, TC-API-161, TC-API-163 | COVERED | DETERMINISTIC |
 | TB-FR07-005 | TC-API-133, TC-API-139–TC-API-152 | COVERED | PARTIAL |
-| TB-FR07-006 | TC-API-133, TC-API-141–TC-API-143, TC-API-154, TC-API-155 | COVERED | PARTIAL |
+| TB-FR07-006 | TC-API-133, TC-API-141–TC-API-143, TC-API-154, TC-API-155, TC-API-164 | COVERED | PARTIAL |
 | TB-FR07-007 | TC-API-133, TC-API-144–TC-API-146 | COVERED | PARTIAL |
 | TB-FR07-008 | TC-API-133, TC-API-147–TC-API-149, TC-API-153 | COVERED | PARTIAL |
-| TB-FR07-009 | TC-API-133, TC-API-150–TC-API-153 | COVERED | PARTIAL |
-| TB-FR07-010 | TC-API-134, TC-API-153–TC-API-161, TC-API-163 | PARTIAL | PARTIAL |
+| TB-FR07-009 | TC-API-133, TC-API-150–TC-API-153, TC-API-164 | COVERED | PARTIAL |
+| TB-FR07-010 | TC-API-134, TC-API-153–TC-API-161, TC-API-163, TC-API-164 | PARTIAL | PARTIAL |
 | TB-FR07-011 | TC-API-162 | BLOCKED | NONE |
 | TB-FR07-012 | TC-API-163 | BLOCKED | NONE |
 | TB-FR07-013 | TC-API-132, TC-API-137, TC-API-138 | COVERED | PARTIAL |
@@ -99,15 +104,15 @@ Interaction totals: 6 `COVERED`, 1 `PARTIAL`, 0 `DEFERRED`, and 4 `BLOCKED`.
 | Blocker | Affected Tests | Effect |
 | --- | --- | --- |
 | BLK-FR07-001 | TC-API-133, TC-API-139–TC-API-152 | LIMITS_SCHEMA_ORACLE |
-| BLK-FR07-002 | TC-API-141–TC-API-149, TC-API-154, TC-API-155 | LIMITS_SEMANTIC_ORACLE |
-| BLK-FR07-003 | TC-API-150–TC-API-153 | EXPLORATORY_ONLY |
+| BLK-FR07-002 | TC-API-141–TC-API-149, TC-API-154, TC-API-155, TC-API-164 | LIMITS_SEMANTIC_ORACLE |
+| BLK-FR07-003 | TC-API-150–TC-API-153, TC-API-164 | EXPLORATORY_ONLY |
 | BLK-FR07-004 | TC-API-156, TC-API-157 | LIMITS_SECURITY_ORACLE |
-| BLK-FR07-005 | TC-API-134, TC-API-154, TC-API-155, TC-API-160, TC-API-161, TC-API-163 | LIMITS_STATE_ORACLE |
+| BLK-FR07-005 | TC-API-134, TC-API-154, TC-API-155, TC-API-160, TC-API-161, TC-API-163, TC-API-164 | LIMITS_STATE_ORACLE |
 | BLK-FR07-006 | TC-API-160 | LIMITS_STATE_ORACLE |
 | BLK-FR07-007 | TC-API-131, TC-API-156, TC-API-158, TC-API-161 | BLOCKS_SETUP |
 | BLK-FR07-008 | TC-API-130–TC-API-163 | LIMITS_TRANSPORT_ORACLE; LIMITS_SCHEMA_ORACLE |
 | BLK-FR07-009 | TC-API-147–TC-API-153 | LIMITS_SEMANTIC_ORACLE |
-| BLK-FR07-010 | TC-API-141, TC-API-150, TC-API-154, TC-API-155 | BLOCKS_SETUP |
+| BLK-FR07-010 | TC-API-141, TC-API-150, TC-API-154, TC-API-155, TC-API-164 | BLOCKS_SETUP |
 | BLK-FR07-011 | TC-API-130–TC-API-138 | LIMITS_SECURITY_ORACLE |
 | BLK-FR07-012 | TC-API-159, TC-API-161 | LIMITS_STATE_ORACLE |
 
@@ -143,14 +148,14 @@ Known redundant duplicates retained: **0**.
 | AUTHENTICATION | 4 | TC-API-135–TC-API-138 |
 | ROBUSTNESS | 6 | TC-API-139, TC-API-140, TC-API-143, TC-API-146, TC-API-149, TC-API-152 |
 | DOMAIN | 8 | TC-API-141, TC-API-142, TC-API-144, TC-API-145, TC-API-147, TC-API-148, TC-API-150, TC-API-151 |
-| INTERACTION | 1 | TC-API-153 |
+| INTERACTION | 2 | TC-API-153, TC-API-164 |
 | RESOURCE | 2 | TC-API-154, TC-API-155 |
 | AUTHORIZATION | 1 | TC-API-156 |
 | SECURITY | 1 | TC-API-157 |
 | STATE | 1 | TC-API-158 |
 | SEQUENCE | 3 | TC-API-159–TC-API-161 |
 | BVA | 0 | N/A |
-| TOTAL | 34 | TC-API-130–TC-API-163 |
+| TOTAL | 35 | TC-API-130–TC-API-164 |
 
 ## 11. Classification Summary
 
@@ -158,9 +163,9 @@ Known redundant duplicates retained: **0**.
 | --- | ---: |
 | POSITIVE | 5 |
 | NEGATIVE | 0 |
-| CONDITIONAL | 4 |
+| CONDITIONAL | 5 |
 | EXPLORATORY | 25 |
-| TOTAL | 34 |
+| TOTAL | 35 |
 
 No deterministic NEGATIVE case is fabricated from the zero INVALID EP count.
 
@@ -169,49 +174,50 @@ No deterministic NEGATIVE case is fabricated from the zero INVALID EP count.
 | Readiness | Count |
 | --- | ---: |
 | READY | 5 |
-| BLOCKED | 5 |
+| BLOCKED | 6 |
 | EXPLORATORY_ONLY | 24 |
-| TOTAL | 34 |
+| TOTAL | 35 |
 
 ## 13. Scope Summary
 
 | Scope | Count |
 | --- | ---: |
-| IN_SCOPE | 34 |
+| IN_SCOPE | 35 |
 | SUPPORTING | 0 |
 | CROSS_FEATURE | 0 |
 | OUT_OF_SCOPE | 0 |
 | AMBIGUOUS | 0 |
-| TOTAL | 34 |
+| TOTAL | 35 |
 
 ## 14. Quota Evaluation
 
 ```text
 FR-07 quota-eligible AI tests:
-34 / 35
+35 / 35
 
 Result:
-SHORTFALL
+PASS
 ```
 
-All 34 cases are IN_SCOPE, AI_GENERATED, and directly test FR-07 behavior. Readiness does not change origin/scope quota eligibility. Prompt 016 must not add a superficial case merely to close the one-case gap.
+All 35 cases are IN_SCOPE, AI_GENERATED, and directly test FR-07 behavior. Readiness does not change origin/scope quota eligibility. TC-API-164 was accepted for new interaction coverage, not as a superficial value variant.
 
-## 15. Gap Inventory for Prompt 016
+## 15. Prompt 016 Gap-Closure Result
 
-| GAP-ID | Area | Existing Coverage | Potential Additional Value | Constraint |
-| --- | --- | --- | --- | --- |
-| GAP-FR07-001 | Quota | 34 unique quota-eligible cases | One additional case only if an independently valuable objective survives duplicate/scope audit | Never add a wording-only or value-only variant |
-| GAP-FR07-002 | INT-FR07-005 quantity × resource/stock | Blocked, no case | Could expose a distinct resource/quantity interaction | Product relation and stock rule/setup are unspecified |
-| GAP-FR07-003 | INT-FR07-011 repeated retrieval × ownership context | Partial through TC-API-159 | Could isolate context change versus stable-context repetition | Ownership/token-to-Cart rule is unspecified |
-| GAP-FR07-004 | Resource/ownership/lifecycle execution | Five cases represent blocked contexts | Specification clarification could convert setup-blocked coverage into executable coverage | BLK-FR07-002/004/007/010 remain unresolved |
-| GAP-FR07-005 | Response/schema isolation | TC-API-162/163 are observation-only | A deterministic contract test would add strong independent value | No status, response member, type, or exact schema exists |
-| GAP-FR07-006 | Formal security mapping | FR-07 auth/ownership observations only | Formal security coverage may become independently traceable | SEC-01–SEC-07 definitions remain unavailable via BLK-ALL-001 |
+| GAP-ID | Final Treatment | Test Addition | Remaining Constraint |
+| --- | --- | --- | --- |
+| GAP-FR07-001 | Quota closed through the accepted interaction candidate | TC-API-164 | None for quota; quality constraints remain |
+| GAP-FR07-002 | Dedicated quantity × referenced-resource interaction added | TC-API-164 | Interaction remains BLOCKED by product/stock specification gaps |
+| GAP-FR07-003 | No new case; TC-API-159 and TC-API-157 already isolate repetition and cross-context concerns | None | INT-FR07-011 remains PARTIAL due ownership rules |
+| GAP-FR07-004 | Keep as blocked gap; existing blocked cases are adequate representations | None | BLK-FR07-002/004/007/010 unresolved |
+| GAP-FR07-005 | No new case; TC-API-162/163 already provide the only defensible observation-only isolation | None | Deterministic response/schema contract absent |
+| GAP-FR07-006 | Keep as blocked global gap | None | SEC-01–SEC-07 unavailable via BLK-ALL-001 |
 
-No additional testcase ID is reserved or pre-generated.
+No further testcase ID is reserved or pre-generated after TC-API-164.
 
 ## Coverage Integrity
 
 - Every testcase is `AI_GENERATED`, `IN_SCOPE`, and quota eligible.
+- TC-API-164 adds independent INT-FR07-005 representation but remains blocked by the specification.
 - No supporting, cross-feature, out-of-scope, or ambiguous case is counted.
 - Blocked/observational cases do not receive invented deterministic oracles.
 - No FR-08, FR-09, implementation, execution, concrete payload, or BVA case is included.
