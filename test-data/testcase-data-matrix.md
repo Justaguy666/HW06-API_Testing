@@ -145,3 +145,19 @@ Exactly one row is provided for each of the 122 active current-selected logical 
 | POSTMAN_SETUP_REQUIRED | 41 |
 | BLOCKED_BEFORE_POSTMAN | 23 |
 | TOTAL | 122 |
+
+## Prompt 022 execution-planning status
+
+Prompt 021 DATA mappings above remain unchanged and retain exactly one row per active testcase. Per-test execution class, setup/assertion strategy, and skip reason are defined in `postman-plan/execution-manifest.md`.
+
+| Execution class | Count |
+| --- | ---: |
+| EXECUTABLE_DETERMINISTIC | 2 |
+| EXECUTABLE_EXPLORATORY | 56 |
+| EXECUTABLE_WITH_RUNTIME_SETUP | 56 |
+| BLOCKED_SETUP_UNAVAILABLE | 2 |
+| BLOCKED_STATE_UNAVAILABLE | 5 |
+| BLOCKED_SCOPE_OR_CHANNEL | 1 |
+| TOTAL | 122 |
+
+Executable: `114`. Blocked/skipped: `8`. Postman build gate: `READY_FOR_POSTMAN_BUILD`.
