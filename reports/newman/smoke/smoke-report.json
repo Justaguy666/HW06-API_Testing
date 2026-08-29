@@ -1,0 +1,489 @@
+{
+  "reportType": "CONTROLLED_SMOKE_REDACTED",
+  "generatedFrom": [
+    "smoke-report.raw.json",
+    "final-validation-report.raw.json"
+  ],
+  "secretsIncluded": false,
+  "fullSuiteExecuted": false,
+  "selectedLogicalTests": 9,
+  "selectedTestcaseRequests": 10,
+  "selectedSetupRequests": 5,
+  "initialRun": {
+    "label": "INITIAL_RUN",
+    "requestsExecuted": 15,
+    "failedRequests": 0,
+    "failedAssertions": 0,
+    "executions": [
+      {
+        "item": "[SETUP-002] Register Primary User",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 39,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[SETUP-003] Login Primary User",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 6,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[SETUP-006] Discover Existing Product",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 4,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[SETUP-006] Confirm Existing Product",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 4,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[SETUP-005] Login Admin",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 3,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-001] Verify successful login for an existing account-associated matching credential pair",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 5,
+        "assertions": [
+          {
+            "name": "[TC-API-001] response object is available",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-001] documented successful-login status is 200",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-001] successful login returns token and user information",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-003] Observe omitted email handling",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-003] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-165] Observe handling of an extreme-length email representation",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-165] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-130] GET Cart endpoint transport contract",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 5,
+        "assertions": [
+          {
+            "name": "[TC-API-130] response object is available",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-130] request uses documented GET Cart operation",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-173] Observe the response Content-Type contract for GET Cart",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-173] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "Step 1 - POST Cart",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-161] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "Step 2 - GET Cart Observation",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 200,
+        "responseTimeMs": 3,
+        "assertions": [
+          {
+            "name": "[TC-API-161] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-046] Verify authenticated Admin can retrieve orders for the entire system",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 3,
+        "assertions": [
+          {
+            "name": "[TC-API-046] response object is available",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-046] request uses documented Admin order-list operation",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-048] Verify unauthenticated caller cannot access system-wide orders",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 3,
+        "assertions": [
+          {
+            "name": "[TC-API-048] response object is available",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-048] unauthenticated caller does not obtain a successful protected operation",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-179] Observe the response Content-Type contract for admin order listing",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 2,
+        "assertions": [
+          {
+            "name": "[TC-API-179] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      }
+    ],
+    "runtimeVariableState": {
+      "base_url": "POPULATED",
+      "student_id": "POPULATED",
+      "user_email": "POPULATED",
+      "user_password": "POPULATED",
+      "user_b_email": "EMPTY",
+      "user_b_password": "EMPTY",
+      "admin_email": "POPULATED",
+      "admin_password": "POPULATED",
+      "wrong_role_email": "EMPTY",
+      "wrong_role_password": "EMPTY",
+      "user_token": "POPULATED",
+      "user_b_token": "EMPTY",
+      "admin_token": "EMPTY",
+      "wrong_role_token": "EMPTY",
+      "existing_product_id": "POPULATED",
+      "missing_product_id": "POPULATED",
+      "existing_product_name": "POPULATED",
+      "existing_product_price": "POPULATED",
+      "existing_order_id": "EMPTY",
+      "missing_order_id": "EMPTY",
+      "current_order_status": "EMPTY",
+      "second_order_id": "EMPTY",
+      "run_id": "POPULATED",
+      "unassociated_email": "POPULATED",
+      "wrong_password": "POPULATED"
+    }
+  },
+  "finalValidationRun": {
+    "label": "FINAL_VALIDATION_RUN",
+    "requestsExecuted": 3,
+    "failedRequests": 0,
+    "failedAssertions": 0,
+    "executions": [
+      {
+        "item": "[SETUP-005] Login Admin",
+        "method": "POST",
+        "url": "[object Object]",
+        "httpStatus": 403,
+        "responseTimeMs": 28,
+        "assertions": [],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-046] Verify authenticated Admin can retrieve orders for the entire system",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-046] response object is available",
+            "passed": true,
+            "error": null
+          },
+          {
+            "name": "[TC-API-046] request uses documented Admin order-list operation",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      },
+      {
+        "item": "[TC-API-179] Observe the response Content-Type contract for admin order listing",
+        "method": "GET",
+        "url": "[object Object]",
+        "httpStatus": 401,
+        "responseTimeMs": 4,
+        "assertions": [
+          {
+            "name": "[TC-API-179] response object is available",
+            "passed": true,
+            "error": null
+          }
+        ],
+        "studentHeader": {
+          "present": true,
+          "valueNonempty": true
+        }
+      }
+    ],
+    "runtimeVariableState": {
+      "base_url": "POPULATED",
+      "student_id": "POPULATED",
+      "user_email": "EMPTY",
+      "user_password": "EMPTY",
+      "user_b_email": "EMPTY",
+      "user_b_password": "EMPTY",
+      "admin_email": "POPULATED",
+      "admin_password": "POPULATED",
+      "wrong_role_email": "EMPTY",
+      "wrong_role_password": "EMPTY",
+      "user_token": "EMPTY",
+      "user_b_token": "EMPTY",
+      "admin_token": "EMPTY",
+      "wrong_role_token": "EMPTY",
+      "existing_product_id": "EMPTY",
+      "missing_product_id": "EMPTY",
+      "existing_product_name": "EMPTY",
+      "existing_product_price": "EMPTY",
+      "existing_order_id": "EMPTY",
+      "missing_order_id": "EMPTY",
+      "current_order_status": "EMPTY",
+      "second_order_id": "EMPTY",
+      "run_id": "POPULATED",
+      "unassociated_email": "POPULATED",
+      "wrong_password": "POPULATED"
+    }
+  },
+  "headerRuntimeValidation": {
+    "initialRunPresentAndNonempty": 15,
+    "initialRunRequests": 15,
+    "finalRunPresentAndNonempty": 3,
+    "finalRunRequests": 3
+  },
+  "logicalOutcomes": [
+    {
+      "testId": "TC-API-001",
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "result": "PASS",
+      "httpStatusObserved": 200,
+      "assertions": 3,
+      "notes": "Supported successful-login assertions passed."
+    },
+    {
+      "testId": "TC-API-003",
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "result": "OBSERVED_EXPLORATORY",
+      "httpStatusObserved": 401,
+      "assertions": 1,
+      "notes": "Omitted-email behavior observed without adding an oracle."
+    },
+    {
+      "testId": "TC-API-165",
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "result": "OBSERVED_EXPLORATORY",
+      "httpStatusObserved": 401,
+      "assertions": 1,
+      "notes": "Extreme-length email behavior observed."
+    },
+    {
+      "testId": "TC-API-130",
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "result": "PASS",
+      "httpStatusObserved": 200,
+      "assertions": 2,
+      "notes": "Authenticated GET Cart transport mechanics passed."
+    },
+    {
+      "testId": "TC-API-161",
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "result": "OBSERVED_EXPLORATORY",
+      "httpStatusObserved": "200, 200",
+      "assertions": 2,
+      "notes": "POST then GET sequence completed; Cart response changed from empty to populated."
+    },
+    {
+      "testId": "TC-API-173",
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "result": "OBSERVED_EXPLORATORY",
+      "httpStatusObserved": 200,
+      "assertions": 1,
+      "notes": "GET Cart Content-Type observed as JSON."
+    },
+    {
+      "testId": "TC-API-046",
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "result": "BLOCKED_RUNTIME_PREREQUISITE",
+      "httpStatusObserved": 401,
+      "assertions": 2,
+      "notes": "Admin authentication prerequisite was not established."
+    },
+    {
+      "testId": "TC-API-048",
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "result": "PASS",
+      "httpStatusObserved": 401,
+      "assertions": 2,
+      "notes": "Supported unauthenticated-denial assertion passed."
+    },
+    {
+      "testId": "TC-API-179",
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "result": "BLOCKED_RUNTIME_PREREQUISITE",
+      "httpStatusObserved": 401,
+      "assertions": 1,
+      "notes": "Admin authentication prerequisite was not established; response is not treated as the intended authenticated observation."
+    }
+  ]
+}
