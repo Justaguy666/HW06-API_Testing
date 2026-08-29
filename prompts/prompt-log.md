@@ -22,6 +22,7 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 012 — Verify and normalize FR-07 test basis | 2026-08-29 16:52:52 +07:00 | `prompts/Prompt-012-verify-normalize-fr07-test-basis.md` | `analysis/fr07-verified-test-basis.md` | Prompt verified line-for-line after newline normalization: 1,424 lines |
 | Prompt 013 — FR-07 domain modeling and equivalence partitioning | 2026-08-29 17:03:10 +07:00 | `prompts/Prompt-013-fr07-domain-modeling-equivalence-partitioning.md` | `analysis/fr07-domain-model.md` | Prompt verified line-for-line after newline normalization: 1,383 lines |
 | Prompt 014 — FR-07 Boundary Value Analysis | 2026-08-29 17:10:14 +07:00 | `prompts/Prompt-014-fr07-boundary-value-analysis.md` | `analysis/fr07-boundary-value-analysis.md` | Prompt verified line-for-line after newline normalization: 1,347 lines |
+| Prompt 015 — FR-07 initial logical testcase generation | 2026-08-29 17:21:30 +07:00 | `prompts/Prompt-015-fr07-initial-logical-testcase-generation.md` | `analysis/fr07-initial-test-case-design.md`; `analysis/fr07-initial-coverage-matrix.md` | Prompt verified line-for-line after newline normalization: 1,500 lines |
 
 ## Declaration
 
