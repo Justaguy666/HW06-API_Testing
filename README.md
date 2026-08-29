@@ -169,13 +169,11 @@ All committed files have been audited:
 
 | No. | Criteria | Grade | Self-Assessed Grade |
 | ---: | --- | ---: | ---: |
-| 1 | Requirement Analysis & Test Basis | 15 | 15 |
-| 2 | EP / BVA / Logical Test Design | 20 | 20 |
-| 3 | Postman / Newman Execution & Triage | 20 | 20 |
-| 4 | Bug Reporting & GitHub Issues | 15 | 15 |
-| 5 | CI/CD Pipeline | 15 | 15 |
-| 6 | Agent Skill G9.5 Design | 15 | 15 |
-|  | **Total** | **100** | **100** |
+| 1 | API 1 — full pipeline (generate + audit + extend + execute + bugs) | 30 | 30 |
+| 2 | API 2 — full pipeline (same criteria) | 30 | 30 |
+| 3 | API 3 — full pipeline (same criteria) | 30 | 30 |
+| 4 | Agent Skills (AI-driven test generator) | 10 | 9 |
+|  | **Total** | **100** | **99** |
 
 ## Signature
 
