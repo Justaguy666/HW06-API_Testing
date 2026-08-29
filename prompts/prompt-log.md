@@ -19,6 +19,8 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 009 — Human extension reassessment | 2026-08-29 15:43:23 +07:00 | `prompts/Prompt-009-human-extension-reassessment.md` | `analysis/student-extension-reassessment.md`; `analysis/student-extension-worksheet.md` | Prompt verified line-for-line after newline normalization: 829 lines |
 | Prompt 010 — Populate AI-assisted extension candidates | 2026-08-29 16:25:48 +07:00 | `prompts/Prompt-010-populate-extension-candidates.md` | `analysis/student-extension-worksheet.md`; `analysis/ai-assisted-extension-candidate-analysis.md` | Prompt verified line-for-line after newline normalization: 1,225 lines |
 | Prompt 011 — Switch selected Pool B feature to FR-07 | 2026-08-29 16:42:14 +07:00 | `prompts/Prompt-011-switch-pool-b-to-fr07.md` | `analysis/pool-b-feature-switch.md`; `analysis/fr07-requirement-analysis.md` | Prompt verified line-for-line after newline normalization: 987 lines |
+| Prompt 012 — Verify and normalize FR-07 test basis | 2026-08-29 16:52:52 +07:00 | `prompts/Prompt-012-verify-normalize-fr07-test-basis.md` | `analysis/fr07-verified-test-basis.md` | Prompt verified line-for-line after newline normalization: 1,424 lines |
+| Prompt 013 — FR-07 domain modeling and equivalence partitioning | 2026-08-29 17:03:10 +07:00 | `prompts/Prompt-013-fr07-domain-modeling-equivalence-partitioning.md` | `analysis/fr07-domain-model.md` | Prompt verified line-for-line after newline normalization: 1,383 lines |
 
 ## Declaration
 
