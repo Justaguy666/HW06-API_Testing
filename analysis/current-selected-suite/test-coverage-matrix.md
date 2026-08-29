@@ -232,5 +232,25 @@ No new TB, PARAM, DIM, EP, INT, or blocker identifier was created. Human risk su
 - Student extension coverage consists of TC-API-165–181 and origin HUMAN_ADDED.
 - Combined coverage is 122 active logical tests.
 - FR18-05 is rejected and contributes no coverage or final ID.
-- Concrete data selection, Postman design, and execution remain deferred.
+- At the Prompt 020 baseline, concrete data selection, Postman design, and execution were deferred; the Prompt 021 section below supersedes only the downstream data-design status.
 
+## Prompt 021 downstream data readiness
+
+| Data status | Tests |
+| --- | ---: |
+| STATIC_READY | 2 |
+| RUNTIME_PROVISION_REQUIRED | 33 |
+| STATE_SETUP_REQUIRED | 8 |
+| EXPLORATORY_PROBE_READY | 56 |
+| BLOCKED_BY_SPEC | 23 |
+| TOTAL | 122 |
+
+| Postman readiness | Tests |
+| --- | ---: |
+| DATA_READY_FOR_POSTMAN | 2 |
+| DATA_READY_BUT_EXPLORATORY | 56 |
+| POSTMAN_SETUP_REQUIRED | 41 |
+| BLOCKED_BEFORE_POSTMAN | 23 |
+| TOTAL | 122 |
+
+Concrete-data artifacts contain 47 reusable DATA items and 14 supporting SETUP items. No logical testcase, origin, objective, identifier, BVA conclusion, or hard oracle changed. Full-suite status is `NOT_READY_FOR_POSTMAN_IMPLEMENTATION` because 23 tests still require specification-backed lockout, Cart relationship/lifecycle/availability, order-transition, or empty-system setup information.
