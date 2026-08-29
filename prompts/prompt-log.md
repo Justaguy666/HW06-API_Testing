@@ -16,6 +16,7 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 006 — Scope compliance and test-design gap analysis | 2026-08-29 10:36:48 +07:00 | `prompts/Prompt-006-scope-compliance-test-design-gap-analysis.md` | `analysis/test-case-design.md`; `analysis/test-coverage-matrix.md`; `analysis/scope-and-gap-analysis.md` | Prompt verified line-for-line after newline normalization: 728 lines |
 | Prompt 007 — Prepare human audit worksheet | 2026-08-29 11:00:58 +07:00 | `prompts/Prompt-007-prepare-human-audit-worksheet.md` | `analysis/human-audit-worksheet.md` | Prompt verified line-for-line after newline normalization: 857 lines |
 | Prompt 008 — Apply human audit decisions and normalize audit status | 2026-08-29 15:30:58 +07:00 | `prompts/Prompt-008-apply-human-audit-decisions.md` | `analysis/human-audit-worksheet.md`; `analysis/test-case-design.md`; `analysis/test-coverage-matrix.md`; `analysis/human-audit-application-summary.md` | Prompt verified line-for-line after newline normalization: 860 lines |
+| Prompt 009 — Human extension reassessment | 2026-08-29 15:43:23 +07:00 | `prompts/Prompt-009-human-extension-reassessment.md` | `analysis/student-extension-reassessment.md`; `analysis/student-extension-worksheet.md` | Prompt verified line-for-line after newline normalization: 829 lines |
 
 ## Declaration
 
