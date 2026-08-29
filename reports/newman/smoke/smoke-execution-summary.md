@@ -53,3 +53,27 @@ FR-02 and FR-07 smoke paths are ready. A full run would currently produce mislea
 ```text
 HTML_REPORTER_NOT_AVAILABLE
 ```
+
+## PROMPT 025 — ADMIN PREREQUISITE FOLLOW-UP
+
+Prompt 024 history above remains unchanged. Read-only fixture diagnosis found one Admin account matching the repository seed credential, but with failed-attempt state and a temporary lock. The lock expired naturally; no database reset, direct SQL mutation, authentication bypass, or source change was performed.
+
+Targeted final retry scope:
+
+- SETUP-005 only
+- TC-API-046 only
+- TC-API-179 only
+
+Results:
+
+| Item | Result | HTTP Status |
+| --- | --- | ---: |
+| SETUP-005 | PASS; `admin_token` populated | 200 |
+| TC-API-046 | PASS | 200 |
+| TC-API-179 | OBSERVED_EXPLORATORY | 200 |
+
+X-Student-Id was present and non-empty on 3/3 requests. Static validation remained PASS. The documentation conflict is classified `POTENTIAL_DOCUMENTATION_DEFECT`; the runtime root cause is `ACCOUNT_STATE_PROBLEM`.
+
+```text
+READY_FOR_FULL_NEWMAN_EXECUTION
+```

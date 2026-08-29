@@ -58,3 +58,20 @@ Runtime environment used: `postman/runtime/HW06-local.runtime.postman_environmen
 | `existing_order_id` | NO for selected scope | EMPTY | Not executed | NO |
 | `current_order_status` | NO for selected scope | EMPTY | Not executed | NO |
 
+## PROMPT 025 — ADMIN PREREQUISITE FOLLOW-UP
+
+The original Prompt 024 Admin failures remain recorded above. Read-only database and seed inspection established that the single Admin account matches the repository-defined local fixture, while its failed-attempt counter and temporary lock reflected earlier conflicting credential attempts.
+
+No database reset or direct password/role mutation was required. After the lock expired, targeted SETUP-005 authentication returned HTTP 200 and populated `admin_token`. TC-API-046 then passed at HTTP 200, and TC-API-179 completed as an exploratory observation at HTTP 200.
+
+Final Admin prerequisite status:
+
+```text
+RESOLVED
+```
+
+Final full-suite gate:
+
+```text
+READY_FOR_FULL_NEWMAN_EXECUTION
+```

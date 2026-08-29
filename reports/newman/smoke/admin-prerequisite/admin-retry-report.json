@@ -1,0 +1,85 @@
+{
+  "reportType": "ADMIN_PREREQUISITE_TARGETED_RETRY_REDACTED",
+  "secretsIncluded": false,
+  "fullSuiteExecuted": false,
+  "requestsExecuted": 3,
+  "failedRequests": 0,
+  "failedAssertions": 0,
+  "adminToken": "POPULATED",
+  "studentHeader": {
+    "requests": 3,
+    "presentAndNonempty": 3
+  },
+  "setupResult": {
+    "setupId": "SETUP-005",
+    "result": "PASS",
+    "httpStatus": 200
+  },
+  "testcaseResults": [
+    {
+      "testId": "TC-API-046",
+      "result": "PASS",
+      "httpStatus": 200
+    },
+    {
+      "testId": "TC-API-179",
+      "result": "OBSERVED_EXPLORATORY",
+      "httpStatus": 200
+    }
+  ],
+  "executions": [
+    {
+      "item": "[SETUP-005] Login Admin",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 31,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[TC-API-046] Verify authenticated Admin can retrieve orders for the entire system",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 6,
+      "assertions": [
+        {
+          "name": "[TC-API-046] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-046] request uses documented Admin order-list operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[TC-API-179] Observe the response Content-Type contract for admin order listing",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [
+        {
+          "name": "[TC-API-179] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}
