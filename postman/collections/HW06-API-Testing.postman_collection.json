@@ -464,6 +464,198 @@
               "response": []
             },
             {
+              "id": "a832b4c4-6d96-4057-9b84-c6650ca4fe80",
+              "name": "[SETUP-009] Add Product to Secondary Cart",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "console.log('[SETUP] Add Product to Secondary Cart', JSON.stringify({status: pm.response.code, completed: true}));",
+                      "pm.test('[SETUP-009] Add Product to Secondary Cart completed successfully', function () { pm.expect(pm.response.code).to.be.within(200, 299); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_b_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"id\":{{existing_product_id}},\"name\":\"{{existing_product_name}}\",\"price\":{{existing_product_price}},\"quantity\":1}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{base_url}}/api/cart",
+                "description": "SETUP-009\nPurpose: Provision a legitimate order fixture through documented Product, Cart, and checkout APIs before Admin order discovery.\nRuntime-only setup; no logical testcase semantics are changed."
+              },
+              "response": []
+            },
+            {
+              "id": "bb795163-22be-44d0-a344-97521d762ebf",
+              "name": "[SETUP-009] Checkout Secondary Order Fixture",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "console.log('[SETUP] Checkout Secondary Order Fixture', JSON.stringify({status: pm.response.code, completed: true}));",
+                      "pm.test('[SETUP-009] Checkout Secondary Order Fixture completed successfully', function () { pm.expect(pm.response.code).to.be.within(200, 299); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_b_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"total_amount\":{{existing_product_price}},\"shipping_address\":\"HW06 secondary fixture address\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{base_url}}/api/checkout",
+                "description": "SETUP-009\nPurpose: Provision a legitimate order fixture through documented Product, Cart, and checkout APIs before Admin order discovery.\nRuntime-only setup; no logical testcase semantics are changed."
+              },
+              "response": []
+            },
+            {
+              "id": "464fa9db-2904-4422-a3e3-73d4916b18c2",
+              "name": "[SETUP-011] Add Product to Wrong-Role User Cart",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "console.log('[SETUP] Add Product to Wrong-Role User Cart', JSON.stringify({status: pm.response.code, completed: true}));",
+                      "pm.test('[SETUP-011] Add Product to Wrong-Role User Cart completed successfully', function () { pm.expect(pm.response.code).to.be.within(200, 299); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{wrong_role_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"id\":{{existing_product_id}},\"name\":\"{{existing_product_name}}\",\"price\":{{existing_product_price}},\"quantity\":1}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{base_url}}/api/cart",
+                "description": "SETUP-011\nPurpose: Provision a legitimate order fixture through documented Product, Cart, and checkout APIs before Admin order discovery.\nRuntime-only setup; no logical testcase semantics are changed."
+              },
+              "response": []
+            },
+            {
+              "id": "65a1cb62-dc31-4a1f-bacd-ab6c1bc6a20b",
+              "name": "[SETUP-011] Checkout Wrong-Role User Order Fixture",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "console.log('[SETUP] Checkout Wrong-Role User Order Fixture', JSON.stringify({status: pm.response.code, completed: true}));",
+                      "pm.test('[SETUP-011] Checkout Wrong-Role User Order Fixture completed successfully', function () { pm.expect(pm.response.code).to.be.within(200, 299); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{wrong_role_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"total_amount\":{{existing_product_price}},\"shipping_address\":\"HW06 wrong-role fixture address\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{base_url}}/api/checkout",
+                "description": "SETUP-011\nPurpose: Provision a legitimate order fixture through documented Product, Cart, and checkout APIs before Admin order discovery.\nRuntime-only setup; no logical testcase semantics are changed."
+              },
+              "response": []
+            },
+            {
               "name": "[SETUP-009] Discover Existing Orders",
               "event": [
                 {

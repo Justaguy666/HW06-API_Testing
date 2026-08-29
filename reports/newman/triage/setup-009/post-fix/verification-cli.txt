@@ -1,0 +1,149 @@
+newman
+
+HW06 Triage — SETUP-009 Post-Fix Verification
+
+□ 00 - Setup / FR-02 Setup
+└ [SETUP-002] Register Primary User
+  POST http://localhost:3000/api/register [200 OK, 317B, 50ms]
+
+└ [SETUP-003] Login Primary User
+  POST http://localhost:3000/api/login [200 OK, 690B, 5ms]
+  ┌
+  │ '[SETUP] user_token populated', true
+  └
+
+□ 00 - Setup / FR-07 Setup
+└ [SETUP-004] Register Secondary User
+  POST http://localhost:3000/api/register [200 OK, 317B, 16ms]
+
+└ [SETUP-004] Login Secondary User
+  POST http://localhost:3000/api/login [200 OK, 694B, 4ms]
+  ┌
+  │ '[SETUP] user_b_token populated', true
+  └
+
+└ [SETUP-006] Discover Existing Product
+  GET http://localhost:3000/api/products [200 OK, 1.24kB, 4ms]
+  ┌
+  │ '[SETUP] existing product discovered', true
+  └
+
+└ [SETUP-006] Confirm Existing Product
+  GET http://localhost:3000/api/products/1 [200 OK, 451B, 4ms]
+  ┌
+  │ '[SETUP] product confirmation status', 200
+  └
+
+□ 00 - Setup / FR-18 Setup
+└ [SETUP-004] Register Wrong-Role User
+  POST http://localhost:3000/api/register [200 OK, 317B, 14ms]
+
+└ [SETUP-004] Login Wrong-Role User
+  POST http://localhost:3000/api/login [200 OK, 702B, 4ms]
+  ┌
+  │ '[SETUP] wrong_role_token populated', true
+  └
+
+└ [SETUP-005] Login Admin
+  POST http://localhost:3000/api/login [200 OK, 640B, 9ms]
+  ┌
+  │ '[SETUP] admin_token populated', true
+  └
+
+└ [SETUP-009] Add Product to Secondary Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 5ms]
+  ┌
+  │ '[SETUP] Add Product to Secondary Cart', '{"status":20
+  │ 0,"completed":true}'
+  └
+  √  [SETUP-009] Add Product to Secondary Cart completed successfully
+
+└ [SETUP-009] Checkout Secondary Order Fixture
+  POST http://localhost:3000/api/checkout [200 OK, 312B, 24ms]
+  ┌
+  │ '[SETUP] Checkout Secondary Order Fixture', '{"status"
+  │ :200,"completed":true}'
+  └
+  √  [SETUP-009] Checkout Secondary Order Fixture completed successfully
+
+└ [SETUP-011] Add Product to Wrong-Role User Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[SETUP] Add Product to Wrong-Role User Cart', '{"stat
+  │ us":200,"completed":true}'
+  └
+  √  [SETUP-011] Add Product to Wrong-Role User Cart completed successfully
+
+└ [SETUP-011] Checkout Wrong-Role User Order Fixture
+  POST http://localhost:3000/api/checkout [200 OK, 312B, 17ms]
+  ┌
+  │ '[SETUP] Checkout Wrong-Role User Order Fixture', '{"s
+  │ tatus":200,"completed":true}'
+  └
+  √  [SETUP-011] Checkout Wrong-Role User Order Fixture completed successfully
+
+└ [SETUP-009] Discover Existing Orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 842B, 5ms]
+  ┌
+  │ '[SETUP] order discovery', '{"existing":true,"second":
+  │ true,"missingCandidate":true}'
+  └
+
+□ FR-18 - Admin Order Management / List Orders
+└ [TC-API-117] Verify that Admin order listing is system-wide
+  GET http://localhost:3000/api/admin/orders [200 OK, 842B, 7ms]
+  ┌
+  │ '[OBS][TC-API-117]', '{"status":200,"responseTime":7,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":573}'
+  └
+  √  [TC-API-117] response object is available
+  √  [TC-API-117] request uses documented system-wide Admin list operation
+
+□ FR-18 - Admin Order Management / Update Status
+└ [TC-API-055] Verify non-Admin caller cannot update order status
+  PUT http://localhost:3000/api/admin/orders/3/status [200 OK, 301B, 26ms]
+  ┌
+  │ '[OBS][TC-API-055]', '{"status":200,"responseTime":26,
+  │ "contentType":"application/json; charset=utf-8","bodyL
+  │ ength":34}'
+  └
+  √  [TC-API-055] response object is available
+  1. [TC-API-055] non-Admin caller does not obtain a successful protected operation
+
+□ FR-18 - Admin Order Management / Sequence / State
+└ [TC-API-180] Observe the response Content-Type contract for status update
+  PUT http://localhost:3000/api/admin/orders/3/status [400 Bad Request, 340B, 4ms]
+  ┌
+  │ '[OBS][TC-API-180]', '{"status":400,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":64}'
+  └
+  √  [TC-API-180] response object is available
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │               17 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │               14 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │               21 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                9 │                1 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 1619ms                                    │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 4.34kB (approx)                          │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 11ms [min: 4ms, max: 50ms, s.d.: 11ms] │
+└───────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                                                                                    [39m
+[90m    [39m[90m                [39m[90m                                                                                                                           [39m
+ 1.  AssertionError  [TC-API-055] non-Admin caller does not obtain a successful protected operation                                            
+                     expected 200 to not be within 200..299                                                                                    
+                     at assertion:1 in test-script                                                                                             
+                     inside "FR-18 - Admin Order Management / Update Status / [TC-API-055] Verify non-Admin caller cannot update order status" 

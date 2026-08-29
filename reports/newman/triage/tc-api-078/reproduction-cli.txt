@@ -1,0 +1,50 @@
+Command: npx --yes newman@6.2.2 run postman/runtime/tc-api-078.postman_collection.json -e postman/runtime/HW06-local.runtime.postman_environment.json -n 2 --reporters cli,json --reporter-json-export postman/runtime/tc-api-078-reproduction.raw.json --color off
+Newman exit code: 0
+
+newman
+
+HW06 Triage — TC-API-078
+
+Iteration 1/2
+
+□ FR-02 - Login and Lockout / Exploratory
+└ [TC-API-078] Observe handling when the request body is absent
+  POST http://localhost:3000/api/login [500 Internal Server Error, 1.97kB, 28ms]
+  ┌
+  │ '[OBS][TC-API-078]', '{"status":500,"responseTime":28,
+  │ "contentType":"text/html; charset=utf-8","bodyLength":
+  │ 1650}'
+  └
+  √  [TC-API-078] response object is available
+
+Iteration 2/2
+
+└ [TC-API-078] Observe handling when the request body is absent
+  POST http://localhost:3000/api/login [500 Internal Server Error, 1.97kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-078]', '{"status":500,"responseTime":4,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 650}'
+  └
+  √  [TC-API-078] response object is available
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                2 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                2 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                2 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                2 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                2 │                0 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 209ms                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 3.3kB (approx)                           │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 16ms [min: 4ms, max: 28ms, s.d.: 12ms] │
+└───────────────────────────────────────────────────────────────┘
+

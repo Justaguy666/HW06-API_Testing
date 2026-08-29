@@ -1,0 +1,85 @@
+Command: npx --yes newman@6.2.2 run postman/runtime/tc-api-047.postman_collection.json -e postman/runtime/HW06-local.runtime.postman_environment.json -n 2 --reporters cli,json --reporter-json-export postman/runtime/tc-api-047-reproduction.raw.json --color off
+Newman exit code: 1
+
+newman
+
+HW06 Triage — TC-API-047
+
+Iteration 1/2
+
+□ 00 - Setup / FR-18 Setup
+└ [SETUP-004] Register Wrong-Role User
+  POST http://localhost:3000/api/register [200 OK, 316B, 40ms]
+
+└ [SETUP-004] Login Wrong-Role User
+  POST http://localhost:3000/api/login [200 OK, 699B, 6ms]
+  ┌
+  │ '[SETUP] wrong_role_token populated', true
+  └
+
+□ FR-18 - Admin Order Management / List Orders
+└ [TC-API-047] Verify non-Admin caller cannot access system-wide orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-047]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-047] response object is available
+  1. [TC-API-047] non-Admin caller does not obtain a successful protected operation
+
+Iteration 2/2
+
+□ 00 - Setup / FR-18 Setup
+└ [SETUP-004] Register Wrong-Role User
+  POST http://localhost:3000/api/register [200 OK, 316B, 17ms]
+
+└ [SETUP-004] Login Wrong-Role User
+  POST http://localhost:3000/api/login [200 OK, 699B, 4ms]
+  ┌
+  │ '[SETUP] wrong_role_token populated', true
+  └
+
+□ FR-18 - Admin Order Management / List Orders
+└ [TC-API-047] Verify non-Admin caller cannot access system-wide orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-047]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-047] response object is available
+  2. [TC-API-047] non-Admin caller does not obtain a successful protected operation
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                2 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                6 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                4 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                8 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                4 │                2 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 557ms                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 962B (approx)                            │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 12ms [min: 4ms, max: 40ms, s.d.: 13ms] │
+└───────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                                                                                        [39m
+[90m    [39m[90m                [39m[90m                                                                                                                               [39m
+ 1.  AssertionError  [TC-API-047] non-Admin caller does not obtain a successful protected operation                                                
+     iteration: 1    expected 200 to not be within 200..299                                                                                        
+                     at assertion:1 in test-script                                                                                                 
+                     inside "FR-18 - Admin Order Management / List Orders / [TC-API-047] Verify non-Admin caller cannot access system-wide orders" 
+[90m    [39m[90m                [39m[90m                                                                                                                               [39m
+ 2.  AssertionError  [TC-API-047] non-Admin caller does not obtain a successful protected operation                                                
+     iteration: 2    expected 200 to not be within 200..299                                                                                        
+                     at assertion:1 in test-script                                                                                                 
+                     inside "FR-18 - Admin Order Management / List Orders / [TC-API-047] Verify non-Admin caller cannot access system-wide orders" 
+

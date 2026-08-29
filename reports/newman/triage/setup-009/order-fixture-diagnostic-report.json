@@ -1,0 +1,140 @@
+{
+  "reportType": "SETUP_009_DOCUMENTED_FLOW_DIAGNOSTIC_REDACTED",
+  "newmanExitCode": 0,
+  "requests": 8,
+  "requestFailures": 0,
+  "assertions": 3,
+  "assertionFailures": 0,
+  "runtimeState": {
+    "userToken": "POPULATED",
+    "secondaryUserToken": "EMPTY",
+    "wrongRoleToken": "EMPTY",
+    "adminToken": "POPULATED",
+    "existingProductId": "POPULATED",
+    "existingOrderId": "POPULATED",
+    "secondOrderId": "EMPTY",
+    "currentOrderStatus": "POPULATED",
+    "missingOrderId": "POPULATED"
+  },
+  "studentHeader": {
+    "checked": 8,
+    "missing": 0,
+    "empty": 0
+  },
+  "executions": [
+    {
+      "item": "[SETUP-002] Register Primary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 49,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-003] Login Primary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 6,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-006] Discover Existing Product",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009-DIAG] Add Discovered Product to Cart",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "assertions": [
+        {
+          "name": "[SETUP-009-DIAG] add Cart item request completed",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009-DIAG] Checkout",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 17,
+      "assertions": [
+        {
+          "name": "[SETUP-009-DIAG] checkout request completed",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009-DIAG] Discover User Order History",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [
+        {
+          "name": "[SETUP-009-DIAG] user order history request completed",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-005] Login Admin",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 6,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009] Discover Existing Orders",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}

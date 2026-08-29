@@ -1,0 +1,284 @@
+{
+  "reportType": "TRIAGE_FIX_001_TARGETED_VERIFICATION_REDACTED",
+  "newmanExitCode": 1,
+  "requests": 17,
+  "requestFailures": 0,
+  "assertions": 9,
+  "assertionFailures": 1,
+  "runtimeState": {
+    "userToken": "POPULATED",
+    "secondaryUserToken": "POPULATED",
+    "wrongRoleToken": "POPULATED",
+    "adminToken": "POPULATED",
+    "existingProductId": "POPULATED",
+    "existingOrderId": "POPULATED",
+    "secondOrderId": "POPULATED",
+    "currentOrderStatus": "POPULATED",
+    "missingOrderId": "POPULATED"
+  },
+  "studentHeader": {
+    "checked": 17,
+    "missing": 0,
+    "empty": 0
+  },
+  "executions": [
+    {
+      "item": "[SETUP-002] Register Primary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 50,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-003] Login Primary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-004] Register Secondary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 16,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-004] Login Secondary User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-006] Discover Existing Product",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-006] Confirm Existing Product",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-004] Register Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 14,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-004] Login Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "authenticatedRole": "user",
+      "authenticated": true,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-005] Login Admin",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 9,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009] Add Product to Secondary Cart",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "assertions": [
+        {
+          "name": "[SETUP-009] Add Product to Secondary Cart completed successfully",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009] Checkout Secondary Order Fixture",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 24,
+      "assertions": [
+        {
+          "name": "[SETUP-009] Checkout Secondary Order Fixture completed successfully",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-011] Add Product to Wrong-Role User Cart",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "assertions": [
+        {
+          "name": "[SETUP-011] Add Product to Wrong-Role User Cart completed successfully",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-011] Checkout Wrong-Role User Order Fixture",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 17,
+      "assertions": [
+        {
+          "name": "[SETUP-011] Checkout Wrong-Role User Order Fixture completed successfully",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[SETUP-009] Discover Existing Orders",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[TC-API-117] Verify that Admin order listing is system-wide",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 7,
+      "assertions": [
+        {
+          "name": "[TC-API-117] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-117] request uses documented system-wide Admin list operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[TC-API-055] Verify non-Admin caller cannot update order status",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 26,
+      "assertions": [
+        {
+          "name": "[TC-API-055] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-055] non-Admin caller does not obtain a successful protected operation",
+          "passed": false,
+          "error": "expected 200 to not be within 200..299"
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "item": "[TC-API-180] Observe the response Content-Type contract for status update",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 400,
+      "responseTimeMs": 4,
+      "assertions": [
+        {
+          "name": "[TC-API-180] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}

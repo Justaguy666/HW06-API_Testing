@@ -1,0 +1,79 @@
+newman
+
+HW06 Triage — SETUP-009 Documented Order Fixture
+
+□ SETUP-009 Diagnostic
+└ [SETUP-002] Register Primary User
+  POST http://localhost:3000/api/register [200 OK, 317B, 49ms]
+
+└ [SETUP-003] Login Primary User
+  POST http://localhost:3000/api/login [200 OK, 690B, 6ms]
+  ┌
+  │ '[SETUP] user_token populated', true
+  └
+
+└ [SETUP-006] Discover Existing Product
+  GET http://localhost:3000/api/products [200 OK, 1.24kB, 4ms]
+  ┌
+  │ '[SETUP] existing product discovered', true
+  └
+
+└ [SETUP-009-DIAG] Add Discovered Product to Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 5ms]
+  ┌
+  │ '[DIAG][SETUP-009] add Cart item', '{"status":200,"con
+  │ tentType":"application/json; charset=utf-8","bodyLengt
+  │ h":27}'
+  └
+  √  [SETUP-009-DIAG] add Cart item request completed
+
+└ [SETUP-009-DIAG] Checkout
+  POST http://localhost:3000/api/checkout [200 OK, 312B, 17ms]
+  ┌
+  │ '[DIAG][SETUP-009] checkout', '{"status":200,"contentT
+  │ ype":"application/json; charset=utf-8","bodyLength":45
+  │ }'
+  └
+  √  [SETUP-009-DIAG] checkout request completed
+
+└ [SETUP-009-DIAG] Discover User Order History
+  GET http://localhost:3000/api/orders/my-orders [200 OK, 414B, 4ms]
+  ┌
+  │ '[DIAG][SETUP-009] user order history', '{"status":200
+  │ ,"contentType":"application/json; charset=utf-8","body
+  │ Length":146}'
+  └
+  √  [SETUP-009-DIAG] user order history request completed
+
+└ [SETUP-005] Login Admin
+  POST http://localhost:3000/api/login [200 OK, 640B, 6ms]
+  ┌
+  │ '[SETUP] admin_token populated', true
+  └
+
+└ [SETUP-009] Discover Existing Orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 452B, 4ms]
+  ┌
+  │ '[SETUP] order discovery', '{"existing":true,"second":
+  │ false,"missingCandidate":true}'
+  └
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                8 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                7 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │               10 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                3 │                0 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 733ms                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 2.21kB (approx)                          │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 11ms [min: 4ms, max: 49ms, s.d.: 14ms] │
+└───────────────────────────────────────────────────────────────┘

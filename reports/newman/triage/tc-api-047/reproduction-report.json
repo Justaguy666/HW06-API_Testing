@@ -1,0 +1,132 @@
+{
+  "reportType": "TARGETED_TRIAGE_REPRODUCTION_REDACTED",
+  "case": "TC-API-047",
+  "iterations": 2,
+  "requests": 6,
+  "requestFailures": 0,
+  "assertions": 4,
+  "assertionFailures": 2,
+  "newmanExitCode": 1,
+  "studentHeader": {
+    "checked": 6,
+    "missing": 0,
+    "empty": 0
+  },
+  "securityValidation": {
+    "authenticatedEveryIteration": true,
+    "roles": [
+      "user"
+    ],
+    "nonAdminEveryIteration": true,
+    "adminEndpointStatuses": [
+      200,
+      200
+    ]
+  },
+  "executions": [
+    {
+      "iteration": 1,
+      "item": "[SETUP-004] Register Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 1,
+      "item": "[SETUP-004] Login Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "authenticated": true,
+      "authenticatedRole": "user",
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 1,
+      "item": "[TC-API-047] Verify non-Admin caller cannot access system-wide orders",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "assertions": [
+        {
+          "name": "[TC-API-047] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-047] non-Admin caller does not obtain a successful protected operation",
+          "passed": false,
+          "error": "expected 200 to not be within 200..299"
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 2,
+      "item": "[SETUP-004] Register Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 2,
+      "item": "[SETUP-004] Login Wrong-Role User",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "authenticated": true,
+      "authenticatedRole": "user",
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 2,
+      "item": "[TC-API-047] Verify non-Admin caller cannot access system-wide orders",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "assertions": [
+        {
+          "name": "[TC-API-047] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-047] non-Admin caller does not obtain a successful protected operation",
+          "passed": false,
+          "error": "expected 200 to not be within 200..299"
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}

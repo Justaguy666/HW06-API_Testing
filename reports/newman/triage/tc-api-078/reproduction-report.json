@@ -1,0 +1,57 @@
+{
+  "reportType": "TARGETED_TRIAGE_REPRODUCTION_REDACTED",
+  "case": "TC-API-078",
+  "iterations": 2,
+  "requests": 2,
+  "requestFailures": 0,
+  "assertions": 2,
+  "assertionFailures": 0,
+  "newmanExitCode": 0,
+  "studentHeader": {
+    "checked": 2,
+    "missing": 0,
+    "empty": 0
+  },
+  "executions": [
+    {
+      "iteration": 1,
+      "item": "[TC-API-078] Observe handling when the request body is absent",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 500,
+      "contentType": "text/html; charset=utf-8",
+      "responseBody": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>TypeError: Cannot destructure property &#39;email&#39; of &#39;req.body&#39; as it is undefined.<br> &nbsp; &nbsp;at [REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Layer.handleRequest ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at next ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Route.dispatch ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at handle ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Layer.handleRequest ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at [REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at processParams ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at next ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at read ([REDACTED_LOCAL_PATH]</pre>\n</body>\n</html>\n",
+      "assertions": [
+        {
+          "name": "[TC-API-078] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "iteration": 2,
+      "item": "[TC-API-078] Observe handling when the request body is absent",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 500,
+      "contentType": "text/html; charset=utf-8",
+      "responseBody": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>TypeError: Cannot destructure property &#39;email&#39; of &#39;req.body&#39; as it is undefined.<br> &nbsp; &nbsp;at [REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Layer.handleRequest ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at next ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Route.dispatch ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at handle ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at Layer.handleRequest ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at [REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at processParams ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at next ([REDACTED_LOCAL_PATH]<br> &nbsp; &nbsp;at read ([REDACTED_LOCAL_PATH]</pre>\n</body>\n</html>\n",
+      "assertions": [
+        {
+          "name": "[TC-API-078] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}
