@@ -24,6 +24,7 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 014 — FR-07 Boundary Value Analysis | 2026-08-29 17:10:14 +07:00 | `prompts/Prompt-014-fr07-boundary-value-analysis.md` | `analysis/fr07-boundary-value-analysis.md` | Prompt verified line-for-line after newline normalization: 1,347 lines |
 | Prompt 015 — FR-07 initial logical testcase generation | 2026-08-29 17:21:30 +07:00 | `prompts/Prompt-015-fr07-initial-logical-testcase-generation.md` | `analysis/fr07-initial-test-case-design.md`; `analysis/fr07-initial-coverage-matrix.md` | Prompt verified line-for-line after newline normalization: 1,500 lines |
 | Prompt 016 — FR-07 scope, quota, and technique gap closure | 2026-08-29 17:33:32 +07:00 | `prompts/Prompt-016-fr07-scope-quota-technique-gap-closure.md` | `analysis/fr07-initial-test-case-design.md`; `analysis/fr07-initial-coverage-matrix.md`; `analysis/fr07-scope-and-gap-closure.md` | Prompt verified line-for-line after newline normalization: 1,601 lines |
+| Prompt 017 — Prepare FR-07 human audit worksheet | 2026-08-29 20:57:07 +07:00 | `prompts/Prompt-017-prepare-fr07-human-audit-worksheet.md` | `analysis/fr07-human-audit-worksheet.md` | Prompt verified line-for-line after newline normalization: 926 lines |
 
 ## Declaration
 
