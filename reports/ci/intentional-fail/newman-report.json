@@ -1,0 +1,92 @@
+{
+  "reportType": "HW06_CI_INTENTIONAL_FAIL_REDACTED",
+  "secretsIncluded": false,
+  "newmanExitCode": 1,
+  "stats": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 1,
+      "pending": 0,
+      "failed": 1
+    },
+    "testScripts": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "timings": {
+    "responseAverage": 21,
+    "responseMin": 21,
+    "responseMax": 21,
+    "responseSd": 0,
+    "dnsAverage": 0,
+    "dnsMin": 0,
+    "dnsMax": 0,
+    "dnsSd": 0,
+    "firstByteAverage": 0,
+    "firstByteMin": 0,
+    "firstByteMax": 0,
+    "firstByteSd": 0,
+    "started": 1788043985224,
+    "completed": 1788043985292
+  },
+  "executions": [
+    {
+      "itemName": "[CI-DEMO-ONLY] GET products with intentional assertion failure",
+      "logicalTestId": null,
+      "ciDemoOnly": true,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 21,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[CI-DEMO-FAIL] Intentional CI failure demonstration",
+          "passed": false,
+          "error": "Intentional failure required by HW06 CI demonstration: expected true to deeply equal false"
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    }
+  ]
+}

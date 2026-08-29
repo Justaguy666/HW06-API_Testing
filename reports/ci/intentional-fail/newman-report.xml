@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="HW06 CI — Intentional Failure Demo" tests="1" time="0.021">
+  <testsuite name="[CI-DEMO-ONLY] GET products with intentional assertion failure" id="97d7d522-d3f8-46e9-96b2-dd212569f27c" timestamp="2026-08-29T22:53:05.224Z" tests="1" failures="1" errors="0" time="0.021">
+    <testcase name="[CI-DEMO-FAIL] Intentional CI failure demonstration" time="0.021" classname="CiDemoOnlyGetProductsWithIntentionalAssertionFailure">
+      <failure type="AssertionFailure" message="Intentional failure required by HW06 CI demonstration: expected true to deeply equal false">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: hw06-ci-intentional-fail-demo.]]>
+        <![CDATA[Collection name: HW06 CI — Intentional Failure Demo.]]>
+        <![CDATA[Request name: [CI-DEMO-ONLY] GET products with intentional assertion failure.]]>
+        <![CDATA[Test description: [CI-DEMO-FAIL] Intentional CI failure demonstration.]]>
+        <![CDATA[Error message: Intentional failure required by HW06 CI demonstration: expected true to deeply equal false.]]>
+        <![CDATA[Stacktrace: AssertionError: Intentional failure required by HW06 CI demonstration: expected true to deeply equal false
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>

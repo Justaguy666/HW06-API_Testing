@@ -1,0 +1,81 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+HW06 CI — Passing Regression Sample
+
+❏ 00 - Setup / FR-02 Setup
+↳ [SETUP-002] Register Primary User
+  POST http://127.0.0.1:3000/api/register [200 OK, 316B, 39ms]
+
+↳ [SETUP-003] Login Primary User
+  POST http://127.0.0.1:3000/api/login [200 OK, 687B, 5ms]
+  ┌
+  │ '[SETUP] user_token populated', true
+  └
+
+❏ FR-02 - Login and Lockout / Deterministic
+↳ [TC-API-001] Verify successful login for an existing account-associated matching credential pair
+  POST http://127.0.0.1:3000/api/login [200 OK, 687B, 4ms]
+  ┌
+  │ '[OBS][TC-API-001]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  ✓  [TC-API-001] response object is available
+  ✓  [TC-API-001] documented successful-login status is 200
+  ✓  [TC-API-001] successful login returns token and user information
+
+❏ FR-07 - Cart / GET Cart
+↳ [TC-API-130] GET Cart endpoint transport contract
+  GET http://127.0.0.1:3000/api/cart [200 OK, 267B, 3ms]
+  ┌
+  │ '[OBS][TC-API-130]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  ✓  [TC-API-130] response object is available
+  ✓  [TC-API-130] request uses documented GET Cart operation
+
+↳ [TC-API-173] Observe the response Content-Type contract for GET Cart
+  GET http://127.0.0.1:3000/api/cart [200 OK, 267B, 3ms]
+  ┌
+  │ '[OBS][TC-API-173]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  ✓  [TC-API-173] response object is available
+
+❏ FR-18 - Admin Order Management / List Orders
+↳ [TC-API-048] Verify unauthenticated caller cannot access system-wide orders
+  GET http://127.0.0.1:3000/api/admin/orders [401 Unauthorized, 301B, 3ms]
+  ┌
+  │ '[OBS][TC-API-048]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":24}'
+  └
+  ✓  [TC-API-048] response object is available
+  ✓  [TC-API-048] unauthenticated caller does not obtain a successful protected operation
+
+┌─────────────────────────┬──────────────────┬─────────────────┐
+│                         │         executed │          failed │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│              iterations │                1 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│                requests │                6 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│            test-scripts │                5 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│      prerequest-scripts │                7 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│              assertions │                8 │               0 │
+├─────────────────────────┴──────────────────┴─────────────────┤
+│ total run duration: 201ms                                    │
+├──────────────────────────────────────────────────────────────┤
+│ total data received: 913B (approx)                           │
+├──────────────────────────────────────────────────────────────┤
+│ average response time: 9ms [min: 3ms, max: 39ms, s.d.: 13ms] │
+└──────────────────────────────────────────────────────────────┘
+

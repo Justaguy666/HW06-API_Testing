@@ -1,0 +1,39 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+HW06 CI — Intentional Failure Demo
+
+→ [CI-DEMO-ONLY] GET products with intentional assertion failure
+  GET http://127.0.0.1:3000/api/products [200 OK, 1.24kB, 21ms]
+  1. [CI-DEMO-FAIL] Intentional CI failure demonstration
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                1 │                1 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 68ms                                      │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 969B (approx)                            │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 21ms [min: 21ms, max: 21ms, s.d.: 0µs] │
+└───────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                                                     [39m
+[90m    [39m[90m                [39m[90m                                                                                            [39m
+ 1.  AssertionError  [CI-DEMO-FAIL] Intentional CI failure demonstration                                        
+                     Intentional failure required by HW06 CI demonstration: expected true to deeply equal false 
+                     at assertion:0 in test-script                                                              
+                     inside "[CI-DEMO-ONLY] GET products with intentional assertion failure"                    
+

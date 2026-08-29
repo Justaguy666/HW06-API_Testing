@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="HW06 CI — Passing Regression Sample" tests="6" time="0.057">
+  <testsuite name="00 - Setup / FR-02 Setup / [SETUP-002] Register Primary User" id="ba3b0939-2a90-4889-bae2-f8e7694b401d" timestamp="2026-08-29T22:51:24.508Z" tests="0" failures="0" errors="0" time="0.039"/>
+  <testsuite name="00 - Setup / FR-02 Setup / [SETUP-003] Login Primary User" id="759facf7-cf95-48e3-b758-33cf4f51ad84" timestamp="2026-08-29T22:51:24.508Z" tests="0" failures="0" errors="0" time="0.005"/>
+  <testsuite name="FR-02 - Login and Lockout / Deterministic / [TC-API-001] Verify successful login for an existing account-associated matching credential pair" id="69898318-fc69-4cf6-a173-bb59edff8d0a" timestamp="2026-08-29T22:51:24.508Z" tests="3" failures="0" errors="0" time="0.004">
+    <testcase name="[TC-API-001] response object is available" time="0.004" classname="Fr02LoginAndLockoutDeterministicTcApi001VerifySuccessfulLoginForAnExistingAccountAssociatedMatchingCredentialPair"/>
+    <testcase name="[TC-API-001] documented successful-login status is 200" time="0.004" classname="Fr02LoginAndLockoutDeterministicTcApi001VerifySuccessfulLoginForAnExistingAccountAssociatedMatchingCredentialPair"/>
+    <testcase name="[TC-API-001] successful login returns token and user information" time="0.004" classname="Fr02LoginAndLockoutDeterministicTcApi001VerifySuccessfulLoginForAnExistingAccountAssociatedMatchingCredentialPair"/>
+  </testsuite>
+  <testsuite name="FR-07 - Cart / GET Cart / [TC-API-130] GET Cart endpoint transport contract" id="c2e2f9e9-979f-477a-8020-3f3cab3dbbfa" timestamp="2026-08-29T22:51:24.508Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="[TC-API-130] response object is available" time="0.003" classname="Fr07CartGetCartTcApi130GetCartEndpointTransportContract"/>
+    <testcase name="[TC-API-130] request uses documented GET Cart operation" time="0.003" classname="Fr07CartGetCartTcApi130GetCartEndpointTransportContract"/>
+  </testsuite>
+  <testsuite name="FR-07 - Cart / GET Cart / [TC-API-173] Observe the response Content-Type contract for GET Cart" id="cfe4932a-a331-4a6c-80a0-fa123263e8cc" timestamp="2026-08-29T22:51:24.508Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="[TC-API-173] response object is available" time="0.003" classname="Fr07CartGetCartTcApi173ObserveTheResponseContentTypeContractForGetCart"/>
+  </testsuite>
+  <testsuite name="FR-18 - Admin Order Management / List Orders / [TC-API-048] Verify unauthenticated caller cannot access system-wide orders" id="6e364631-2d5c-4d50-a457-f94861c060ed" timestamp="2026-08-29T22:51:24.508Z" tests="2" failures="0" errors="0" time="0.003">
+    <testcase name="[TC-API-048] response object is available" time="0.003" classname="Fr18AdminOrderManagementListOrdersTcApi048VerifyUnauthenticatedCallerCannotAccessSystemWideOrders"/>
+    <testcase name="[TC-API-048] unauthenticated caller does not obtain a successful protected operation" time="0.003" classname="Fr18AdminOrderManagementListOrdersTcApi048VerifyUnauthenticatedCallerCannotAccessSystemWideOrders"/>
+  </testsuite>
+</testsuites>

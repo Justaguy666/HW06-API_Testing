@@ -1,0 +1,210 @@
+{
+  "reportType": "HW06_CI_PASSING_REDACTED",
+  "secretsIncluded": false,
+  "newmanExitCode": 0,
+  "stats": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 12,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 8,
+      "pending": 0,
+      "failed": 0
+    },
+    "testScripts": {
+      "total": 5,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 7,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "timings": {
+    "responseAverage": 9.5,
+    "responseMin": 3,
+    "responseMax": 39,
+    "responseSd": 13.212998650319062,
+    "dnsAverage": 0,
+    "dnsMin": 0,
+    "dnsMax": 0,
+    "dnsSd": 0,
+    "firstByteAverage": 0,
+    "firstByteMin": 0,
+    "firstByteMax": 0,
+    "firstByteSd": 0,
+    "started": 1788043884508,
+    "completed": 1788043884709
+  },
+  "executions": [
+    {
+      "itemName": "[SETUP-002] Register Primary User",
+      "logicalTestId": null,
+      "ciDemoOnly": false,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 39,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "itemName": "[SETUP-003] Login Primary User",
+      "logicalTestId": null,
+      "ciDemoOnly": false,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "itemName": "[TC-API-001] Verify successful login for an existing account-associated matching credential pair",
+      "logicalTestId": "TC-API-001",
+      "ciDemoOnly": false,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-001] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-001] documented successful-login status is 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-001] successful login returns token and user information",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "itemName": "[TC-API-130] GET Cart endpoint transport contract",
+      "logicalTestId": "TC-API-130",
+      "ciDemoOnly": false,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-130] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-130] request uses documented GET Cart operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "itemName": "[TC-API-173] Observe the response Content-Type contract for GET Cart",
+      "logicalTestId": "TC-API-173",
+      "ciDemoOnly": false,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-173] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "itemName": "[TC-API-048] Verify unauthenticated caller cannot access system-wide orders",
+      "logicalTestId": "TC-API-048",
+      "ciDemoOnly": false,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-048] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-048] unauthenticated caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true,
+        "value": "[REDACTED]"
+      }
+    }
+  ]
+}
