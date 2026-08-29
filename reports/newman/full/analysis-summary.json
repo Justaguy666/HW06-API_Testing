@@ -1,0 +1,111 @@
+{
+  "newmanExitCode": 1,
+  "logicalPlanned": 114,
+  "logicalAccounted": 114,
+  "logicalResults": {
+    "PASS": 10,
+    "OBSERVED_EXPLORATORY": 80,
+    "FAIL_ASSERTION": 1,
+    "FAIL_REQUEST": 0,
+    "FAIL_SETUP": 23,
+    "INCOMPLETE_SEQUENCE": 0,
+    "BLOCKED_RUNTIME_PREREQUISITE": 0
+  },
+  "successfulOrObserved": 90,
+  "executionSuccessRate": 78.95,
+  "raw": {
+    "iterations": 1,
+    "requests": 167,
+    "requestFailures": 0,
+    "testScripts": 164,
+    "assertions": 173,
+    "assertionFailures": 1,
+    "skippedRequests": 0,
+    "durationMs": 14852
+  },
+  "setup": {
+    "requests": 11,
+    "failures": 2,
+    "successRate": 81.82,
+    "failedRequests": [
+      "[SETUP-007] Verify Missing Product Candidate",
+      "[SETUP-009] Discover Existing Orders"
+    ]
+  },
+  "featureSummary": {
+    "FR-02": {
+      "planned": 39,
+      "pass": 4,
+      "observed": 35,
+      "assertionFail": 0,
+      "requestFail": 0,
+      "setupFail": 0,
+      "incomplete": 0
+    },
+    "FR-07": {
+      "planned": 40,
+      "pass": 2,
+      "observed": 37,
+      "assertionFail": 0,
+      "requestFail": 0,
+      "setupFail": 1,
+      "incomplete": 0
+    },
+    "FR-18": {
+      "planned": 35,
+      "pass": 4,
+      "observed": 8,
+      "assertionFail": 1,
+      "requestFail": 0,
+      "setupFail": 22,
+      "incomplete": 0
+    }
+  },
+  "originSummary": {
+    "AI_GENERATED": {
+      "planned": 98,
+      "successfulOrObserved": 75,
+      "failed": 23
+    },
+    "HUMAN_ADDED": {
+      "planned": 16,
+      "successfulOrObserved": 15,
+      "failed": 1
+    }
+  },
+  "hardOracle": {
+    "executed": 11,
+    "passed": 10,
+    "passRate": 90.91
+  },
+  "httpDistribution": {
+    "FR-02": {
+      "success2xx": 8,
+      "client4xx": 60,
+      "server5xx": 2,
+      "networkOther": 0
+    },
+    "FR-07": {
+      "success2xx": 43,
+      "client4xx": 4,
+      "server5xx": 0,
+      "networkOther": 0
+    },
+    "FR-18": {
+      "success2xx": 12,
+      "client4xx": 27,
+      "server5xx": 0,
+      "networkOther": 0
+    }
+  },
+  "http5xxExecutions": 2,
+  "http5xxLogicalTests": [
+    "TC-API-011",
+    "TC-API-078"
+  ],
+  "blockedExecuted": 0,
+  "missingStudentHeaders": 0,
+  "emptyStudentHeaders": 0,
+  "failureCandidates": 26,
+  "documentationCandidates": 1
+}

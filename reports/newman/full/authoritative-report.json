@@ -1,0 +1,4962 @@
+{
+  "reportType": "AUTHORITATIVE_INITIAL_FULL_RUN_REDACTED",
+  "secretsIncluded": false,
+  "fullSuiteScope": {
+    "logicalPlanned": 114,
+    "canonicalBlockedExcluded": 8
+  },
+  "newmanExitCode": 1,
+  "stats": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 167,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 359,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 167,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 167,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 167,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 173,
+      "pending": 0,
+      "failed": 1
+    },
+    "testScripts": {
+      "total": 164,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 195,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "timings": {
+    "responseAverage": 3.5988023952095807,
+    "responseMin": 1,
+    "responseMax": 38,
+    "responseSd": 3.3588918193900676,
+    "dnsAverage": 0,
+    "dnsMin": 0,
+    "dnsMax": 0,
+    "dnsSd": 0,
+    "firstByteAverage": 0,
+    "firstByteMin": 0,
+    "firstByteMax": 0,
+    "firstByteSd": 0,
+    "started": 1788039321261,
+    "completed": 1788039336113
+  },
+  "environmentState": {
+    "base_url": "POPULATED",
+    "student_id": "POPULATED",
+    "user_email": "POPULATED",
+    "user_password": "POPULATED",
+    "user_b_email": "POPULATED",
+    "user_b_password": "POPULATED",
+    "admin_email": "POPULATED",
+    "admin_password": "POPULATED",
+    "wrong_role_email": "POPULATED",
+    "wrong_role_password": "POPULATED",
+    "user_token": "POPULATED",
+    "user_b_token": "POPULATED",
+    "admin_token": "POPULATED",
+    "wrong_role_token": "POPULATED",
+    "existing_product_id": "POPULATED",
+    "existing_product_name": "POPULATED",
+    "existing_product_price": "POPULATED",
+    "existing_order_id": "EMPTY",
+    "missing_order_id": "POPULATED",
+    "current_order_status": "EMPTY",
+    "second_order_id": "EMPTY",
+    "run_id": "POPULATED",
+    "unassociated_email": "POPULATED",
+    "wrong_password": "POPULATED"
+  },
+  "executions": [
+    {
+      "sequence": 1,
+      "itemId": "58ed7233-d19f-4314-851d-e32f8b856743",
+      "itemName": "[SETUP-002] Register Primary User",
+      "parentTestId": null,
+      "setupId": "SETUP-002",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 38,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 2,
+      "itemId": "065f45f4-2ffc-4e16-bb82-4b188d770ba5",
+      "itemName": "[SETUP-003] Login Primary User",
+      "parentTestId": null,
+      "setupId": "SETUP-003",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 3,
+      "itemId": "ab66ad11-fec1-4924-ba15-df7dd18939ad",
+      "itemName": "[SETUP-004] Register Secondary User",
+      "parentTestId": null,
+      "setupId": "SETUP-004",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 16,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 4,
+      "itemId": "cf4a9ff5-00d5-4703-baae-3855a2e5a038",
+      "itemName": "[SETUP-004] Login Secondary User",
+      "parentTestId": null,
+      "setupId": "SETUP-004",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 5,
+      "itemId": "ee5a29ac-91b5-4b26-8c50-c4b1c7e017f0",
+      "itemName": "[SETUP-006] Discover Existing Product",
+      "parentTestId": null,
+      "setupId": "SETUP-006",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 6,
+      "itemId": "b18c9ac6-dd6e-44d0-abf6-fcf38d11e148",
+      "itemName": "[SETUP-006] Confirm Existing Product",
+      "parentTestId": null,
+      "setupId": "SETUP-006",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 7,
+      "itemId": "60ee5098-9497-467b-a8b5-d768ab5b9e2e",
+      "itemName": "[SETUP-007] Verify Missing Product Candidate",
+      "parentTestId": null,
+      "setupId": "SETUP-007",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 8,
+      "itemId": "1432d3f9-2faf-4d71-bb1d-b388de3b801b",
+      "itemName": "[SETUP-004] Register Wrong-Role User",
+      "parentTestId": null,
+      "setupId": "SETUP-004",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 23,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 9,
+      "itemId": "e990b10c-48b8-4918-95ba-e68a410fc156",
+      "itemName": "[SETUP-004] Login Wrong-Role User",
+      "parentTestId": null,
+      "setupId": "SETUP-004",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 10,
+      "itemId": "8349c8c0-80f2-4db6-9349-fdda056f55dc",
+      "itemName": "[SETUP-005] Login Admin",
+      "parentTestId": null,
+      "setupId": "SETUP-005",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 11,
+      "itemId": "7c0a24a9-9ec3-468d-85af-fabaceebbfe9",
+      "itemName": "[SETUP-009] Discover Existing Orders",
+      "parentTestId": null,
+      "setupId": "SETUP-009",
+      "feature": "SETUP",
+      "origin": null,
+      "executionClass": null,
+      "exploratory": false,
+      "setupIds": null,
+      "assertionStrategy": null,
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 12,
+      "itemId": "6aed3ec4-a0a4-446f-ac51-f77d25e2fe44",
+      "itemName": "[TC-API-001] Verify successful login for an existing account-associated matching credential pair",
+      "parentTestId": "TC-API-001",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 7,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-001] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-001] documented successful-login status is 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-001] successful login returns token and user information",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 13,
+      "itemId": "135e9e59-2ec9-45c0-ad78-a1cf4d61dab6",
+      "itemName": "[TC-API-002] Observe handling of an email not associated with a usable credential pair",
+      "parentTestId": "TC-API-002",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-002] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 14,
+      "itemId": "0a3e1ef6-690d-45a5-988e-337adea15dd6",
+      "itemName": "[TC-API-006] Observe handling of a password not matching the selected account",
+      "parentTestId": "TC-API-006",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-006] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 15,
+      "itemId": "16835a01-e518-4aee-9492-bf3da13583ba",
+      "itemName": "[TC-API-012] Observe the effect of request Authorization on login",
+      "parentTestId": "TC-API-012",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-012] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 16,
+      "itemId": "0ed2a260-1bd1-42d5-a261-8af548bc4c1c",
+      "itemName": "[TC-API-074] Validate the documented successful-login transport status",
+      "parentTestId": "TC-API-074",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-074] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-074] documented successful-login status is 200",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 17,
+      "itemId": "fd5815b2-6edf-4068-8eb6-a2ebbf170ff1",
+      "itemName": "[TC-API-075] Validate that successful login returns a JWT token value",
+      "parentTestId": "TC-API-075",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-075] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-075] successful login returns a token value",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 18,
+      "itemId": "d421ce85-1625-4e28-85d8-bf50115434dc",
+      "itemName": "[TC-API-076] Validate that successful login returns user information",
+      "parentTestId": "TC-API-076",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-076] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-076] successful login returns user information",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 19,
+      "itemId": "18e9a283-3b82-463b-b19f-e8bb2a82c6ae",
+      "itemName": "[TC-API-077] Characterize the response contract for unsuccessful login",
+      "parentTestId": "TC-API-077",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-077] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 20,
+      "itemId": "b8c9a577-0818-42dc-b4dd-6844b99b639d",
+      "itemName": "[TC-API-081] Observe tolerance of an undocumented login request member",
+      "parentTestId": "TC-API-081",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-081] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 21,
+      "itemId": "a5841c3b-9587-420f-829b-a467369f4e2d",
+      "itemName": "[TC-API-082] Observe duplicate email-member handling at the representation layer",
+      "parentTestId": "TC-API-082",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-082] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 22,
+      "itemId": "1d7980e2-bf7f-4c62-9627-9568100377f9",
+      "itemName": "[TC-API-083] Observe duplicate password-member handling at the representation layer",
+      "parentTestId": "TC-API-083",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-083] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 23,
+      "itemId": "ac956800-d956-4563-ba9d-b005e7135634",
+      "itemName": "[TC-API-084] Characterize surrounding-whitespace handling for email",
+      "parentTestId": "TC-API-084",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-084] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 24,
+      "itemId": "c863c3b9-4bbc-4e45-a12f-67e934f8517a",
+      "itemName": "[TC-API-085] Characterize surrounding-whitespace handling for password",
+      "parentTestId": "TC-API-085",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-085] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 25,
+      "itemId": "d275c01c-08ca-4037-8daf-f52b58918953",
+      "itemName": "[TC-API-086] Characterize email case-normalization behavior",
+      "parentTestId": "TC-API-086",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-086] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 26,
+      "itemId": "c2ae10d7-f381-464d-ab7b-76b5b63a1052",
+      "itemName": "[TC-API-087] Characterize password case sensitivity",
+      "parentTestId": "TC-API-087",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-087] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 27,
+      "itemId": "5dcc555e-9055-44e3-be3a-1db419df4d15",
+      "itemName": "[TC-API-095] Audit successful user information for unintended sensitive-field exposure",
+      "parentTestId": "TC-API-095",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-095] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 28,
+      "itemId": "d1126514-3959-42ce-ae2a-d5d3f714f498",
+      "itemName": "[TC-API-003] Observe omitted email handling",
+      "parentTestId": "TC-API-003",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-003] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 29,
+      "itemId": "53de583a-be0d-486a-9be1-78ee83a9c2a4",
+      "itemName": "[TC-API-004] Observe null-like email handling",
+      "parentTestId": "TC-API-004",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-004] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 30,
+      "itemId": "a115f596-1229-4a12-8c07-89e6b0adac7a",
+      "itemName": "[TC-API-005] Observe non-string email handling",
+      "parentTestId": "TC-API-005",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-005] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 31,
+      "itemId": "d7f6b9b6-6838-482d-9bec-4033bbe5b8c0",
+      "itemName": "[TC-API-007] Observe omitted password handling",
+      "parentTestId": "TC-API-007",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-007] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 32,
+      "itemId": "06c81179-12d3-4573-bce4-a11faf0abc4f",
+      "itemName": "[TC-API-008] Observe null-like password handling",
+      "parentTestId": "TC-API-008",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-008] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 33,
+      "itemId": "2edca1ae-dc0e-4586-a84e-0550aa8aa47b",
+      "itemName": "[TC-API-009] Observe non-string password handling",
+      "parentTestId": "TC-API-009",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-009] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 34,
+      "itemId": "c943f84f-47d4-4b52-a036-ecccf4c69dd7",
+      "itemName": "[TC-API-010] Observe behavior when Content-Type is omitted",
+      "parentTestId": "TC-API-010",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-010] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 35,
+      "itemId": "dd635754-b6b5-44a9-8d2a-51e1e5700889",
+      "itemName": "[TC-API-011] Observe non-JSON media-type handling",
+      "parentTestId": "TC-API-011",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 500,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-011] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 36,
+      "itemId": "29f42646-5137-4da4-9678-7c9cc83b5761",
+      "itemName": "[TC-API-078] Observe handling when the request body is absent",
+      "parentTestId": "TC-API-078",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 500,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-078] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 37,
+      "itemId": "437d573d-1f69-49a7-a9f8-92c496bb56ff",
+      "itemName": "[TC-API-079] Observe handling of an empty JSON object",
+      "parentTestId": "TC-API-079",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-079] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 38,
+      "itemId": "c75a4298-a1aa-44bf-83f5-d4195a7a66ae",
+      "itemName": "[TC-API-080] Observe handling when both documented credential fields are null-like",
+      "parentTestId": "TC-API-080",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-080] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 39,
+      "itemId": "24fceec4-183d-4c13-bb1f-83735dbceb16",
+      "itemName": "[TC-API-088] Observe malformed JSON representation handling",
+      "parentTestId": "TC-API-088",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 400,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-088] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 40,
+      "itemId": "83ea4c83-c20e-420e-86bc-a009a0198623",
+      "itemName": "[TC-API-165] Observe handling of an extreme-length email representation",
+      "parentTestId": "TC-API-165",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-165] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 41,
+      "itemId": "f7ac4fe2-58ac-4b2e-a739-97b5245be87c",
+      "itemName": "[TC-API-166] Observe handling of an extreme-length password representation",
+      "parentTestId": "TC-API-166",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-166] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 42,
+      "itemId": "27678040-ed7b-42a2-b053-6666cce386ae",
+      "itemName": "Step 1 - Accented Latin Email",
+      "parentTestId": "TC-API-167",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-167] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 43,
+      "itemId": "9e37fa64-5937-4409-91eb-5a859a15002d",
+      "itemName": "Step 2 - Non-Latin Email",
+      "parentTestId": "TC-API-167",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-167] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 44,
+      "itemId": "ad520cd4-bb94-475e-8054-f6effecb28c6",
+      "itemName": "Step 3 - Supplementary-Plane Password",
+      "parentTestId": "TC-API-167",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-167] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 45,
+      "itemId": "04bfef01-de8b-4da1-b2b8-7424bf8ea84f",
+      "itemName": "Step 1 - Quotation Class",
+      "parentTestId": "TC-API-168",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-168] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 46,
+      "itemId": "fc0ea458-c6f8-4889-88bc-b4021150f721",
+      "itemName": "Step 2 - Bracket Class",
+      "parentTestId": "TC-API-168",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-168] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 47,
+      "itemId": "fe988e74-2ee4-4fe1-828f-3adcde54d8ba",
+      "itemName": "Step 3 - Backslash Class",
+      "parentTestId": "TC-API-168",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-168] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 48,
+      "itemId": "cbff7f00-de93-4297-b0f8-feb42842f3bc",
+      "itemName": "Step 4 - Escaped Newline Class",
+      "parentTestId": "TC-API-168",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-168] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 49,
+      "itemId": "489c8ba3-4b7f-47b3-90a0-8a7fdb9ce010",
+      "itemName": "[TC-API-169] Characterize semantic confusion when email and password values are positionally swapped",
+      "parentTestId": "TC-API-169",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-169] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 50,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 51,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 52,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 53,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 54,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 55,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 56,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 57,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 58,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 59,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 60,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 61,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 62,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 63,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 64,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 65,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 66,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 67,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 68,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 69,
+      "itemId": "5a5fa64b-c802-4776-9618-232acdeffac6",
+      "itemName": "Step 1 - Finite Rate-Control Probe",
+      "parentTestId": "TC-API-170",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-170] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 70,
+      "itemId": "0ec5374b-f625-42d4-a207-0f8741e034f0",
+      "itemName": "Step 1 - Failed Login Observation 1",
+      "parentTestId": "TC-API-013",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-013] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 71,
+      "itemId": "8a181edb-780a-4fa7-81a1-38529094f62d",
+      "itemName": "Step 2 - Failed Login Observation 2",
+      "parentTestId": "TC-API-013",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-013] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 72,
+      "itemId": "2fdf1b77-4927-444a-8115-e9f74d594c36",
+      "itemName": "Step 3 - Failed Login Observation 3",
+      "parentTestId": "TC-API-013",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-013] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 73,
+      "itemId": "dbf804a7-1836-4bb8-aafa-3cf350e256f8",
+      "itemName": "Step 4 - Matching Login Observation",
+      "parentTestId": "TC-API-013",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-013] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 74,
+      "itemId": "2030a89a-c0ba-475d-978f-0bf4dae242e9",
+      "itemName": "Step 1 - First Successful Login",
+      "parentTestId": "TC-API-089",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-089] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 75,
+      "itemId": "64b5d027-8867-4039-8dd6-461108782ed6",
+      "itemName": "Step 2 - Second Successful Login",
+      "parentTestId": "TC-API-089",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001, SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-089] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 76,
+      "itemId": "34ca0c4a-aa0c-4996-a188-38c3b69b8684",
+      "itemName": "Step 1 - Successful Login",
+      "parentTestId": "TC-API-090",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-090] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 77,
+      "itemId": "c6a95b36-e21d-4e90-9325-effaa027608e",
+      "itemName": "Step 2 - Failed Login Observation",
+      "parentTestId": "TC-API-090",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-090] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 78,
+      "itemId": "d3ebb084-d548-4098-a23c-3271bc7389be",
+      "itemName": "Step 1 - Failed Login Observation",
+      "parentTestId": "TC-API-091",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-091] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 79,
+      "itemId": "ca8a53b2-5107-4e70-8032-14caaab98ae6",
+      "itemName": "Step 2 - Successful Login Observation",
+      "parentTestId": "TC-API-091",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-013",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-091] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 80,
+      "itemId": "dab59efc-2f26-477e-8734-1f6f9c5d4a5f",
+      "itemName": "Step 1 - Unknown Account Failure",
+      "parentTestId": "TC-API-094",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-094] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 81,
+      "itemId": "d358b5c0-bb43-4fd3-b7e7-28864d079242",
+      "itemName": "Step 2 - Wrong Password Failure",
+      "parentTestId": "TC-API-094",
+      "setupId": null,
+      "feature": "FR-02",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-002",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-094] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 82,
+      "itemId": "16adc385-a3bd-4557-8e3c-efb52d564865",
+      "itemName": "[TC-API-130] GET Cart endpoint transport contract",
+      "parentTestId": "TC-API-130",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-130] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-130] request uses documented GET Cart operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 83,
+      "itemId": "a0744633-8a86-4a74-949e-ae7fa5ee4235",
+      "itemName": "[TC-API-131] GET Cart retrieve-purpose contract",
+      "parentTestId": "TC-API-131",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-131] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 84,
+      "itemId": "8d901258-64c5-4a9d-a84b-29776e7a580a",
+      "itemName": "[TC-API-135] GET Cart with authentication context absent",
+      "parentTestId": "TC-API-135",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-135] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 85,
+      "itemId": "61be7adb-d85c-4391-bccc-b95706538393",
+      "itemName": "[TC-API-136] GET Cart with non-conforming authentication representation",
+      "parentTestId": "TC-API-136",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-136] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 86,
+      "itemId": "68197df3-e3b7-4f97-8ac9-f69f1bc512e1",
+      "itemName": "[TC-API-156] Cart observation under the same authentication context",
+      "parentTestId": "TC-API-156",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-156] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 87,
+      "itemId": "6c59c6d0-ea2c-43fc-9684-6a2900000b29",
+      "itemName": "[TC-API-162] GET Cart response-contract characterization",
+      "parentTestId": "TC-API-162",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-162] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 88,
+      "itemId": "7c9a88c8-cbde-4216-8f92-fcc17fb877b0",
+      "itemName": "[TC-API-173] Observe the response Content-Type contract for GET Cart",
+      "parentTestId": "TC-API-173",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-173] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 89,
+      "itemId": "a915a34a-ac06-44f1-b093-42deec4a3c7f",
+      "itemName": "[TC-API-132] POST Cart endpoint transport contract",
+      "parentTestId": "TC-API-132",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-132] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-132] request uses documented POST Cart operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 90,
+      "itemId": "24a6a628-bc5f-42d3-aefd-b07612420d28",
+      "itemName": "[TC-API-133] POST documented JSON request-shape contract",
+      "parentTestId": "TC-API-133",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-133] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 91,
+      "itemId": "0897de9d-fadc-4b30-8fa1-a861f4ee0906",
+      "itemName": "[TC-API-134] POST add-to-Cart semantic-purpose contract",
+      "parentTestId": "TC-API-134",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-134] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 92,
+      "itemId": "f576578a-cc4b-4317-8ae0-60f5a22c9c87",
+      "itemName": "[TC-API-137] POST Cart with authentication context absent",
+      "parentTestId": "TC-API-137",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-137] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 93,
+      "itemId": "dcc041cc-df98-4824-b67b-808b945d05be",
+      "itemName": "[TC-API-138] POST Cart with non-conforming authentication representation",
+      "parentTestId": "TC-API-138",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-138] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 94,
+      "itemId": "cdd39bf6-c0b5-4df5-91de-e9a97195eeee",
+      "itemName": "[TC-API-139] POST Cart with request body absent",
+      "parentTestId": "TC-API-139",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-139] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 95,
+      "itemId": "d4a149a2-c712-4ce2-a09a-8c050444105c",
+      "itemName": "[TC-API-140] POST Cart with non-JSON-shaped body representation",
+      "parentTestId": "TC-API-140",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-140] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 96,
+      "itemId": "1aa13751-6243-4bcd-a12e-ece735f7aeb2",
+      "itemName": "[TC-API-141] POST Cart with another number-shaped id",
+      "parentTestId": "TC-API-141",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-141] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 97,
+      "itemId": "dde08ddd-2662-43b1-bf5d-b4f185c0c5d1",
+      "itemName": "[TC-API-142] POST Cart with id omitted",
+      "parentTestId": "TC-API-142",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-142] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 98,
+      "itemId": "24431cc6-5901-4701-9767-fc20af749d91",
+      "itemName": "[TC-API-143] POST Cart with id representation unlike example",
+      "parentTestId": "TC-API-143",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-143] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 99,
+      "itemId": "fe5af114-123f-4be1-b49f-a6380cf72cd8",
+      "itemName": "[TC-API-144] POST Cart with another string-shaped name",
+      "parentTestId": "TC-API-144",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-144] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 100,
+      "itemId": "86e55909-235f-46e6-bc59-478f71378428",
+      "itemName": "[TC-API-145] POST Cart with name omitted",
+      "parentTestId": "TC-API-145",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-145] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 101,
+      "itemId": "afa6876b-804b-4a60-9186-a0e43e7c548b",
+      "itemName": "[TC-API-146] POST Cart with name representation unlike example",
+      "parentTestId": "TC-API-146",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-146] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 102,
+      "itemId": "64bca84f-8acf-4f49-aa12-34893a46411a",
+      "itemName": "[TC-API-147] POST Cart with another number-shaped price",
+      "parentTestId": "TC-API-147",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-147] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 103,
+      "itemId": "484c32e5-99c6-4424-a895-7d97614e1d8e",
+      "itemName": "[TC-API-148] POST Cart with price omitted",
+      "parentTestId": "TC-API-148",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-148] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 104,
+      "itemId": "151c2e1c-a356-490d-bba0-bec305a84b58",
+      "itemName": "[TC-API-149] POST Cart with price representation unlike example",
+      "parentTestId": "TC-API-149",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-149] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 105,
+      "itemId": "18514b90-4d31-41b5-86c6-dfffa2984281",
+      "itemName": "[TC-API-150] POST Cart with another number-shaped quantity",
+      "parentTestId": "TC-API-150",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-150] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 106,
+      "itemId": "a8aae97e-76a9-4680-8941-10e5a4456252",
+      "itemName": "[TC-API-151] POST Cart with quantity omitted",
+      "parentTestId": "TC-API-151",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-151] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 107,
+      "itemId": "72ea5da9-2cf4-484a-9dee-98cf6aa7f90c",
+      "itemName": "[TC-API-152] POST Cart with quantity representation unlike example",
+      "parentTestId": "TC-API-152",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-152] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 108,
+      "itemId": "ecf83e28-ba73-4876-979d-01924e36c220",
+      "itemName": "[TC-API-153] Price and quantity relationship observation",
+      "parentTestId": "TC-API-153",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-153] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 109,
+      "itemId": "20a69b30-bc7c-41ff-a7f4-1b9bb0879548",
+      "itemName": "[TC-API-154] Add with referenced resource established as existing",
+      "parentTestId": "TC-API-154",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-006",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-154] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 110,
+      "itemId": "61c23de0-1d78-45c8-b75a-bd4fdeac8c5a",
+      "itemName": "[TC-API-155] Add with referenced resource established as non-existing",
+      "parentTestId": "TC-API-155",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-007",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-155] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 111,
+      "itemId": "e895a591-4247-4a23-8ae0-ba1f0264d37b",
+      "itemName": "[TC-API-163] POST Cart response and mutation-result characterization",
+      "parentTestId": "TC-API-163",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-163] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 112,
+      "itemId": "7cb5dab1-0b05-47cb-b111-41e6d7fb2e9e",
+      "itemName": "[TC-API-171] Observe handling of a negative-number-shaped quantity value",
+      "parentTestId": "TC-API-171",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-171] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 113,
+      "itemId": "10718c47-e3b6-47db-a666-e09ef17364b0",
+      "itemName": "[TC-API-172] Observe handling of a fractional quantity representation",
+      "parentTestId": "TC-API-172",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-172] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 114,
+      "itemId": "86d425ff-6db3-4cb2-b6ca-d30c6ad19f69",
+      "itemName": "[TC-API-174] Observe the response Content-Type contract for POST Cart",
+      "parentTestId": "TC-API-174",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-174] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 115,
+      "itemId": "fe59f56f-edc6-4c2c-9e80-49d8657ec1cc",
+      "itemName": "[TC-API-175] Observe handling of an array-shaped Cart request body",
+      "parentTestId": "TC-API-175",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-175] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 116,
+      "itemId": "dd24bc61-98b8-4c72-9621-dc42bfe949a2",
+      "itemName": "Step 1 - User A GET Cart",
+      "parentTestId": "TC-API-157",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-004, SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-157] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 117,
+      "itemId": "75dfed8b-f39a-4056-b711-7c0c2e7d23a1",
+      "itemName": "Step 2 - User B GET Cart",
+      "parentTestId": "TC-API-157",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-004, SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-157] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 118,
+      "itemId": "6dad1602-9d69-4e43-ad39-3047bf969404",
+      "itemName": "Step 1 - First GET Cart",
+      "parentTestId": "TC-API-158",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-158] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 119,
+      "itemId": "afb23497-3fea-4ef0-8ad4-a3158045fe25",
+      "itemName": "Step 2 - Later GET Cart",
+      "parentTestId": "TC-API-158",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-158] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 120,
+      "itemId": "84d6f5dd-5551-49fe-86a2-cf53babcd33d",
+      "itemName": "Step 1 - First GET Cart",
+      "parentTestId": "TC-API-159",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-159] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 121,
+      "itemId": "bbed0da3-709c-4a9f-b307-f069d645cb28",
+      "itemName": "Step 2 - Later GET Cart",
+      "parentTestId": "TC-API-159",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-159] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 122,
+      "itemId": "119a7a42-de74-47b1-a301-78566735d706",
+      "itemName": "Step 1 - First POST Cart",
+      "parentTestId": "TC-API-160",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-160] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 123,
+      "itemId": "7dffcaa8-9529-4767-b334-b8b8e3edc7be",
+      "itemName": "Step 2 - Repeated POST Cart",
+      "parentTestId": "TC-API-160",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-160] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 124,
+      "itemId": "d410c23b-7930-4cb8-a404-a9e1dba95746",
+      "itemName": "Step 1 - POST Cart",
+      "parentTestId": "TC-API-161",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-161] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 125,
+      "itemId": "fc747e57-1dc5-423b-bd55-860d80e465f4",
+      "itemName": "Step 2 - GET Cart Observation",
+      "parentTestId": "TC-API-161",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-008",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-161] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 126,
+      "itemId": "233241cb-a4e6-473f-bb00-8cc39b8c6fe1",
+      "itemName": "Step 1 - Large ID Probe",
+      "parentTestId": "TC-API-176",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-176] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 127,
+      "itemId": "297f48dc-81b9-4d68-9b40-25b4ef31ad89",
+      "itemName": "Step 2 - Large Price Probe",
+      "parentTestId": "TC-API-176",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-176] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 128,
+      "itemId": "e8d61f41-7ce3-40c6-84bf-744f567d8645",
+      "itemName": "Step 3 - Large Quantity Probe",
+      "parentTestId": "TC-API-176",
+      "setupId": null,
+      "feature": "FR-07",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-001–003",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "POST",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-176] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 129,
+      "itemId": "ce4959aa-97d0-476d-a6de-84b206e2dfc3",
+      "itemName": "[TC-API-046] Verify authenticated Admin can retrieve orders for the entire system",
+      "parentTestId": "TC-API-046",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-005",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-046] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-046] request uses documented Admin order-list operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 130,
+      "itemId": "4f9d97ce-c754-4a1f-99af-1b1a64228774",
+      "itemName": "[TC-API-047] Verify non-Admin caller cannot access system-wide orders",
+      "parentTestId": "TC-API-047",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-001, SETUP-004",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-047] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-047] non-Admin caller does not obtain a successful protected operation",
+          "passed": false,
+          "error": "expected 200 to not be within 200..299"
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 131,
+      "itemId": "c38fb23e-7f24-46a7-ba5e-5ed9204ffd93",
+      "itemName": "[TC-API-048] Verify unauthenticated caller cannot access system-wide orders",
+      "parentTestId": "TC-API-048",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_DETERMINISTIC",
+      "exploratory": false,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Hard supported SEMANTIC/SECURITY assertions; observe unspecified status/schema",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 401,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-048] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-048] unauthenticated caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 132,
+      "itemId": "fb5401f2-9de6-4f27-9a56-4d8140f24c49",
+      "itemName": "[TC-API-049] Verify non-Bearer Authorization cannot access system-wide orders",
+      "parentTestId": "TC-API-049",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_DETERMINISTIC",
+      "exploratory": false,
+      "setupIds": "SETUP-001",
+      "assertionStrategy": "Hard supported SEMANTIC/SECURITY assertions; observe unspecified status/schema",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 403,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-049] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-049] non-Bearer caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 133,
+      "itemId": "d187c934-bb7b-43fe-a770-b9211748db17",
+      "itemName": "[TC-API-116] Characterize the admin order-list response schema",
+      "parentTestId": "TC-API-116",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-116] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 134,
+      "itemId": "274b7f49-6f1b-4fd8-b916-ab9d530b329b",
+      "itemName": "[TC-API-117] Verify that Admin order listing is system-wide",
+      "parentTestId": "TC-API-117",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-005, SETUP-011",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-117] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-117] request uses documented system-wide Admin list operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 135,
+      "itemId": "675b00c1-882e-413c-8b8f-debfabd2269f",
+      "itemName": "[TC-API-119] Observe handling of an undocumented query parameter",
+      "parentTestId": "TC-API-119",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-119] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 136,
+      "itemId": "85228aac-8831-4f42-8146-4257436cdd47",
+      "itemName": "[TC-API-179] Observe the response Content-Type contract for admin order listing",
+      "parentTestId": "TC-API-179",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-179] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 137,
+      "itemId": "3307bfd1-32a1-4a55-9a28-70bf444881a1",
+      "itemName": "[TC-API-050] Verify target status pending once an authoritative source-state rule exists",
+      "parentTestId": "TC-API-050",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-050] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 138,
+      "itemId": "5e1be8c8-0d1d-4de5-a690-ae72b2cca353",
+      "itemName": "[TC-API-051] Verify target status confirmed once an authoritative source-state rule exists",
+      "parentTestId": "TC-API-051",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-051] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 139,
+      "itemId": "e2a8c1b8-6fe7-4acb-b471-c4461b0f6619",
+      "itemName": "[TC-API-052] Verify target status shipping once an authoritative source-state rule exists",
+      "parentTestId": "TC-API-052",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-052] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 140,
+      "itemId": "382f9bca-5666-4843-a7ce-1b1ae82fbb48",
+      "itemName": "[TC-API-053] Verify target status delivered once an authoritative source-state rule exists",
+      "parentTestId": "TC-API-053",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-053] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 141,
+      "itemId": "07b94e8b-ecb5-433b-96eb-5c09e0f58c74",
+      "itemName": "[TC-API-054] Verify target status canceled once an authoritative source-state rule exists",
+      "parentTestId": "TC-API-054",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-054] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 142,
+      "itemId": "8652dea9-3b0a-499d-8641-284367e5f43e",
+      "itemName": "[TC-API-055] Verify non-Admin caller cannot update order status",
+      "parentTestId": "TC-API-055",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-004, SETUP-009",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-055] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-055] non-Admin caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 143,
+      "itemId": "8533e0f5-b4b8-4303-8a2d-92ad1927444c",
+      "itemName": "[TC-API-056] Verify unauthenticated caller cannot update order status",
+      "parentTestId": "TC-API-056",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-009",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-056] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-056] unauthenticated caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 144,
+      "itemId": "e0c4c720-149a-439a-9447-b1e3a3b699dd",
+      "itemName": "[TC-API-057] Verify non-Bearer Authorization cannot update order status",
+      "parentTestId": "TC-API-057",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-009",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-057] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-057] non-Bearer caller does not obtain a successful protected operation",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 145,
+      "itemId": "2ad63629-40c8-426d-b18a-345bc827f2e3",
+      "itemName": "[TC-API-058] Observe update behavior for non-existing order identifier",
+      "parentTestId": "TC-API-058",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-010",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-058] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 146,
+      "itemId": "0686a675-bd76-470a-a940-80ac36aa7bd5",
+      "itemName": "[TC-API-059] Verify omitted order identifier does not invoke documented update operation",
+      "parentTestId": "TC-API-059",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-059] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-059] request omits the order identifier segment",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 147,
+      "itemId": "39efd77d-a7e7-4844-bd4a-03e5832f24ed",
+      "itemName": "[TC-API-060] Observe undocumented order-ID representation handling",
+      "parentTestId": "TC-API-060",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-060] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 148,
+      "itemId": "f65c2f33-3b2a-494c-ac2a-4a772f053803",
+      "itemName": "[TC-API-061] Verify status outside documented vocabulary is not applied",
+      "parentTestId": "TC-API-061",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": false,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Setup + supported hard assertions; observe unspecified layers",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 6,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-061] response object is available",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "[TC-API-061] submitted status is outside the documented vocabulary",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 149,
+      "itemId": "c394fa0d-b130-4b08-a1a9-ec0f9c4f5b0b",
+      "itemName": "[TC-API-062] Observe omitted status handling",
+      "parentTestId": "TC-API-062",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 1,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-062] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 150,
+      "itemId": "d3896688-d7f3-4710-90e5-73a86408ad94",
+      "itemName": "[TC-API-063] Observe null-like status handling",
+      "parentTestId": "TC-API-063",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-063] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 151,
+      "itemId": "dbf7b630-4891-4b01-8b84-eea354c44e2a",
+      "itemName": "[TC-API-064] Observe non-string status handling",
+      "parentTestId": "TC-API-064",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-064] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 152,
+      "itemId": "0f019dea-45f9-49d4-bded-a2fff0788164",
+      "itemName": "[TC-API-065] Observe omitted Content-Type behavior",
+      "parentTestId": "TC-API-065",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-065] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 153,
+      "itemId": "b62591f8-800d-4505-8873-cf5a77b16594",
+      "itemName": "[TC-API-066] Observe non-JSON media-type behavior",
+      "parentTestId": "TC-API-066",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-066] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 154,
+      "itemId": "12ed32f1-9a45-4a71-914a-42be1dc85fe6",
+      "itemName": "[TC-API-122] Observe handling when the status-update request body is absent",
+      "parentTestId": "TC-API-122",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-122] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 155,
+      "itemId": "31f31ab8-c929-405d-9e0a-e63ea2f076a3",
+      "itemName": "[TC-API-123] Observe handling of an empty JSON object for status update",
+      "parentTestId": "TC-API-123",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-123] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 156,
+      "itemId": "35ee946c-3829-4b93-b3ad-d3da7439f85a",
+      "itemName": "[TC-API-124] Observe tolerance of an undocumented request member during a nominal status update",
+      "parentTestId": "TC-API-124",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-124] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 157,
+      "itemId": "b2d194d0-67ba-48c3-8a6a-07538ef2d3d2",
+      "itemName": "[TC-API-129] Characterize authorization-versus-validation precedence",
+      "parentTestId": "TC-API-129",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-004, SETUP-009",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-129] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 158,
+      "itemId": "20c186a4-d63b-45be-bdeb-b76157cef322",
+      "itemName": "Step 1 - First Admin Order List",
+      "parentTestId": "TC-API-120",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-120] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 159,
+      "itemId": "c937cfbb-6ccb-493c-a8fb-0f90ad0b1029",
+      "itemName": "Step 2 - Second Admin Order List",
+      "parentTestId": "TC-API-120",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-120] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 160,
+      "itemId": "e407aecc-be22-4f7b-8745-e12685f2c68e",
+      "itemName": "[TC-API-125] Characterize an update whose target status equals the current status",
+      "parentTestId": "TC-API-125",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-125] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 161,
+      "itemId": "a65631b0-497f-43cc-9112-f6be0fbb1f90",
+      "itemName": "Step 1 - First Status Target",
+      "parentTestId": "TC-API-126",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-126] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 162,
+      "itemId": "9d6af7fc-4cc2-41a2-b0f6-cd755bd1a412",
+      "itemName": "Step 2 - Conflicting Status Target",
+      "parentTestId": "TC-API-126",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "AI_GENERATED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-009, SETUP-014",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 2,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-126] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 163,
+      "itemId": "0ab95d3b-e235-47b3-b255-cf9e1083cf5a",
+      "itemName": "Step 1 - Pagination-Shaped Query",
+      "parentTestId": "TC-API-177",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-177] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 164,
+      "itemId": "31dc4af5-2127-4678-9636-0bc01c544d32",
+      "itemName": "Step 2 - Filter-Shaped Query",
+      "parentTestId": "TC-API-177",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_EXPLORATORY",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Transport completion + observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 5,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-177] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 165,
+      "itemId": "596964a4-4585-4722-9bb2-865841632951",
+      "itemName": "Step 1 - First Admin Order List",
+      "parentTestId": "TC-API-178",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 4,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-178] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 166,
+      "itemId": "ef2fd059-c15b-45bd-a290-b6a6f361489b",
+      "itemName": "Step 2 - Second Admin Order List",
+      "parentTestId": "TC-API-178",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "GET",
+      "url": "[object Object]",
+      "httpStatus": 200,
+      "responseTimeMs": 6,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-178] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    },
+    {
+      "sequence": 167,
+      "itemId": "9c286c36-4057-42f2-9ceb-81d563de3eee",
+      "itemName": "[TC-API-180] Observe the response Content-Type contract for status update",
+      "parentTestId": "TC-API-180",
+      "setupId": null,
+      "feature": "FR-18",
+      "origin": "HUMAN_ADDED",
+      "executionClass": "EXECUTABLE_WITH_RUNTIME_SETUP",
+      "exploratory": true,
+      "setupIds": "SETUP-005, SETUP-009",
+      "assertionStrategy": "Setup + transport/observational capture only",
+      "method": "PUT",
+      "url": "[object Object]",
+      "httpStatus": 404,
+      "responseTimeMs": 3,
+      "requestError": null,
+      "assertions": [
+        {
+          "name": "[TC-API-180] response object is available",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "studentHeader": {
+        "present": true,
+        "valueNonempty": true
+      }
+    }
+  ]
+}

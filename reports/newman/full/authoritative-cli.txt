@@ -1,0 +1,1694 @@
+AUTHORITATIVE_INITIAL_FULL_RUN
+Command: npx --yes newman@6.2.2 run postman/collections/HW06-API-Testing.postman_collection.json -e postman/runtime/HW06-local.runtime.postman_environment.json --reporters cli,json --reporter-json-export postman/runtime/authoritative-report.raw.json --color off
+Newman exit code: 1
+
+newman
+
+HW06 API Testing
+
+□ 00 - Setup / FR-02 Setup
+└ [SETUP-002] Register Primary User
+  POST http://localhost:3000/api/register [200 OK, 316B, 38ms]
+
+└ [SETUP-003] Login Primary User
+  POST http://localhost:3000/api/login [200 OK, 687B, 5ms]
+  ┌
+  │ '[SETUP] user_token populated', true
+  └
+
+□ 00 - Setup / FR-07 Setup
+└ [SETUP-004] Register Secondary User
+  POST http://localhost:3000/api/register [200 OK, 316B, 16ms]
+
+└ [SETUP-004] Login Secondary User
+  POST http://localhost:3000/api/login [200 OK, 691B, 4ms]
+  ┌
+  │ '[SETUP] user_b_token populated', true
+  └
+
+└ [SETUP-006] Discover Existing Product
+  GET http://localhost:3000/api/products [200 OK, 1.24kB, 4ms]
+  ┌
+  │ '[SETUP] existing product discovered', true
+  └
+
+└ [SETUP-006] Confirm Existing Product
+  GET http://localhost:3000/api/products/1 [200 OK, 451B, 3ms]
+  ┌
+  │ '[SETUP] product confirmation status', 200
+  └
+
+└ [SETUP-007] Verify Missing Product Candidate
+  GET http://localhost:3000/api/products/1000005 [200 OK, 267B, 4ms]
+  ┌
+  │ '[SETUP] missing product candidate absence observed', 
+  │ false
+  └
+
+□ 00 - Setup / FR-18 Setup
+└ [SETUP-004] Register Wrong-Role User
+  POST http://localhost:3000/api/register [200 OK, 316B, 23ms]
+
+└ [SETUP-004] Login Wrong-Role User
+  POST http://localhost:3000/api/login [200 OK, 699B, 4ms]
+  ┌
+  │ '[SETUP] wrong_role_token populated', true
+  └
+
+└ [SETUP-005] Login Admin
+  POST http://localhost:3000/api/login [200 OK, 640B, 4ms]
+  ┌
+  │ '[SETUP] admin_token populated', true
+  └
+
+└ [SETUP-009] Discover Existing Orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[SETUP] order discovery', '{"existing":false,"second"
+  │ :false,"missingCandidate":true}'
+  └
+
+□ FR-02 - Login and Lockout / Deterministic
+└ [TC-API-001] Verify successful login for an existing account-associated matching credential pair
+  POST http://localhost:3000/api/login [200 OK, 687B, 7ms]
+  ┌
+  │ '[OBS][TC-API-001]', '{"status":200,"responseTime":7,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-001] response object is available
+  √  [TC-API-001] documented successful-login status is 200
+  √  [TC-API-001] successful login returns token and user information
+
+└ [TC-API-002] Observe handling of an email not associated with a usable credential pair
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-002]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-002] response object is available
+
+└ [TC-API-006] Observe handling of a password not matching the selected account
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-006]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-006] response object is available
+
+└ [TC-API-012] Observe the effect of request Authorization on login
+  POST http://localhost:3000/api/login [200 OK, 687B, 3ms]
+  ┌
+  │ '[OBS][TC-API-012]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-012] response object is available
+
+└ [TC-API-074] Validate the documented successful-login transport status
+  POST http://localhost:3000/api/login [200 OK, 687B, 3ms]
+  ┌
+  │ '[OBS][TC-API-074]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-074] response object is available
+  √  [TC-API-074] documented successful-login status is 200
+
+└ [TC-API-075] Validate that successful login returns a JWT token value
+  POST http://localhost:3000/api/login [200 OK, 687B, 3ms]
+  ┌
+  │ '[OBS][TC-API-075]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-075] response object is available
+  √  [TC-API-075] successful login returns a token value
+
+└ [TC-API-076] Validate that successful login returns user information
+  POST http://localhost:3000/api/login [200 OK, 687B, 3ms]
+  ┌
+  │ '[OBS][TC-API-076]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-076] response object is available
+  √  [TC-API-076] successful login returns user information
+
+└ [TC-API-077] Characterize the response contract for unsuccessful login
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 5ms]
+  ┌
+  │ '[OBS][TC-API-077]', '{"status":401,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-077] response object is available
+
+└ [TC-API-081] Observe tolerance of an undocumented login request member
+  POST http://localhost:3000/api/login [200 OK, 687B, 4ms]
+  ┌
+  │ '[OBS][TC-API-081]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-081] response object is available
+
+└ [TC-API-082] Observe duplicate email-member handling at the representation layer
+  POST http://localhost:3000/api/login [200 OK, 687B, 4ms]
+  ┌
+  │ '[OBS][TC-API-082]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-082] response object is available
+
+└ [TC-API-083] Observe duplicate password-member handling at the representation layer
+  POST http://localhost:3000/api/login [200 OK, 687B, 4ms]
+  ┌
+  │ '[OBS][TC-API-083]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":418}'
+  └
+  √  [TC-API-083] response object is available
+
+└ [TC-API-084] Characterize surrounding-whitespace handling for email
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-084]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-084] response object is available
+
+└ [TC-API-085] Characterize surrounding-whitespace handling for password
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-085]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-085] response object is available
+
+└ [TC-API-086] Characterize email case-normalization behavior
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 5ms]
+  ┌
+  │ '[OBS][TC-API-086]', '{"status":401,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-086] response object is available
+
+└ [TC-API-087] Characterize password case sensitivity
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-087]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-087] response object is available
+
+└ [TC-API-095] Audit successful user information for unintended sensitive-field exposure
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-095]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-095] response object is available
+  ┌
+  │ '[OBS][TC-API-095] userFieldNames', '[]'
+  └
+
+□ FR-02 - Login and Lockout / Exploratory
+└ [TC-API-003] Observe omitted email handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-003]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-003] response object is available
+
+└ [TC-API-004] Observe null-like email handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-004]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-004] response object is available
+
+└ [TC-API-005] Observe non-string email handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-005]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-005] response object is available
+
+└ [TC-API-007] Observe omitted password handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-007]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-007] response object is available
+
+└ [TC-API-008] Observe null-like password handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-008]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-008] response object is available
+
+└ [TC-API-009] Observe non-string password handling
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-009]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-009] response object is available
+
+└ [TC-API-010] Observe behavior when Content-Type is omitted
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 2ms]
+  ┌
+  │ '[OBS][TC-API-010]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-010] response object is available
+
+└ [TC-API-011] Observe non-JSON media-type handling
+  POST http://localhost:3000/api/login [500 Internal Server Error, 1.97kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-011]', '{"status":500,"responseTime":4,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 650}'
+  └
+  √  [TC-API-011] response object is available
+
+└ [TC-API-078] Observe handling when the request body is absent
+  POST http://localhost:3000/api/login [500 Internal Server Error, 1.97kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-078]', '{"status":500,"responseTime":4,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 650}'
+  └
+  √  [TC-API-078] response object is available
+
+└ [TC-API-079] Observe handling of an empty JSON object
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-079]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-079] response object is available
+
+└ [TC-API-080] Observe handling when both documented credential fields are null-like
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-080]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-080] response object is available
+
+└ [TC-API-088] Observe malformed JSON representation handling
+  POST http://localhost:3000/api/login [400 Bad Request, 1.58kB, 3ms]
+  ┌
+  │ '[OBS][TC-API-088]', '{"status":400,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 269}'
+  └
+  √  [TC-API-088] response object is available
+
+└ [TC-API-165] Observe handling of an extreme-length email representation
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-165]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-165] response object is available
+
+└ [TC-API-166] Observe handling of an extreme-length password representation
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-166]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-166] response object is available
+
+□ FR-02 - Login and Lockout / Exploratory / [TC-API-167] Observe Unicode / non-ASCII representation handling in credential fields
+└ Step 1 - Accented Latin Email
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-167]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-167] response object is available
+
+└ Step 2 - Non-Latin Email
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-167]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-167] response object is available
+
+└ Step 3 - Supplementary-Plane Password
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-167]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-167] response object is available
+
+□ FR-02 - Login and Lockout / Exploratory / [TC-API-168] Observe special-character-class handling in credential representations
+└ Step 1 - Quotation Class
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-168]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-168] response object is available
+
+└ Step 2 - Bracket Class
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-168]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-168] response object is available
+
+└ Step 3 - Backslash Class
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-168]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-168] response object is available
+
+└ Step 4 - Escaped Newline Class
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-168]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-168] response object is available
+
+□ FR-02 - Login and Lockout / Exploratory
+└ [TC-API-169] Characterize semantic confusion when email and password values are positionally swapped
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-169]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-169] response object is available
+
+□ FR-02 - Login and Lockout / Exploratory / [TC-API-170] Observe throttling or rate-control signals across repeated login requests
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":1,"status
+  │ ":401,"responseTime":4}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":2,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":3,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":4,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":5,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":6,"status
+  │ ":401,"responseTime":2}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":7,"status
+  │ ":401,"responseTime":2}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":8,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":9,"status
+  │ ":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":10,"statu
+  │ s":401,"responseTime":4}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":11,"statu
+  │ s":401,"responseTime":2}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":12,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":13,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":14,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":15,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":16,"statu
+  │ s":401,"responseTime":4}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":17,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 2ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":18,"statu
+  │ s":401,"responseTime":2}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 4ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":19,"statu
+  │ s":401,"responseTime":4}'
+  └
+
+Attempting to set next request to Step 1 - Finite Rate-Control Probe
+
+└ Step 1 - Finite Rate-Control Probe
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-170]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-170] response object is available
+  ┌
+  │ '[OBS][TC-API-170] iteration', '{"iteration":20,"statu
+  │ s":401,"responseTime":3}'
+  └
+
+□ FR-02 - Login and Lockout / Runtime / Stateful / [TC-API-013] Characterize repeated failed-login and any lock/unlock transition once rules exist
+└ Step 1 - Failed Login Observation 1
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-013]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-013] response object is available
+
+└ Step 2 - Failed Login Observation 2
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 5ms]
+  ┌
+  │ '[OBS][TC-API-013]', '{"status":403,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-013] response object is available
+
+└ Step 3 - Failed Login Observation 3
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 2ms]
+  ┌
+  │ '[OBS][TC-API-013]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-013] response object is available
+
+└ Step 4 - Matching Login Observation
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 2ms]
+  ┌
+  │ '[OBS][TC-API-013]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-013] response object is available
+
+□ FR-02 - Login and Lockout / Runtime / Stateful / [TC-API-089] Characterize token behavior across repeated successful logins
+└ Step 1 - First Successful Login
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-089]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-089] response object is available
+
+└ Step 2 - Second Successful Login
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 2ms]
+  ┌
+  │ '[OBS][TC-API-089]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-089] response object is available
+  ┌
+  │ '[OBS][TC-API-089] tokenPresenceAndEquality', '{"first
+  │ Present":false,"secondPresent":false,"equal":null}'
+  └
+
+□ FR-02 - Login and Lockout / Runtime / Stateful / [TC-API-090] Characterize failed-attempt counter behavior after a successful login
+└ Step 1 - Successful Login
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-090]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-090] response object is available
+
+└ Step 2 - Failed Login Observation
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 2ms]
+  ┌
+  │ '[OBS][TC-API-090]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-090] response object is available
+
+□ FR-02 - Login and Lockout / Runtime / Stateful / [TC-API-091] Characterize whether successful login resets prior failed attempts
+└ Step 1 - Failed Login Observation
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-091]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-091] response object is available
+
+└ Step 2 - Successful Login Observation
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-091]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-091] response object is available
+
+□ FR-02 - Login and Lockout / Runtime / Stateful / [TC-API-094] Compare failure disclosure for unknown account and wrong password classes
+└ Step 1 - Unknown Account Failure
+  POST http://localhost:3000/api/login [401 Unauthorized, 314B, 3ms]
+  ┌
+  │ '[OBS][TC-API-094]', '{"status":401,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":37}'
+  └
+  √  [TC-API-094] response object is available
+
+└ Step 2 - Wrong Password Failure
+  POST http://localhost:3000/api/login [403 Forbidden, 342B, 3ms]
+  ┌
+  │ '[OBS][TC-API-094]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":55}'
+  └
+  √  [TC-API-094] response object is available
+  ┌
+  │ '[OBS][TC-API-094] failureComparison', '{"unknownStatu
+  │ s":"401","wrongPasswordStatus":"403","unknownBodyLengt
+  │ h":"37","wrongPasswordBodyLength":55}'
+  └
+
+□ FR-07 - Cart / GET Cart
+└ [TC-API-130] GET Cart endpoint transport contract
+  GET http://localhost:3000/api/cart [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-130]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-130] response object is available
+  √  [TC-API-130] request uses documented GET Cart operation
+
+└ [TC-API-131] GET Cart retrieve-purpose contract
+  GET http://localhost:3000/api/cart [200 OK, 267B, 3ms]
+  ┌
+  │ '[OBS][TC-API-131]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-131] response object is available
+
+└ [TC-API-135] GET Cart with authentication context absent
+  GET http://localhost:3000/api/cart [401 Unauthorized, 301B, 2ms]
+  ┌
+  │ '[OBS][TC-API-135]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":24}'
+  └
+  √  [TC-API-135] response object is available
+
+└ [TC-API-136] GET Cart with non-conforming authentication representation
+  GET http://localhost:3000/api/cart [403 Forbidden, 295B, 2ms]
+  ┌
+  │ '[OBS][TC-API-136]', '{"status":403,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":21}'
+  └
+  √  [TC-API-136] response object is available
+
+└ [TC-API-156] Cart observation under the same authentication context
+  GET http://localhost:3000/api/cart [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-156]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-156] response object is available
+
+└ [TC-API-162] GET Cart response-contract characterization
+  GET http://localhost:3000/api/cart [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-162]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-162] response object is available
+
+└ [TC-API-173] Observe the response Content-Type contract for GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 267B, 2ms]
+  ┌
+  │ '[OBS][TC-API-173]', '{"status":200,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-173] response object is available
+
+□ FR-07 - Cart / POST Cart
+└ [TC-API-132] POST Cart endpoint transport contract
+  POST http://localhost:3000/api/cart [200 OK, 294B, 2ms]
+  ┌
+  │ '[OBS][TC-API-132]', '{"status":200,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-132] response object is available
+  √  [TC-API-132] request uses documented POST Cart operation
+
+└ [TC-API-133] POST documented JSON request-shape contract
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-133]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-133] response object is available
+
+└ [TC-API-134] POST add-to-Cart semantic-purpose contract
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-134]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-134] response object is available
+
+└ [TC-API-137] POST Cart with authentication context absent
+  POST http://localhost:3000/api/cart [401 Unauthorized, 301B, 2ms]
+  ┌
+  │ '[OBS][TC-API-137]', '{"status":401,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":24}'
+  └
+  √  [TC-API-137] response object is available
+
+└ [TC-API-138] POST Cart with non-conforming authentication representation
+  POST http://localhost:3000/api/cart [403 Forbidden, 295B, 3ms]
+  ┌
+  │ '[OBS][TC-API-138]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":21}'
+  └
+  √  [TC-API-138] response object is available
+
+└ [TC-API-139] POST Cart with request body absent
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-139]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-139] response object is available
+
+└ [TC-API-140] POST Cart with non-JSON-shaped body representation
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-140]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-140] response object is available
+
+└ [TC-API-141] POST Cart with another number-shaped id
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-141]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-141] response object is available
+
+└ [TC-API-142] POST Cart with id omitted
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-142]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-142] response object is available
+
+└ [TC-API-143] POST Cart with id representation unlike example
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-143]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-143] response object is available
+
+└ [TC-API-144] POST Cart with another string-shaped name
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-144]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-144] response object is available
+
+└ [TC-API-145] POST Cart with name omitted
+  POST http://localhost:3000/api/cart [200 OK, 294B, 2ms]
+  ┌
+  │ '[OBS][TC-API-145]', '{"status":200,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-145] response object is available
+
+└ [TC-API-146] POST Cart with name representation unlike example
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-146]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-146] response object is available
+
+└ [TC-API-147] POST Cart with another number-shaped price
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-147]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-147] response object is available
+
+└ [TC-API-148] POST Cart with price omitted
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-148]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-148] response object is available
+
+└ [TC-API-149] POST Cart with price representation unlike example
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-149]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-149] response object is available
+
+└ [TC-API-150] POST Cart with another number-shaped quantity
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-150]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-150] response object is available
+
+└ [TC-API-151] POST Cart with quantity omitted
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-151]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-151] response object is available
+
+└ [TC-API-152] POST Cart with quantity representation unlike example
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-152]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-152] response object is available
+
+└ [TC-API-153] Price and quantity relationship observation
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-153]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-153] response object is available
+
+└ [TC-API-154] Add with referenced resource established as existing
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-154]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-154] response object is available
+
+└ [TC-API-155] Add with referenced resource established as non-existing
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-155]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-155] response object is available
+
+└ [TC-API-163] POST Cart response and mutation-result characterization
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-163]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-163] response object is available
+
+└ [TC-API-171] Observe handling of a negative-number-shaped quantity value
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-171]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-171] response object is available
+
+└ [TC-API-172] Observe handling of a fractional quantity representation
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-172]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-172] response object is available
+
+└ [TC-API-174] Observe the response Content-Type contract for POST Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-174]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-174] response object is available
+
+└ [TC-API-175] Observe handling of an array-shaped Cart request body
+  POST http://localhost:3000/api/cart [200 OK, 294B, 5ms]
+  ┌
+  │ '[OBS][TC-API-175]', '{"status":200,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-175] response object is available
+
+□ FR-07 - Cart / Sequence / State / [TC-API-157] Cart observation across different authentication contexts
+└ Step 1 - User A GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 1.75kB, 3ms]
+  ┌
+  │ '[OBS][TC-API-157]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1472}'
+  └
+  √  [TC-API-157] response object is available
+
+└ Step 2 - User B GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 267B, 2ms]
+  ┌
+  │ '[OBS][TC-API-157]', '{"status":200,"responseTime":2,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-157] response object is available
+  ┌
+  │ '[OBS][TC-API-157] crossContextComparison', '{"equal":
+  │ false}'
+  └
+
+□ FR-07 - Cart / Sequence / State / [TC-API-158] First versus later Cart access lifecycle observation
+└ Step 1 - First GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 1.75kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-158]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1472}'
+  └
+  √  [TC-API-158] response object is available
+
+└ Step 2 - Later GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 1.75kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-158]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1472}'
+  └
+  √  [TC-API-158] response object is available
+  ┌
+  │ '[OBS][TC-API-158] readComparison', '{"equal":true}'
+  └
+
+□ FR-07 - Cart / Sequence / State / [TC-API-159] Repeated GET Cart consistency observation
+└ Step 1 - First GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 1.75kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-159]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1472}'
+  └
+  √  [TC-API-159] response object is available
+
+└ Step 2 - Later GET Cart
+  GET http://localhost:3000/api/cart [200 OK, 1.75kB, 4ms]
+  ┌
+  │ '[OBS][TC-API-159]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1472}'
+  └
+  √  [TC-API-159] response object is available
+  ┌
+  │ '[OBS][TC-API-159] readComparison', '{"equal":true}'
+  └
+
+□ FR-07 - Cart / Sequence / State / [TC-API-160] Repeated add of the same submitted reference/body
+└ Step 1 - First POST Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-160]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-160] response object is available
+
+└ Step 2 - Repeated POST Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-160]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-160] response object is available
+
+□ FR-07 - Cart / Sequence / State / [TC-API-161] Add followed by Cart retrieval observation
+└ Step 1 - POST Cart
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-161]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-161] response object is available
+
+└ Step 2 - GET Cart Observation
+  GET http://localhost:3000/api/cart [200 OK, 1.94kB, 3ms]
+  ┌
+  │ '[OBS][TC-API-161]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":1670}'
+  └
+  √  [TC-API-161] response object is available
+
+□ FR-07 - Cart / Sequence / State / [TC-API-176] Observe handling of an extreme-magnitude numeric Cart member
+└ Step 1 - Large ID Probe
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-176]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-176] response object is available
+
+└ Step 2 - Large Price Probe
+  POST http://localhost:3000/api/cart [200 OK, 294B, 3ms]
+  ┌
+  │ '[OBS][TC-API-176]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-176] response object is available
+
+└ Step 3 - Large Quantity Probe
+  POST http://localhost:3000/api/cart [200 OK, 294B, 4ms]
+  ┌
+  │ '[OBS][TC-API-176]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-176] response object is available
+
+□ FR-18 - Admin Order Management / List Orders
+└ [TC-API-046] Verify authenticated Admin can retrieve orders for the entire system
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-046]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-046] response object is available
+  √  [TC-API-046] request uses documented Admin order-list operation
+
+└ [TC-API-047] Verify non-Admin caller cannot access system-wide orders
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 3ms]
+  ┌
+  │ '[OBS][TC-API-047]', '{"status":200,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-047] response object is available
+  1. [TC-API-047] non-Admin caller does not obtain a successful protected operation
+
+└ [TC-API-048] Verify unauthenticated caller cannot access system-wide orders
+  GET http://localhost:3000/api/admin/orders [401 Unauthorized, 301B, 4ms]
+  ┌
+  │ '[OBS][TC-API-048]', '{"status":401,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":24}'
+  └
+  √  [TC-API-048] response object is available
+  √  [TC-API-048] unauthenticated caller does not obtain a successful protected operation
+
+└ [TC-API-049] Verify non-Bearer [REDACTED] cannot access system-wide orders
+  GET http://localhost:3000/api/admin/orders [403 Forbidden, 295B, 3ms]
+  ┌
+  │ '[OBS][TC-API-049]', '{"status":403,"responseTime":3,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":21}'
+  └
+  √  [TC-API-049] response object is available
+  √  [TC-API-049] non-Bearer [REDACTED] does not obtain a successful protected operation
+
+└ [TC-API-116] Characterize the admin order-list response schema
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-116]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-116] response object is available
+
+└ [TC-API-117] Verify that Admin order listing is system-wide
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 5ms]
+  ┌
+  │ '[OBS][TC-API-117]', '{"status":200,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-117] response object is available
+  √  [TC-API-117] request uses documented system-wide Admin list operation
+
+└ [TC-API-119] Observe handling of an undocumented query parameter
+  GET http://localhost:3000/api/admin/orders?probe=1 [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-119]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-119] response object is available
+
+└ [TC-API-179] Observe the response Content-Type contract for admin order listing
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 5ms]
+  ┌
+  │ '[OBS][TC-API-179]', '{"status":200,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-179] response object is available
+
+□ FR-18 - Admin Order Management / Update Status
+└ [TC-API-050] Verify target status pending once an authoritative source-state rule exists
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-050]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-050] response object is available
+
+└ [TC-API-051] Verify target status confirmed once an authoritative source-state rule exists
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-051]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-051] response object is available
+
+└ [TC-API-052] Verify target status shipping once an authoritative source-state rule exists
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-052]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-052] response object is available
+
+└ [TC-API-053] Verify target status delivered once an authoritative source-state rule exists
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-053]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-053] response object is available
+
+└ [TC-API-054] Verify target status canceled once an authoritative source-state rule exists
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-054]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-054] response object is available
+
+└ [TC-API-055] Verify non-Admin caller cannot update order status
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-055]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-055] response object is available
+  √  [TC-API-055] non-Admin caller does not obtain a successful protected operation
+
+└ [TC-API-056] Verify unauthenticated caller cannot update order status
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-056]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-056] response object is available
+  √  [TC-API-056] unauthenticated caller does not obtain a successful protected operation
+
+└ [TC-API-057] Verify non-Bearer [REDACTED] cannot update order status
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-057]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-057] response object is available
+  √  [TC-API-057] non-Bearer [REDACTED] does not obtain a successful protected operation
+
+└ [TC-API-058] Observe update behavior for non-existing order identifier
+  PUT http://localhost:3000/api/admin/orders/missing-order-1788039321296/status [404 Not Found, 301B, 4ms]
+  ┌
+  │ '[OBS][TC-API-058]', '{"status":404,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-058] response object is available
+
+└ [TC-API-059] Verify omitted order identifier does not invoke documented update operation
+  PUT http://localhost:3000/api/admin/orders/status [404 Not Found, 466B, 3ms]
+  ┌
+  │ '[OBS][TC-API-059]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 62}'
+  └
+  √  [TC-API-059] response object is available
+  √  [TC-API-059] request omits the order identifier segment
+
+└ [TC-API-060] Observe undocumented order-ID representation handling
+  PUT http://localhost:3000/api/admin/orders/order-probe/status [404 Not Found, 301B, 5ms]
+  ┌
+  │ '[OBS][TC-API-060]', '{"status":404,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":27}'
+  └
+  √  [TC-API-060] response object is available
+
+└ [TC-API-061] Verify status outside documented vocabulary is not applied
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 6ms]
+  ┌
+  │ '[OBS][TC-API-061]', '{"status":404,"responseTime":6,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-061] response object is available
+  √  [TC-API-061] submitted status is outside the documented vocabulary
+
+└ [TC-API-062] Observe omitted status handling
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 1ms]
+  ┌
+  │ '[OBS][TC-API-062]', '{"status":404,"responseTime":1,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-062] response object is available
+
+└ [TC-API-063] Observe null-like status handling
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-063]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-063] response object is available
+
+└ [TC-API-064] Observe non-string status handling
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-064]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-064] response object is available
+
+└ [TC-API-065] Observe omitted Content-Type behavior
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-065]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-065] response object is available
+
+└ [TC-API-066] Observe non-JSON media-type behavior
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-066]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-066] response object is available
+
+└ [TC-API-122] Observe handling when the status-update request body is absent
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-122]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-122] response object is available
+
+└ [TC-API-123] Observe handling of an empty JSON object for status update
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-123]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-123] response object is available
+
+└ [TC-API-124] Observe tolerance of an undocumented request member during a nominal status update
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-124]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-124] response object is available
+
+└ [TC-API-129] Characterize authorization-versus-validation precedence
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 4ms]
+  ┌
+  │ '[OBS][TC-API-129]', '{"status":404,"responseTime":4,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-129] response object is available
+
+□ FR-18 - Admin Order Management / Sequence / State / [TC-API-120] Characterize consistency across repeated Admin order-list reads
+└ Step 1 - First Admin Order List
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-120]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-120] response object is available
+
+└ Step 2 - Second Admin Order List
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-120]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-120] response object is available
+  ┌
+  │ '[OBS][TC-API-120] orderReadComparison', '{"equal":tru
+  │ e}'
+  └
+
+□ FR-18 - Admin Order Management / Sequence / State
+└ [TC-API-125] Characterize an update whose target status equals the current status
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-125]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-125] response object is available
+
+□ FR-18 - Admin Order Management / Sequence / State / [TC-API-126] Characterize conflicting status updates to the same order
+└ Step 1 - First Status Target
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-126]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-126] response object is available
+
+└ Step 2 - Conflicting Status Target
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 2ms]
+  ┌
+  │ '[OBS][TC-API-126]', '{"status":404,"responseTime":2,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-126] response object is available
+
+□ FR-18 - Admin Order Management / Sequence / State / [TC-API-177] Observe structured pagination/filter-shaped query-parameter behavior
+└ Step 1 - Pagination-Shaped Query
+  GET http://localhost:3000/api/admin/orders?page=1&limit=2 [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-177]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-177] response object is available
+
+└ Step 2 - Filter-Shaped Query
+  GET http://localhost:3000/api/admin/orders?status=pending [200 OK, 267B, 5ms]
+  ┌
+  │ '[OBS][TC-API-177]', '{"status":200,"responseTime":5,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-177] response object is available
+
+□ FR-18 - Admin Order Management / Sequence / State / [TC-API-178] Characterize order-list sort stability across repeated reads without mutation
+└ Step 1 - First Admin Order List
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 4ms]
+  ┌
+  │ '[OBS][TC-API-178]', '{"status":200,"responseTime":4,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-178] response object is available
+
+└ Step 2 - Second Admin Order List
+  GET http://localhost:3000/api/admin/orders [200 OK, 267B, 6ms]
+  ┌
+  │ '[OBS][TC-API-178]', '{"status":200,"responseTime":6,"
+  │ contentType":"application/json; charset=utf-8","bodyLe
+  │ ngth":2}'
+  └
+  √  [TC-API-178] response object is available
+  ┌
+  │ '[OBS][TC-API-178] orderReadComparison', '{"equal":tru
+  │ e}'
+  └
+
+□ FR-18 - Admin Order Management / Sequence / State
+└ [TC-API-180] Observe the response Content-Type contract for status update
+  PUT http://localhost:3000/api/admin/orders//status [404 Not Found, 467B, 3ms]
+  ┌
+  │ '[OBS][TC-API-180]', '{"status":404,"responseTime":3,"
+  │ contentType":"text/html; charset=utf-8","bodyLength":1
+  │ 63}'
+  └
+  √  [TC-API-180] response object is available
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │             167 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │             164 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │             195 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │             173 │               1 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 14.8s                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 27.31kB (approx)                       │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 3ms [min: 1ms, max: 38ms, s.d.: 3ms] │
+└─────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                                                                                        [39m
+[90m    [39m[90m                [39m[90m                                                                                                                               [39m
+ 1.  AssertionError  [TC-API-047] non-Admin caller does not obtain a successful protected operation                                                
+                     expected 200 to not be within 200..299                                                                                        
+                     at assertion:1 in test-script                                                                                                 
+                     inside "FR-18 - Admin Order Management / List Orders / [TC-API-047] Verify non-Admin caller cannot access system-wide orders" 
+
+HTML_REPORTER_NOT_AVAILABLE
