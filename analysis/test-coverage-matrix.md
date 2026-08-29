@@ -222,12 +222,12 @@ This addendum is authoritative for scope and quota after the Prompt 006 audit. I
 | TC-API-105 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | DOMAIN | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-106 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-107 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004 | EP-FR09-010, EP-FR09-016 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
-| TC-API-108 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004, TB-FR09-005 | EP-FR09-001, EP-FR09-010 | STATE | BLOCKED | IN_SCOPE | YES |
-| TC-API-109 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005 | EP-FR09-001 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-108 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004, TB-FR09-005 | EP-FR09-001, EP-FR09-010 | STATE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-109 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005 | EP-FR09-001 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-110 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004, TB-FR09-005 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | STATE | EXPLORATORY_ONLY | IN_SCOPE | YES |
-| TC-API-111 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
-| TC-API-112 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
-| TC-API-113 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006 | BUSINESS_RULE | BLOCKED | IN_SCOPE | YES |
+| TC-API-111 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-112 | FR-09 | `POST /api/apply-coupon` | TB-FR09-003, TB-FR09-005 | EP-FR09-006 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
+| TC-API-113 | FR-09 | `POST /api/apply-coupon` | TB-FR09-005, TB-FR09-006, TB-FR09-007 | EP-FR09-001, EP-FR09-006 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-114 | FR-09 | `POST /api/apply-coupon` | TB-FR09-004 | EP-FR09-012, EP-FR09-016 | SECURITY | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-115 | FR-09 | `POST /api/apply-coupon` | TB-FR09-001, TB-FR09-002, TB-FR09-003, TB-FR09-004 | EP-FR09-001, EP-FR09-006, EP-FR09-010 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-116 | FR-18 | `GET /api/admin/orders` | TB-FR18-001, TB-FR18-002, TB-FR18-003, TB-FR18-004 | EP-FR18-001 | SCHEMA | EXPLORATORY_ONLY | IN_SCOPE | YES |
@@ -239,7 +239,7 @@ This addendum is authoritative for scope and quota after the Prompt 006 audit. I
 | TC-API-122 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006 | EP-FR18-019 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-123 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006 | EP-FR18-019 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-124 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-006, TB-FR18-007 | EP-FR18-009, EP-FR18-013 | ROBUSTNESS | EXPLORATORY_ONLY | IN_SCOPE | YES |
-| TC-API-125 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-007, TB-FR18-008 | EP-FR18-013, EP-FR18-014, EP-FR18-015, EP-FR18-016, EP-FR18-017 | STATE | BLOCKED | IN_SCOPE | YES |
+| TC-API-125 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-007, TB-FR18-008 | EP-FR18-013, EP-FR18-014, EP-FR18-015, EP-FR18-016, EP-FR18-017 | STATE | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-126 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-007, TB-FR18-008 | EP-FR18-009, EP-FR18-013, EP-FR18-014 | STATE | BLOCKED | IN_SCOPE | YES |
 | TC-API-127 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-005, TB-FR18-008 | EP-FR18-009, EP-FR18-013 | BUSINESS_RULE | EXPLORATORY_ONLY | IN_SCOPE | YES |
 | TC-API-128 | FR-18 | `PUT /api/admin/orders/:id/status` | TB-FR18-002, TB-FR18-005, TB-FR18-008 | EP-FR18-001, EP-FR18-009, EP-FR18-013 | STATE | BLOCKED | IN_SCOPE | YES |
@@ -290,3 +290,52 @@ This addendum is authoritative for scope and quota after the Prompt 006 audit. I
 | Requirement | **TOTAL** | **36** |
 
 The numeric dispositions remain unchanged because the new cases intentionally retain the original blockers. Their value is added schema, state-sequence, security-observation, robustness, and interaction coverage—not fabricated certainty.
+
+## 5. Prompt 008 Human-Audit Coverage
+
+This section is authoritative for active-test disposition after the completed student audit. The Prompt 005 partition and requirement matrices above remain historical requirement-level views; their 91-partition and 36-requirement totals are not testcase counts.
+
+### 5.1 Active testcase disposition
+
+| Testcase Disposition | Count | Test IDs |
+| --- | ---: | --- |
+| COVERED | 27 | TC-API-001, TC-API-031–TC-API-032, TC-API-034–TC-API-036, TC-API-039–TC-API-042, TC-API-044, TC-API-046–TC-API-049, TC-API-055–TC-API-057, TC-API-059, TC-API-061, TC-API-068–TC-API-069, TC-API-072, TC-API-074–TC-API-076, TC-API-117 |
+| BLOCKED | 15 | TC-API-013–TC-API-014, TC-API-033, TC-API-067, TC-API-070, TC-API-089–TC-API-093, TC-API-096–TC-API-098, TC-API-126, TC-API-128 |
+| DEFERRED_EXPLORATORY | 87 | All active cases not listed as COVERED or BLOCKED; includes the 12 student-approved reclassifications. |
+| REMOVED_AFTER_HUMAN_AUDIT | 0 | NONE |
+| **TOTAL** | **129** | TC-API-001–TC-API-129 |
+
+```text
+COVERED: 27
+BLOCKED: 15
+DEFERRED_EXPLORATORY: 87
+REMOVED_AFTER_HUMAN_AUDIT: 0
+TOTAL: 129
+```
+
+### 5.2 Human-audit disposition changes
+
+| Change | Test IDs | Coverage effect |
+| --- | --- | --- |
+| CONDITIONAL/BLOCKED → EXPLORATORY/EXPLORATORY_ONLY | TC-API-029, TC-API-050–TC-API-054, TC-API-108–TC-API-109, TC-API-111–TC-API-113, TC-API-125 | Retained as active observational coverage; no unsupported deterministic oracle remains. |
+| COMPLETE at logical-design level | TC-API-082–TC-API-083, TC-API-088, TC-API-095, TC-API-106, TC-API-127 | Reproducible representation or measurement method added; disposition remains DEFERRED_EXPLORATORY. |
+| COMPLETE but authoritative setup/rule still absent | TC-API-013–TC-API-014, TC-API-033, TC-API-067, TC-API-070, TC-API-089–TC-API-093, TC-API-096–TC-API-098, TC-API-126, TC-API-128 | Retained as BLOCKED with the missing execution dependency stated explicitly. |
+
+### 5.3 Requirement and partition coverage after audit
+
+| Coverage Family | COVERED | PARTIAL | BLOCKED | DEFERRED_EXPLORATORY | NOT_SELECTED / NOT_TESTABLE | Total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Requirement | 18 | 12 | 6 | N/A | 0 | 36 |
+| Partition | 29 | N/A | 22 | 40 | 0 | 91 |
+
+No requirement or partition was removed. Prompt 008 changes testcase readiness and oracle posture, not the verified requirement/partition inventory.
+
+### 5.4 Active AI-generated quota
+
+| Feature | Before Human Audit | Active After Human Audit | Minimum Required | Result |
+| --- | ---: | ---: | ---: | --- |
+| FR-02 | 35 | 35 | 35 | PASS |
+| FR-09 | 35 | 35 | 35 | PASS |
+| FR-18 | 35 | 35 | 35 | PASS |
+
+All 105 quota-eligible cases remain active and historically `AI_GENERATED`; the 24 cross-feature/supporting cases also remain active but are excluded from the three pool quotas.

@@ -1,0 +1,343 @@
+# Prompt 008 — Apply Human Audit Decisions and Normalize Audit Status
+
+## 1. Executive Summary
+
+The completed student audit covers all 129 historical AI-generated cases. Final human decisions are 96 VALID, 0 INVALID, and 33 INCOMPLETE. Corrections are 96 NO_CHANGE, 21 COMPLETE, and 12 RECLASSIFY_EXPLORATORY; no case was corrected, removed as duplicate, or removed as out of scope.
+
+All 129 cases remain active. The active suite contains 27 READY deterministic cases, 15 BLOCKED cases, and 87 EXPLORATORY_ONLY cases. Pool quotas remain FR-02 35/35, FR-09 35/35, and FR-18 35/35. Stale current human-review status occurrences remaining: 0.
+
+## 2. Human Audit Completion Validation
+
+| Validation Item | Expected | Actual | Result |
+| --- | ---: | ---: | --- |
+| Testcases | 129 | 129 | PASS |
+| Completed Student Decision | 129 | 129 | PASS |
+| Completed Student Reason | 129 | 129 | PASS |
+| Completed Student Correction Decision | 129 | 129 | PASS |
+| Pending student-owned fields | 0 | 0 | PASS |
+
+Overall result: PASS.
+
+## 3. Final Human Audit Results
+
+| Decision | FR-02 | FR-09 | FR-18 | Cross-Feature | Total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| VALID | 25 | 25 | 26 | 20 | 96 |
+| INVALID | 0 | 0 | 0 | 0 | 0 |
+| INCOMPLETE | 10 | 10 | 9 | 4 | 33 |
+| **Total** | **35** | **35** | **35** | **24** | **129** |
+
+| Correction Decision | Count |
+| --- | ---: |
+| NO_CHANGE | 96 |
+| CORRECT | 0 |
+| COMPLETE | 21 |
+| RECLASSIFY_EXPLORATORY | 12 |
+| REMOVE_DUPLICATE | 0 |
+| REMOVE_OUT_OF_SCOPE | 0 |
+| **Total** | **129** |
+
+## 4. Human Correction Application
+
+### 4.1 NO_CHANGE
+
+Preserved 96 student-approved logical cases without changing ID, scope, origin, traceability, or oracle posture:
+
+`TC-API-001–TC-API-012, TC-API-015–TC-API-028, TC-API-030–TC-API-032, TC-API-034–TC-API-049, TC-API-055–TC-API-066, TC-API-068–TC-API-069, TC-API-071–TC-API-081, TC-API-084–TC-API-087, TC-API-094, TC-API-099–TC-API-105, TC-API-107, TC-API-110, TC-API-114–TC-API-124, TC-API-129`.
+
+### 4.2 RECLASSIFY_EXPLORATORY
+
+Applied to `TC-API-029, TC-API-050–TC-API-054, TC-API-108–TC-API-109, TC-API-111–TC-API-113, TC-API-125`.
+
+Each now has:
+
+```text
+Expected Classification = EXPLORATORY
+Readiness = EXPLORATORY_ONLY
+```
+
+Unsupported deterministic language was replaced with observation/characterization language. Transport, schema, semantic, and state conclusions that depend on missing role, coupon, or transition rules remain observational or UNSPECIFIED.
+
+### 4.3 COMPLETE
+
+Logical-design refinements were applied to:
+
+- `TC-API-082–TC-API-083`: raw HTTP representations must preserve duplicate JSON member names; no duplicate-selection result is asserted.
+- `TC-API-088`: one concrete malformed raw JSON representation must be selected and recorded later; no HTTP status is invented.
+- `TC-API-095`: returned user fields are compared with documented necessary/allowed fields; extra fields are escalated for human review without a fabricated forbidden list.
+- `TC-API-106`: one reproducible concrete large numeric magnitude and representation must be recorded later; it is not a specification boundary.
+- `TC-API-127`: two distinguishable orders are observed before/after by ID; the exact transition result remains unspecified.
+
+The following COMPLETE cases remain BLOCKED because authoritative setup or rules are absent: `TC-API-013–TC-API-014, TC-API-033, TC-API-067, TC-API-070, TC-API-089–TC-API-093, TC-API-096–TC-API-098, TC-API-126, TC-API-128`. Their missing execution dependencies are stated explicitly in the test design.
+
+### 4.4 CORRECT
+
+NONE.
+
+### 4.5 REMOVE_DUPLICATE
+
+NONE.
+
+### 4.6 REMOVE_OUT_OF_SCOPE
+
+NONE.
+
+## 5. Updated Logical Test Suite
+
+| Test ID | Feature | Scope | Human Decision | Human Correction | Final Classification | Final Readiness | Active? |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| TC-API-001 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-002 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-003 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-004 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-005 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-006 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-007 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-008 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-009 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-010 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-011 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-012 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-013 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-014 | FR-09 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-015 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-016 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-017 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-018 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-019 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-020 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-021 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-022 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-023 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-024 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-025 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-026 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-027 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-028 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-029 | FR-09 | CROSS_FEATURE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-030 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-031 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-032 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-033 | FR-09 | CROSS_FEATURE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-034 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-035 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-036 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-037 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-038 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-039 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-040 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-041 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-042 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-043 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-044 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-045 | FR-09 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-046 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-047 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-048 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-049 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-050 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-051 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-052 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-053 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-054 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-055 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-056 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-057 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-058 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-059 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-060 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-061 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-062 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-063 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-064 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-065 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-066 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-067 | FR-18 | CROSS_FEATURE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-068 | FR-18 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-069 | FR-18 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-070 | FR-18 | CROSS_FEATURE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-071 | FR-18 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-072 | FR-18 | CROSS_FEATURE | VALID | NO_CHANGE | NEGATIVE | READY | YES |
+| TC-API-073 | FR-18 | CROSS_FEATURE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-074 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-075 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-076 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-077 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-078 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-079 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-080 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-081 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-082 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-083 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-084 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-085 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-086 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-087 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-088 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-089 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-090 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-091 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-092 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-093 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-094 | FR-02 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-095 | FR-02 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-096 | FR-09 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-097 | FR-09 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-098 | FR-09 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-099 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-100 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-101 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-102 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-103 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-104 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-105 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-106 | FR-09 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-107 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-108 | FR-09 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-109 | FR-09 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-110 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-111 | FR-09 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-112 | FR-09 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-113 | FR-09 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-114 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-115 | FR-09 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-116 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-117 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | POSITIVE | READY | YES |
+| TC-API-118 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-119 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-120 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-121 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-122 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-123 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-124 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-125 | FR-18 | IN_SCOPE | INCOMPLETE | RECLASSIFY_EXPLORATORY | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-126 | FR-18 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-127 | FR-18 | IN_SCOPE | INCOMPLETE | COMPLETE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+| TC-API-128 | FR-18 | IN_SCOPE | INCOMPLETE | COMPLETE | CONDITIONAL | BLOCKED | YES |
+| TC-API-129 | FR-18 | IN_SCOPE | VALID | NO_CHANGE | EXPLORATORY | EXPLORATORY_ONLY | YES |
+
+## 6. Updated Coverage
+
+| Coverage Family | Status | Count |
+| --- | --- | ---: |
+| Active testcase | COVERED / READY | 27 |
+| Active testcase | BLOCKED | 15 |
+| Active testcase | DEFERRED_EXPLORATORY | 87 |
+| Active testcase | REMOVED_AFTER_HUMAN_AUDIT | 0 |
+| Active testcase | **TOTAL** | **129** |
+| Requirement | COVERED | 18 |
+| Requirement | PARTIAL | 12 |
+| Requirement | BLOCKED | 6 |
+| Requirement | NOT_TESTABLE | 0 |
+| Requirement | **TOTAL** | **36** |
+| Partition | COVERED | 29 |
+| Partition | BLOCKED | 22 |
+| Partition | DEFERRED_EXPLORATORY | 40 |
+| Partition | NOT_SELECTED | 0 |
+| Partition | **TOTAL** | **91** |
+
+Requirement and partition totals remain the verified inventories. Prompt 008 changes testcase readiness/oracle posture and does not add or remove requirements or partitions.
+
+## 7. AI-Generated Quota Validation
+
+| Feature | Before Human Audit | Active After Human Audit | Minimum Required | Result |
+| --- | ---: | ---: | ---: | --- |
+| FR-02 | 35 | 35 | 35 | PASS |
+| FR-09 | 35 | 35 | 35 | PASS |
+| FR-18 | 35 | 35 | 35 | PASS |
+
+Overall result: PASS. Exploratory cases remain active and quota-eligible where they were already IN_SCOPE and student-approved.
+
+## 8. Stale Status Cleanup
+
+| File | Phrase / Context | Category | Action |
+| --- | --- | --- | --- |
+| `analysis/human-audit-worksheet.md` | Prompt 007 pre-review exploratory-retention wording | HISTORICAL_DESCRIPTION | UPDATED |
+| `analysis/human-audit-worksheet.md` | Summary wording that implied correction decisions were unfinished | STALE_CURRENT_STATUS | UPDATED |
+| `analysis/test-case-design.md` | Pre-review status label and validation row | STALE_CURRENT_STATUS | UPDATED |
+| `prompts/Prompt-005-test-case-design.md` | Historical review wording | PROMPT_LOG | PRESERVED |
+| `prompts/Prompt-007-prepare-human-audit-worksheet.md` | Historical review wording | PROMPT_LOG | PRESERVED |
+| `prompts/prompt-log.md` | Historical Prompt 001–007 index entries | PROMPT_LOG | PRESERVED |
+| Current requirement/domain/coverage/test-design artifacts | Order status `pending` in the documented status vocabulary and testcase inputs | DOMAIN_VALUE | PRESERVED |
+| Current project-status block | `HUMAN-ADDED TEST EXTENSION: PENDING` | OTHER | PRESERVED |
+
+Stale current human-review status occurrences remaining: 0.
+
+## 9. Consistency Validation
+
+| Validation | Result |
+| --- | --- |
+| 129 historical AI-generated IDs preserved | PASS |
+| Student Decisions unchanged | PASS |
+| Student Reasons unchanged | PASS |
+| Student Correction Decisions unchanged | PASS |
+| No testcase origin changed | PASS |
+| Prompt 001–007 contents unchanged | PASS |
+| Historical prompt-log entries unchanged | PASS |
+| Order-status `pending` values unchanged | PASS |
+| No undocumented lockout, coupon, schema, security, or order-transition rule introduced | PASS |
+| Quota recalculated as 35/35/35 | PASS |
+| No testcase added, removed, or renumbered | PASS |
+
+## 10. Current Project Status
+
+```text
+AI TEST GENERATION: COMPLETE
+AI TEST QUOTA: COMPLETE
+STUDENT HUMAN REVIEW: COMPLETE
+HUMAN AUDIT CORRECTIONS: COMPLETE
+
+HUMAN-ADDED TEST EXTENSION: PENDING
+CONCRETE TEST DATA DESIGN: NOT STARTED
+POSTMAN IMPLEMENTATION: NOT STARTED
+API EXECUTION: NOT STARTED
+```
+
+## 11. Machine-Usable Summary
+
+```text
+PROMPT_008_SUMMARY
+
+Total historical AI-generated cases:
+129
+Active AI-generated cases:
+129
+
+Human decisions:
+VALID:
+96
+INVALID:
+0
+INCOMPLETE:
+33
+
+Corrections:
+NO_CHANGE:
+96
+CORRECT:
+0
+COMPLETE:
+21
+RECLASSIFY_EXPLORATORY:
+12
+REMOVE_DUPLICATE:
+0
+REMOVE_OUT_OF_SCOPE:
+0
+
+FR-02 active quota-eligible:
+35
+FR-09 active quota-eligible:
+35
+FR-18 active quota-eligible:
+35
+
+Stale current review-status occurrences remaining:
+0
+
+Student human review:
+COMPLETE
+
+Next required phase:
+STUDENT HUMAN-ADDED TEST EXTENSION
+```

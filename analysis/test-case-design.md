@@ -72,7 +72,7 @@ EXPLORATORY_ONLY: 39
 | TC-API-026 | `POST /api/apply-coupon` | Observe Authorization/token-identity effect on application. | EP-FR09-016 | EXPLORATORY | EXPLORATORY_ONLY |
 | TC-API-027 | `POST /api/apply-coupon` | Observe omitted Content-Type handling. | EP-FR09-018 | EXPLORATORY | EXPLORATORY_ONLY |
 | TC-API-028 | `POST /api/apply-coupon` | Observe non-JSON media-type handling. | EP-FR09-019 | EXPLORATORY | EXPLORATORY_ONLY |
-| TC-API-029 | `GET /api/coupons` | Verify list access using Admin-associated Bearer context once role enforcement is clarified. | EP-FR09-020 | CONDITIONAL | BLOCKED |
+| TC-API-029 | `GET /api/coupons` | Observe list access using Admin-associated Bearer context while role enforcement remains unspecified. | EP-FR09-020 | EXPLORATORY | EXPLORATORY_ONLY |
 | TC-API-030 | `GET /api/coupons` | Observe list access with non-Admin-associated Bearer context. | EP-FR09-021 | EXPLORATORY | EXPLORATORY_ONLY |
 | TC-API-031 | `GET /api/coupons` | Verify rejection when required Authorization is omitted. | EP-FR09-022 | NEGATIVE | READY |
 | TC-API-032 | `GET /api/coupons` | Verify rejection when Authorization lacks documented Bearer form. | EP-FR09-023 | NEGATIVE | READY |
@@ -93,11 +93,11 @@ EXPLORATORY_ONLY: 39
 | TC-API-047 | `GET /api/admin/orders` | Verify non-Admin caller cannot access system-wide orders. | EP-FR18-002 | NEGATIVE | READY |
 | TC-API-048 | `GET /api/admin/orders` | Verify unauthenticated caller cannot access system-wide orders. | EP-FR18-003 | NEGATIVE | READY |
 | TC-API-049 | `GET /api/admin/orders` | Verify non-Bearer Authorization cannot access system-wide orders. | EP-FR18-004 | NEGATIVE | READY |
-| TC-API-050 | `PUT /api/admin/orders/:id/status` | Verify target status pending once an authoritative source-state rule exists. | EP-FR18-013 | CONDITIONAL | BLOCKED |
-| TC-API-051 | `PUT /api/admin/orders/:id/status` | Verify target status confirmed once an authoritative source-state rule exists. | EP-FR18-014 | CONDITIONAL | BLOCKED |
-| TC-API-052 | `PUT /api/admin/orders/:id/status` | Verify target status shipping once an authoritative source-state rule exists. | EP-FR18-015 | CONDITIONAL | BLOCKED |
-| TC-API-053 | `PUT /api/admin/orders/:id/status` | Verify target status delivered once an authoritative source-state rule exists. | EP-FR18-016 | CONDITIONAL | BLOCKED |
-| TC-API-054 | `PUT /api/admin/orders/:id/status` | Verify target status canceled once an authoritative source-state rule exists. | EP-FR18-017 | CONDITIONAL | BLOCKED |
+| TC-API-050 | `PUT /api/admin/orders/:id/status` | Observe a request targeting status pending while source-to-target transition rules remain unspecified. | EP-FR18-013 | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-051 | `PUT /api/admin/orders/:id/status` | Observe a request targeting status confirmed while source-to-target transition rules remain unspecified. | EP-FR18-014 | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-052 | `PUT /api/admin/orders/:id/status` | Observe a request targeting status shipping while source-to-target transition rules remain unspecified. | EP-FR18-015 | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-053 | `PUT /api/admin/orders/:id/status` | Observe a request targeting status delivered while source-to-target transition rules remain unspecified. | EP-FR18-016 | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-054 | `PUT /api/admin/orders/:id/status` | Observe a request targeting status canceled while source-to-target transition rules remain unspecified. | EP-FR18-017 | EXPLORATORY | EXPLORATORY_ONLY |
 | TC-API-055 | `PUT /api/admin/orders/:id/status` | Verify non-Admin caller cannot update order status. | EP-FR18-006 | NEGATIVE | READY |
 | TC-API-056 | `PUT /api/admin/orders/:id/status` | Verify unauthenticated caller cannot update order status. | EP-FR18-007 | NEGATIVE | READY |
 | TC-API-057 | `PUT /api/admin/orders/:id/status` | Verify non-Bearer Authorization cannot update order status. | EP-FR18-008 | NEGATIVE | READY |
@@ -1077,8 +1077,8 @@ EXPLORATORY_ONLY: 39
 - **Identity**
   - Endpoint / operation: List coupons
   - Method: `GET /api/coupons`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §5.2; TB-FR09-008–TB-FR09-010
   - Parameter(s): P-FR09-006
@@ -1087,7 +1087,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR09-007
 - **Objective**
-  - Primary test objective: Verify list access using Admin-associated Bearer context once role enforcement is clarified.
+  - Primary test objective: Observe list access using Admin-associated Bearer context while role enforcement remains unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. Bearer-form token associated with Admin.
   - Resource/system state: Coupon-list contents/schema NOT SPECIFIED.
@@ -1097,14 +1097,14 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record acceptance/rejection/status.
+  - Schema Oracle: NOT SPECIFIED — record the returned representation if any.
+  - Semantic Oracle: NOT SPECIFIED — observe role-related handling without asserting an enforcement rule.
+  - State Oracle: NOT APPLICABLE.
 - **Cleanup Requirement**
   - NONE.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize Admin-associated Bearer handling without inventing role enforcement.
 
 #### TC-API-030
 
@@ -1791,8 +1791,8 @@ EXPLORATORY_ONLY: 39
 - **Identity**
   - Endpoint / operation: Update order status (Admin)
   - Method: `PUT /api/admin/orders/:id/status`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §6 and §6.2; TB-FR18-005–TB-FR18-010
   - Parameter(s): P-FR18-002–P-FR18-005
@@ -1801,7 +1801,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR18-001, BLK-FR18-004, BLK-FR18-005
 - **Objective**
-  - Primary test objective: Verify target status pending once an authoritative source-state rule exists.
+  - Primary test objective: Observe a request targeting status pending while source-to-target transition rules remain unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. 
   - Resource/system state: Existing order/current state as stated; transition matrix unresolved.
@@ -1811,22 +1811,22 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record status and response representation.
+  - Schema Oracle: NOT SPECIFIED — record the returned shape if any.
+  - Semantic Oracle: NOT SPECIFIED — observe handling of the documented target value without asserting transition validity.
+  - State Oracle: NOT SPECIFIED — record any externally visible result without asserting that the transition must occur.
 - **Cleanup Requirement**
   - Logical cleanup/fixture restoration if the operation mutates state.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize handling of documented target status pending; the case does not invent a source-to-target transition rule.
 
 #### TC-API-051
 
 - **Identity**
   - Endpoint / operation: Update order status (Admin)
   - Method: `PUT /api/admin/orders/:id/status`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §6 and §6.2; TB-FR18-005–TB-FR18-010
   - Parameter(s): P-FR18-002–P-FR18-005
@@ -1835,7 +1835,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR18-001, BLK-FR18-004, BLK-FR18-005
 - **Objective**
-  - Primary test objective: Verify target status confirmed once an authoritative source-state rule exists.
+  - Primary test objective: Observe a request targeting status confirmed while source-to-target transition rules remain unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. 
   - Resource/system state: Existing order/current state as stated; transition matrix unresolved.
@@ -1845,22 +1845,22 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record status and response representation.
+  - Schema Oracle: NOT SPECIFIED — record the returned shape if any.
+  - Semantic Oracle: NOT SPECIFIED — observe handling of the documented target value without asserting transition validity.
+  - State Oracle: NOT SPECIFIED — record any externally visible result without asserting that the transition must occur.
 - **Cleanup Requirement**
   - Logical cleanup/fixture restoration if the operation mutates state.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize handling of documented target status confirmed; the case does not invent a source-to-target transition rule.
 
 #### TC-API-052
 
 - **Identity**
   - Endpoint / operation: Update order status (Admin)
   - Method: `PUT /api/admin/orders/:id/status`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §6 and §6.2; TB-FR18-005–TB-FR18-010
   - Parameter(s): P-FR18-002–P-FR18-005
@@ -1869,7 +1869,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR18-001, BLK-FR18-004, BLK-FR18-005
 - **Objective**
-  - Primary test objective: Verify target status shipping once an authoritative source-state rule exists.
+  - Primary test objective: Observe a request targeting status shipping while source-to-target transition rules remain unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. 
   - Resource/system state: Existing order/current state as stated; transition matrix unresolved.
@@ -1879,22 +1879,22 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record status and response representation.
+  - Schema Oracle: NOT SPECIFIED — record the returned shape if any.
+  - Semantic Oracle: NOT SPECIFIED — observe handling of the documented target value without asserting transition validity.
+  - State Oracle: NOT SPECIFIED — record any externally visible result without asserting that the transition must occur.
 - **Cleanup Requirement**
   - Logical cleanup/fixture restoration if the operation mutates state.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize handling of documented target status shipping; the case does not invent a source-to-target transition rule.
 
 #### TC-API-053
 
 - **Identity**
   - Endpoint / operation: Update order status (Admin)
   - Method: `PUT /api/admin/orders/:id/status`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §6 and §6.2; TB-FR18-005–TB-FR18-010
   - Parameter(s): P-FR18-002–P-FR18-005
@@ -1903,7 +1903,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR18-001, BLK-FR18-004, BLK-FR18-005
 - **Objective**
-  - Primary test objective: Verify target status delivered once an authoritative source-state rule exists.
+  - Primary test objective: Observe a request targeting status delivered while source-to-target transition rules remain unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. 
   - Resource/system state: Existing order/current state as stated; transition matrix unresolved.
@@ -1913,22 +1913,22 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record status and response representation.
+  - Schema Oracle: NOT SPECIFIED — record the returned shape if any.
+  - Semantic Oracle: NOT SPECIFIED — observe handling of the documented target value without asserting transition validity.
+  - State Oracle: NOT SPECIFIED — record any externally visible result without asserting that the transition must occur.
 - **Cleanup Requirement**
   - Logical cleanup/fixture restoration if the operation mutates state.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize handling of documented target status delivered; the case does not invent a source-to-target transition rule.
 
 #### TC-API-054
 
 - **Identity**
   - Endpoint / operation: Update order status (Admin)
   - Method: `PUT /api/admin/orders/:id/status`
-  - Category: CONDITIONAL
-  - Executability: BLOCKED
+  - Category: EXPLORATORY
+  - Executability: EXPLORATORY_ONLY
 - **Traceability**
   - Requirement source: api_specification.md §6 and §6.2; TB-FR18-005–TB-FR18-010
   - Parameter(s): P-FR18-002–P-FR18-005
@@ -1937,7 +1937,7 @@ EXPLORATORY_ONLY: 39
   - BVA Reference: NONE — Prompt 004 found no supported executable boundary.
   - Blocker Reference: BLK-FR18-001, BLK-FR18-004, BLK-FR18-005
 - **Objective**
-  - Primary test objective: Verify target status canceled once an authoritative source-state rule exists.
+  - Primary test objective: Observe a request targeting status canceled while source-to-target transition rules remain unspecified.
 - **Preconditions**
   - Authentication context: Authorization context as stated by the case. 
   - Resource/system state: Existing order/current state as stated; transition matrix unresolved.
@@ -1947,14 +1947,14 @@ EXPLORATORY_ONLY: 39
 - **Execution**
   - 1. Establish the stated logical preconditions. 2. Construct the request with only the primary factor varied. 3. Submit during a later execution phase. 4. Evaluate only the supported oracle layers.
 - **Expected / Oracle**
-  - Transport Oracle: NOT SPECIFIED.
-  - Schema Oracle: NOT SPECIFIED.
-  - Semantic Oracle: NOT SPECIFIED.
-  - State Oracle: NOT SPECIFIED.
+  - Transport Oracle: NOT SPECIFIED — record status and response representation.
+  - Schema Oracle: NOT SPECIFIED — record the returned shape if any.
+  - Semantic Oracle: NOT SPECIFIED — observe handling of the documented target value without asserting transition validity.
+  - State Oracle: NOT SPECIFIED — record any externally visible result without asserting that the transition must occur.
 - **Cleanup Requirement**
   - Logical cleanup/fixture restoration if the operation mutates state.
 - **Notes**
-  - Logical case retained, but setup and/or oracle is blocked.
+  - Observation Goal: Characterize handling of documented target status canceled; the case does not invent a source-to-target transition rule.
 
 #### TC-API-055
 
@@ -2637,19 +2637,19 @@ BVA-derived concrete cases: 0
 
 Prompt 004 found no supported numeric, length, count, temporal, or ordered-discrete boundary. No concrete/symbolic boundary test or fabricated BVA ID was added.
 
-## H. Blocked Cases
+## H. Blocker-Affected Cases
 
 | Test ID | Blocker ID | Missing Information | Impact |
 | ------- | ---------- | ------------------- | ------ |
 | TC-API-013 | BLK-FR02-002, BLK-FR02-003, BLK-FR02-004 | Characterize repeated failed-login and any lock/unlock transition once rules exist. | No deterministic setup and/or oracle. |
 | TC-API-014 | BLK-FR09-002, BLK-FR09-003, BLK-FR09-004, BLK-FR09-005 | Verify documented coupon application for existing coupon/user and number-shaped total once eligibility/formula are known. | No deterministic setup and/or oracle. |
-| TC-API-029 | BLK-FR09-007 | Verify list access using Admin-associated Bearer context once role enforcement is clarified. | No deterministic setup and/or oracle. |
+| TC-API-029 | BLK-FR09-007 | Observe Admin-associated Bearer list access without asserting role enforcement. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; the blocker remains traceability context. |
 | TC-API-033 | BLK-FR09-001, BLK-FR09-002, BLK-FR09-003, BLK-FR09-005 | Verify coupon creation with Admin Bearer and all example-shaped fields once body validity is defined. | No deterministic setup and/or oracle. |
-| TC-API-050 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Verify target status pending once an authoritative source-state rule exists. | No deterministic setup and/or oracle. |
-| TC-API-051 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Verify target status confirmed once an authoritative source-state rule exists. | No deterministic setup and/or oracle. |
-| TC-API-052 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Verify target status shipping once an authoritative source-state rule exists. | No deterministic setup and/or oracle. |
-| TC-API-053 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Verify target status delivered once an authoritative source-state rule exists. | No deterministic setup and/or oracle. |
-| TC-API-054 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Verify target status canceled once an authoritative source-state rule exists. | No deterministic setup and/or oracle. |
+| TC-API-050 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Observe target status pending without asserting transition validity. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; blockers remain traceability context. |
+| TC-API-051 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Observe target status confirmed without asserting transition validity. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; blockers remain traceability context. |
+| TC-API-052 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Observe target status shipping without asserting transition validity. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; blockers remain traceability context. |
+| TC-API-053 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Observe target status delivered without asserting transition validity. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; blockers remain traceability context. |
+| TC-API-054 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | Observe target status canceled without asserting transition validity. | Prompt 008 reclassified the case as EXPLORATORY_ONLY; blockers remain traceability context. |
 | TC-API-067 | BLK-FR18-002, BLK-FR18-004 | Verify cancellation changes an order satisfying “chưa giao” to canceled once setup mapping exists. | No deterministic setup and/or oracle. |
 | TC-API-070 | BLK-FR18-002, BLK-FR18-004 | Verify cancellation is prohibited for an order not satisfying “chưa giao” once state mapping exists. | No deterministic setup and/or oracle. |
 
@@ -2724,7 +2724,9 @@ Prompt 004 found no supported numeric, length, count, temporal, or ordered-discr
 
 No automation or execution artifact was created.
 
-## M. Human Review Required
+## M. Historical Prompt 005 Human Review Checklist
+
+Prompt 005 originally requested the checks below. The student human review is now complete, and Prompt 008 application details are recorded in Section Q.
 
 - Confirm whether all 39 exploratory probes have sufficient information value.
 - Confirm retaining TC-API-013 despite absent normative lockout rules.
@@ -2734,7 +2736,7 @@ No automation or execution artifact was created.
 - Confirm rejection-with-unspecified-HTTP-code as an acceptable READY oracle.
 - Approve or revise the 73-case suite before test-data design.
 
-Status: PENDING STUDENT REVIEW
+Status: STUDENT HUMAN REVIEW COMPLETE; Prompt 008 corrections applied.
 
 ## N. Validation
 
@@ -2757,12 +2759,12 @@ Status: PENDING STUDENT REVIEW
 | four oracle layers separated | PASS |
 | unknown HTTP codes not invented | PASS |
 | coverage matrices exist | PASS |
-| human review pending | PASS |
+| student human review complete | PASS |
 | prompt logged exactly | PASS |
 
 ## O. Next Step
 
-After student review, derive concrete and reusable API test data for the approved logical test cases while preserving partition and requirement traceability.
+After the student human-added test extension, derive concrete and reusable API test data for the approved logical test cases while preserving partition and requirement traceability.
 
 
 ## P. Prompt 006 Scope-Compliant AI Expansion
@@ -2786,11 +2788,11 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | --- | --- | ---: |
 | Expected Classification | POSITIVE | 7 |
 | Expected Classification | NEGATIVE | 20 |
-| Expected Classification | CONDITIONAL | 27 |
-| Expected Classification | EXPLORATORY | 75 |
+| Expected Classification | CONDITIONAL | 15 |
+| Expected Classification | EXPLORATORY | 87 |
 | Readiness | READY | 27 |
-| Readiness | BLOCKED | 27 |
-| Readiness | EXPLORATORY_ONLY | 75 |
+| Readiness | BLOCKED | 15 |
+| Readiness | EXPLORATORY_ONLY | 87 |
 
 ## P.02 FR-02 New In-Scope Cases
 
@@ -3024,12 +3026,12 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Partition References | EP-FR02-001, EP-FR02-002 |
 | BVA References | N/A |
 | Security Reference | N/A |
-| Preconditions | A request representation capable of expressing duplicate members is available. |
-| Input Condition | Two email members represent conflicting account-association classes; password remains nominal. |
-| Action | Submit the login operation. |
+| Preconditions | A raw HTTP request method that preserves duplicate JSON member names is available for later execution. |
+| Input Condition | The raw JSON body contains two email members representing conflicting account-association classes; password remains nominal. |
+| Action | During test-data design, select and record one reproducible raw body, transmit it without serializer normalization, and record the observed handling. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | Observe parsing and response shape. |
-| Semantic Oracle | Observe which representation rule, rejection, or other handling occurs. |
+| Semantic Oracle | Observe selection, rejection, or other handling; no duplicate-member selection rule is asserted. |
 | State Oracle | UNSPECIFIED |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
@@ -3051,12 +3053,12 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Partition References | EP-FR02-006, EP-FR02-007 |
 | BVA References | N/A |
 | Security Reference | N/A |
-| Preconditions | A request representation capable of expressing duplicate members is available. |
-| Input Condition | Two password members represent matching and non-matching classes; email remains nominal. |
-| Action | Submit the login operation. |
+| Preconditions | A raw HTTP request method that preserves duplicate JSON member names is available for later execution. |
+| Input Condition | The raw JSON body contains two password members representing matching and non-matching classes; email remains nominal. |
+| Action | During test-data design, select and record one reproducible raw body, transmit it without serializer normalization, and record the observed handling. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | Observe parsing and response shape. |
-| Semantic Oracle | Observe which representation rule, rejection, or other handling occurs. |
+| Semantic Oracle | Observe selection, rejection, or other handling; no duplicate-member selection rule is asserted. |
 | State Oracle | UNSPECIFIED |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
@@ -3187,11 +3189,11 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | BVA References | N/A |
 | Security Reference | N/A |
 | Preconditions | The endpoint accepts an HTTP request body. |
-| Input Condition | Body representation is not parseable as JSON; no concrete malformed string is defined. |
-| Action | Invoke login with the malformed-representation class. |
+| Input Condition | A concrete, reproducible non-parseable JSON representation must be selected and recorded during test-data design. |
+| Action | Transmit the selected raw body without serializer repair or normalization, then record the response. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | Observe response status, media type, and body shape. |
-| Semantic Oracle | Observe parser-level handling without an attack payload. |
+| Semantic Oracle | Observe parser-level handling; no HTTP status or error schema is asserted. |
 | State Oracle | UNSPECIFIED |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
@@ -3377,10 +3379,10 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Security Reference | N/A |
 | Preconditions | An existing account and matching credential pair are available. |
 | Input Condition | Documented matching credential classes. |
-| Action | Submit login and inspect only the returned user-information field set. |
+| Action | Submit login, enumerate the returned user-information fields, and compare them with fields documented as necessary or allowed by the verified requirements. |
 | Transport Oracle | 200 OK. |
-| Schema Oracle | User information is present; allowed and forbidden internal fields are UNSPECIFIED. |
-| Semantic Oracle | Record exposed field names for human security review without inventing a forbidden-field list. |
+| Schema Oracle | User information is present; any additional undocumented fields are recorded for human review rather than automatically failed. |
+| Semantic Oracle | Compare exposure against the documented necessary/allowed field set; no forbidden-field catalog is invented. |
 | State Oracle | UNSPECIFIED |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
@@ -3674,11 +3676,11 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | BVA References | N/A |
 | Security Reference | N/A |
 | Preconditions | An existing coupon/user combination is available. |
-| Input Condition | total_amount is numeric with a very large representable magnitude; no concrete threshold is claimed. |
-| Action | Apply the coupon. |
+| Input Condition | total_amount is numeric with a reproducible concrete large magnitude selected during test-data design; the exact value and numeric representation must be recorded. |
+| Action | Apply the coupon using the recorded value and representation. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | Observe the response representation. |
-| Semantic Oracle | Observe numeric handling without treating any invented magnitude as a boundary. |
+| Semantic Oracle | Observe numeric handling; the selected magnitude is test data, not a specification boundary. |
 | State Oracle | UNSPECIFIED |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
@@ -3734,8 +3736,8 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Schema Oracle | UNSPECIFIED |
 | Semantic Oracle | Calculation behavior is UNSPECIFIED after repeated use. |
 | State Oracle | Usage persistence and enforcement are UNSPECIFIED. |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-005, BLK-FR09-006 |
 | Coverage Added | Per-user usage state |
 | Why Non-Duplicate | No existing case targets state persistence across applications. |
@@ -3761,8 +3763,8 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Schema Oracle | Observe the response representation. |
 | Semantic Oracle | Eligibility result is UNSPECIFIED because expiration semantics are absent. |
 | State Oracle | UNSPECIFIED |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR09-002, BLK-FR09-006 |
 | Coverage Added | Expiration eligibility condition |
 | Why Non-Duplicate | Non-existing code is already covered; this adds a distinct existing-but-expired condition. |
@@ -3815,8 +3817,8 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Schema Oracle | Observe the response representation. |
 | Semantic Oracle | Observe the relationship outcome without asserting threshold semantics. |
 | State Oracle | UNSPECIFIED |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
 | Coverage Added | Minimum-order relational class |
 | Why Non-Duplicate | Adds a cross-field relation supported by the documented coupon-management model, not an invented numeric boundary. |
@@ -3842,8 +3844,8 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Schema Oracle | Observe the response representation. |
 | Semantic Oracle | Observe equality handling without claiming inclusive/exclusive semantics. |
 | State Oracle | UNSPECIFIED |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 |
 | Coverage Added | Minimum-order equality relation |
 | Why Non-Duplicate | Complements the below relation with the equality interaction needed to learn inclusivity. |
@@ -3864,13 +3866,13 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Security Reference | N/A |
 | Preconditions | A coupon with observable discount type/value attributes exists. |
 | Input Condition | Nominal application inputs target one documented stored coupon configuration. |
-| Action | Apply the coupon and compare returned amounts to the coupon configuration only after rules are supplied. |
+| Action | Apply the coupon and record returned amounts alongside the observable coupon configuration. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | Documented response fields are expected; their types remain UNSPECIFIED. |
 | Semantic Oracle | Formula and rounding outcome are UNSPECIFIED. |
 | State Oracle | UNSPECIFIED |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR09-003, BLK-FR09-006 |
 | Coverage Added | Discount-configuration interaction |
 | Why Non-Duplicate | Adds business-rule interaction coverage rather than another code/input validity case. |
@@ -4194,8 +4196,8 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Schema Oracle | UNSPECIFIED |
 | Semantic Oracle | Same-state update semantics are UNSPECIFIED. |
 | State Oracle | Idempotence and resulting state behavior are UNSPECIFIED. |
-| Expected Classification | CONDITIONAL |
-| Readiness | BLOCKED |
+| Expected Classification | EXPLORATORY |
+| Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
 | Coverage Added | Same-state transition condition |
 | Why Non-Duplicate | TC-API-050–054 cover target values, not the source-equals-target relation. |
@@ -4241,13 +4243,13 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Partition References | EP-FR18-009, EP-FR18-013 |
 | BVA References | N/A |
 | Security Reference | N/A |
-| Preconditions | Two existing orders and an authenticated Admin are available; an allowed transition is established once rules exist. |
-| Input Condition | One order identifier is targeted; another order acts as a non-target control. |
-| Action | Update the targeted order and observe both orders through an available in-scope read. |
+| Preconditions | Two distinguishable existing orders and an authenticated Admin are available; the exact order IDs and initial statuses are recorded through the Admin list operation. |
+| Input Condition | One recorded order identifier is targeted; the other recorded order is the non-target control. |
+| Action | Capture both orders before the request, update the targeted order, capture both through the Admin list again, and compare by order ID. |
 | Transport Oracle | UNSPECIFIED |
 | Schema Oracle | UNSPECIFIED |
-| Semantic Oracle | Observe whether only the identified order is affected; exact transition result remains dependent on rules. |
-| State Oracle | Observe target and non-target states without inventing transition semantics. |
+| Semantic Oracle | Compare target and non-target observations by ID; the exact transition result remains unspecified. |
+| State Oracle | Record the target result and verify whether the non-target control changed, without inventing source-to-target transition semantics. |
 | Expected Classification | EXPLORATORY |
 | Readiness | EXPLORATORY_ONLY |
 | Blocker | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 |
@@ -4307,3 +4309,167 @@ This section adds exactly 56 in-scope, quota-eligible logical cases after the sc
 | Blocker | BLK-FR18-005, BLK-FR18-006, BLK-ALL-001 |
 | Coverage Added | Authorization × validation precedence |
 | Why Non-Duplicate | TC-API-055 and TC-API-061 isolate each fault; this case deliberately studies their interaction. |
+
+
+## Q. Prompt 008 Human Audit Application
+
+Student-owned decisions, reasons, and correction decisions below are copied verbatim from the completed worksheet. `Applied` records only the implementation outcome: `YES`, `NOT_REQUIRED`, or `BLOCKED`.
+
+| Test ID | Decision | Reason | Correction | Applied | Final Classification | Final Readiness |
+| --- | --- | --- | --- | --- | --- | --- |
+| TC-API-001 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-002 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-003 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-004 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-005 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-006 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-007 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-008 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-009 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-010 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-011 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-012 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-013 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-014 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-015 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-016 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-017 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-018 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-019 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-020 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-021 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-022 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-023 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-024 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-025 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-026 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-027 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-028 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-029 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-030 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-031 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-032 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-033 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-034 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-035 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-036 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-037 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-038 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-039 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-040 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-041 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-042 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-043 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-044 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-045 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-046 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-047 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-048 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-049 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-050 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-051 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-052 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-053 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-054 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-055 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-056 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-057 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-058 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-059 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-060 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-061 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-062 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-063 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-064 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-065 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-066 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-067 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-068 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-069 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-070 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-071 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-072 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | NEGATIVE | READY |
+| TC-API-073 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-074 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-075 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-076 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-077 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-078 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-079 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-080 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-081 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-082 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-083 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-084 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-085 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-086 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-087 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-088 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-089 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-090 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-091 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-092 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-093 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-094 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-095 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-096 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-097 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-098 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-099 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-100 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-101 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-102 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-103 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-104 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-105 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-106 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-107 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-108 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-109 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-110 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-111 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-112 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-113 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-114 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-115 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-116 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-117 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-118 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-119 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-120 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-121 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-122 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-123 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-124 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-125 | INCOMPLETE | The objective is meaningful, but the specification does not define the deterministic rule required by the current design; it should be retained as an exploratory observation instead. | RECLASSIFY_EXPLORATORY | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-126 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-127 | INCOMPLETE | The exploratory objective is useful, but the input representation or observation criterion must be made reproducible before execution. | COMPLETE | YES | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-128 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-129 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+
+### Completed logical-design refinements
+
+| Test IDs | Applied refinement |
+| --- | --- |
+| TC-API-082–TC-API-083 | Later execution uses a recorded raw HTTP representation that preserves duplicate member names; the observation does not assert which duplicate value must win. |
+| TC-API-088 | Test-data design must select and record one reproducible malformed raw JSON representation; status and error schema remain unspecified. |
+| TC-API-095 | Returned user fields are compared with fields documented as necessary/allowed; additional fields are recorded for human review without inventing a forbidden-field catalog. |
+| TC-API-106 | Test-data design must record one concrete large numeric magnitude and representation; it is explicitly not treated as a specification boundary. |
+| TC-API-127 | Two distinguishable orders are captured before and after the targeted update and compared by ID; the transition result remains unspecified. |
+
+### COMPLETE decisions that remain blocked
+
+| Test ID | Information or setup required before execution |
+| --- | --- |
+| TC-API-013 | Authoritative lockout trigger, counter, duration/reset rule, and observable account-state setup. |
+| TC-API-014 | Authoritative coupon applicability, eligibility/usage, calculation, and response-schema rules. |
+| TC-API-033 | Authoritative coupon-create field validity, requiredness, constraints, and success response contract. |
+| TC-API-067 | Authoritative mapping of “chưa giao” to order status plus allowed cancellation source states. |
+| TC-API-070 | Reproducible user/order ownership context and the authorization/session rule for cancellation. |
+| TC-API-089 | Authoritative JWT issuance, reuse, and lifecycle rule plus an observable comparison criterion. |
+| TC-API-090–TC-API-093 | Authoritative failed-attempt counter, reset, threshold, duration, unlock, and observable account-state rules. |
+| TC-API-096–TC-API-098 | Authoritative successful coupon-application response schema and a reproducible successful application setup. |
+| TC-API-126 | Authoritative concurrency/conflict semantics and a reproducible way to coordinate competing updates. |
+| TC-API-128 | Authoritative transition rule and observable persistence/read-after-write contract. |
+
+All 129 IDs remain active, quota-eligible where originally in scope, and historically `AI_GENERATED`. No requirement, schema, lockout rule, coupon rule, or order-transition rule was invented.
