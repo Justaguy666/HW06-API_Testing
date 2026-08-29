@@ -1,38 +1,33 @@
-# Student Extension Candidate Worksheet
+# Prompt 010 — AI-Assisted Extension Candidate Population
 
-## IMPORTANT AUTHORSHIP NOTE
+## 1. Executive Summary
 
-```text
-IMPORTANT AUTHORSHIP NOTE
+| Metric | FR-02 | FR-09 | FR-18 | Total |
+| --- | ---: | ---: | ---: | ---: |
+| Candidates generated | 8 | 8 | 8 | 24 |
+| Non-duplicate | 5 | 5 | 5 | 15 |
+| Partial overlap but adds value | 3 | 3 | 3 | 9 |
+| Blocked by spec | 5 | 4 | 4 | 13 |
+| Ready for data design | 2 | 0 | 2 | 4 |
+| Needs refinement | 1 | 4 | 2 | 7 |
 
-The candidate ideas in this worksheet were produced with AI
-assistance during Prompt 010.
+All 24 worksheet slots are populated as `AI_ASSISTED_CANDIDATE`. None is adopted, labeled `HUMAN_ADDED`, or integrated into the 129-test suite.
 
-They are not yet classified as HUMAN_ADDED.
+## 2. Existing Suite Baseline
 
-The student must independently review, modify where needed,
-and explicitly ACCEPT or REJECT each candidate before any
-candidate may be integrated into the executable test suite.
-```
+The duplicate baseline is TC-API-001–TC-API-129:
 
-All 24 entries are `AI_ASSISTED_CANDIDATE`. The `STUDENT-FRxx-nn` labels are worksheet slot identifiers, not adopted testcase IDs and not evidence of student authorship.
+- Historical AI-generated cases: 129.
+- Human decisions: 96 VALID, 33 INCOMPLETE, 0 INVALID.
+- Final readiness: 27 READY, 15 BLOCKED, 87 EXPLORATORY_ONLY.
+- Active quota-eligible cases: FR-02 35, FR-09 35, FR-18 35.
+- Requirement traceability: 36/36 TB accounted for.
+- Partition traceability: 91/91 EP accounted for.
+- Confirmed UNTESTED_AND_TESTABLE EPs: 0.
 
-```text
-FIRST HUMAN EXTENSION REVIEW
+Candidate novelty therefore depends on a new interaction, sequence, oracle, persistence relationship, recovery behavior, isolation focus, security focus, or production-risk focus—not a new literal or single-factor EP variant.
 
-Student assessment:
-No obvious AI-missed testcase was identified during the
-first manual review of the 129-case AI-generated suite.
-
-Extension requirement status:
-NOT YET SATISFIED
-```
-
-## Student Review Instructions
-
-For each candidate, the student must independently choose `ACCEPT`, `MODIFY`, or `REJECT` and provide a reason. Adoption decisions remain the only pending fields. Candidate acceptance does not occur in Prompt 010.
-
-## FR-02
+## 3. FR-02 Candidates
 
 ### STUDENT-FR02-01
 
@@ -522,7 +517,7 @@ Student Adoption Reason:
 PENDING STUDENT DECISION
 ```
 
-## FR-09
+## 4. FR-09 Candidates
 
 ### STUDENT-FR09-01
 
@@ -1012,7 +1007,7 @@ Student Adoption Reason:
 PENDING STUDENT DECISION
 ```
 
-## FR-18
+## 5. FR-18 Candidates
 
 ### STUDENT-FR18-01
 
@@ -1502,47 +1497,351 @@ Student Adoption Reason:
 PENDING STUDENT DECISION
 ```
 
-## Student Reflection Questions
+## 6. Existing-Suite Duplicate Audit
 
-### FR-02
+| Candidate ID | Closest Existing TC | Same Objective? | New Interaction? | New Oracle? | New Sequence? | Final Duplicate Assessment |
+| --- | --- | --- | --- | --- | --- | --- |
+| STUDENT-FR02-01 | TC-API-013, TC-API-092 | NO | NO | YES | NO | NON_DUPLICATE |
+| STUDENT-FR02-02 | TC-API-013, TC-API-077, TC-API-094 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR02-03 | TC-API-001, TC-API-088 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR02-04 | TC-API-074, TC-API-075, TC-API-076, TC-API-091 | PARTIAL | NO | YES | YES | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR02-05 | TC-API-012, TC-API-092 | NO | YES | YES | NO | NON_DUPLICATE |
+| STUDENT-FR02-06 | TC-API-001, TC-API-089 | PARTIAL | YES | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR02-07 | TC-API-076, TC-API-084, TC-API-086 | PARTIAL | YES | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR02-08 | TC-API-089, TC-API-091, TC-API-093 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR09-01 | TC-API-014, TC-API-033, TC-API-039 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR09-02 | TC-API-108, TC-API-110 | PARTIAL | NO | YES | YES | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR09-03 | TC-API-107, TC-API-108 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR09-04 | TC-API-099, TC-API-108, TC-API-111, TC-API-112 | NO | YES | YES | NO | NON_DUPLICATE |
+| STUDENT-FR09-05 | TC-API-029, TC-API-033, TC-API-039 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR09-06 | TC-API-108 | PARTIAL | YES | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR09-07 | TC-API-108, TC-API-109, TC-API-111, TC-API-112 | PARTIAL | NO | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR09-08 | TC-API-107, TC-API-109, TC-API-111 | NO | YES | YES | NO | NON_DUPLICATE |
+| STUDENT-FR18-01 | TC-API-127, TC-API-128 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR18-02 | TC-API-055, TC-API-128 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR18-03 | TC-API-050, TC-API-061, TC-API-128 | NO | NO | YES | YES | NON_DUPLICATE |
+| STUDENT-FR18-04 | TC-API-125, TC-API-128 | PARTIAL | NO | YES | YES | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR18-05 | TC-API-046, TC-API-050, TC-API-117 | NO | YES | YES | NO | NON_DUPLICATE |
+| STUDENT-FR18-06 | TC-API-120, TC-API-128 | PARTIAL | YES | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
+| STUDENT-FR18-07 | TC-API-121, TC-API-127, TC-API-128 | NO | NO | YES | NO | NON_DUPLICATE |
+| STUDENT-FR18-08 | TC-API-055, TC-API-127, TC-API-129 | PARTIAL | YES | YES | NO | PARTIAL_OVERLAP_BUT_ADDS_VALUE |
 
-- Which candidates express a risk I independently consider important?
-- Which candidates need modification before they represent my own intended test?
-- Which five candidates add the clearest value beyond the existing FR-02 suite?
+No candidate is `DUPLICATE_REJECTED`. Candidates with partial overlap retain a concrete new oracle, sequence, or interaction.
 
-### FR-09
+## 7. Cross-Candidate Duplicate Audit
 
-- Which candidates isolate a coupon risk I independently want to investigate?
-- Which candidates remain too dependent on unspecified coupon rules?
-- Which five candidates add the clearest value beyond the existing FR-09 suite?
+| Candidate A | Candidate B | Overlap | Decision |
+| --- | --- | --- | --- |
+| STUDENT-FR02-01 | STUDENT-FR02-02 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-01 | STUDENT-FR02-03 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-01 | STUDENT-FR02-04 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-01 | STUDENT-FR02-05 | Shared NEW_STATE_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-01 | STUDENT-FR02-06 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-01 | STUDENT-FR02-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-01 | STUDENT-FR02-08 | Limited shared NEW_STATE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-02 | STUDENT-FR02-03 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-02 | STUDENT-FR02-04 | Shared NEW_SEQUENCE + NEW_CONSISTENCY_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-02 | STUDENT-FR02-05 | Limited shared NEW_SECURITY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-02 | STUDENT-FR02-06 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-02 | STUDENT-FR02-07 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-02 | STUDENT-FR02-08 | Shared NEW_SEQUENCE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-03 | STUDENT-FR02-04 | Shared NEW_SEQUENCE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-03 | STUDENT-FR02-05 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-03 | STUDENT-FR02-06 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-03 | STUDENT-FR02-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-03 | STUDENT-FR02-08 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-04 | STUDENT-FR02-05 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR02-04 | STUDENT-FR02-06 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-04 | STUDENT-FR02-07 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-04 | STUDENT-FR02-08 | Shared NEW_SEQUENCE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-05 | STUDENT-FR02-06 | Limited shared NEW_INTERACTION; distinct target relationship | DISTINCT |
+| STUDENT-FR02-05 | STUDENT-FR02-07 | Limited shared NEW_INTERACTION; distinct target relationship | DISTINCT |
+| STUDENT-FR02-05 | STUDENT-FR02-08 | Limited shared NEW_STATE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-06 | STUDENT-FR02-07 | Limited shared NEW_INTERACTION + NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR02-06 | STUDENT-FR02-08 | Shared feature risk; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR02-07 | STUDENT-FR02-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-01 | STUDENT-FR09-02 | Shared NEW_SEQUENCE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-01 | STUDENT-FR09-03 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-01 | STUDENT-FR09-04 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-01 | STUDENT-FR09-05 | Shared NEW_SEQUENCE + NEW_PERSISTENCE_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-01 | STUDENT-FR09-06 | Limited shared NEW_PERSISTENCE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-01 | STUDENT-FR09-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-01 | STUDENT-FR09-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-02 | STUDENT-FR09-03 | Limited shared NEW_SEQUENCE + NEW_STATE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-02 | STUDENT-FR09-04 | Limited shared NEW_STATE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-02 | STUDENT-FR09-05 | Limited shared NEW_SEQUENCE + NEW_ISOLATION_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-02 | STUDENT-FR09-06 | Shared feature risk; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-02 | STUDENT-FR09-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-02 | STUDENT-FR09-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-03 | STUDENT-FR09-04 | Limited shared NEW_STATE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-03 | STUDENT-FR09-05 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-03 | STUDENT-FR09-06 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-03 | STUDENT-FR09-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-03 | STUDENT-FR09-08 | Shared feature risk; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-04 | STUDENT-FR09-05 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-04 | STUDENT-FR09-06 | Shared NEW_INTERACTION; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-04 | STUDENT-FR09-07 | Shared NEW_CONSISTENCY_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR09-04 | STUDENT-FR09-08 | Limited shared NEW_INTERACTION; distinct target relationship | DISTINCT |
+| STUDENT-FR09-05 | STUDENT-FR09-06 | Limited shared NEW_PERSISTENCE_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR09-05 | STUDENT-FR09-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-05 | STUDENT-FR09-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR09-06 | STUDENT-FR09-07 | Limited shared NEW_RISK_FOCUS; distinct target relationship | DISTINCT |
+| STUDENT-FR09-06 | STUDENT-FR09-08 | Limited shared NEW_INTERACTION + NEW_RISK_FOCUS; distinct target relationship | DISTINCT |
+| STUDENT-FR09-07 | STUDENT-FR09-08 | Shared NEW_RISK_FOCUS; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-01 | STUDENT-FR18-02 | Limited shared NEW_SEQUENCE + NEW_ISOLATION_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-01 | STUDENT-FR18-03 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-01 | STUDENT-FR18-04 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-01 | STUDENT-FR18-05 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-01 | STUDENT-FR18-06 | Shared feature risk; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-01 | STUDENT-FR18-07 | Limited shared NEW_ISOLATION_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-01 | STUDENT-FR18-08 | Shared NEW_ISOLATION_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-02 | STUDENT-FR18-03 | Limited shared NEW_SEQUENCE + NEW_RECOVERY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-02 | STUDENT-FR18-04 | Limited shared NEW_SEQUENCE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-02 | STUDENT-FR18-05 | Limited shared NEW_SECURITY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-02 | STUDENT-FR18-06 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-02 | STUDENT-FR18-07 | Limited shared NEW_ISOLATION_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-02 | STUDENT-FR18-08 | Shared NEW_SECURITY_ORACLE + NEW_ISOLATION_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-03 | STUDENT-FR18-04 | Shared NEW_SEQUENCE + NEW_STATE_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-03 | STUDENT-FR18-05 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-03 | STUDENT-FR18-06 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-03 | STUDENT-FR18-07 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-03 | STUDENT-FR18-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-04 | STUDENT-FR18-05 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-04 | STUDENT-FR18-06 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-04 | STUDENT-FR18-07 | Shared NEW_CONSISTENCY_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-04 | STUDENT-FR18-08 | No material objective/oracle overlap | DISTINCT |
+| STUDENT-FR18-05 | STUDENT-FR18-06 | Shared NEW_INTERACTION + NEW_CONSISTENCY_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
+| STUDENT-FR18-05 | STUDENT-FR18-07 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-05 | STUDENT-FR18-08 | Limited shared NEW_INTERACTION + NEW_SECURITY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-06 | STUDENT-FR18-07 | Limited shared NEW_CONSISTENCY_ORACLE; distinct target relationship | DISTINCT |
+| STUDENT-FR18-06 | STUDENT-FR18-08 | Limited shared NEW_INTERACTION; distinct target relationship | DISTINCT |
+| STUDENT-FR18-07 | STUDENT-FR18-08 | Shared NEW_ISOLATION_ORACLE; objectives and operation sequences remain different | ACCEPTABLE_PARTIAL_OVERLAP |
 
-### FR-18
+All 84 within-feature pairs were compared. No pair requires `REPLACE`.
 
-- Which candidates isolate the most important Admin mutation or authorization risk?
-- Which candidates remain too dependent on an unspecified transition matrix?
-- Which five candidates add the clearest value beyond the existing FR-18 suite?
+## 8. Coverage Delta Summary
 
-## Future Duplicate-Check Procedure
+| Coverage Delta | FR-02 Count | FR-09 Count | FR-18 Count |
+| --- | ---: | ---: | ---: |
+| NEW_INTERACTION | 3 | 3 | 3 |
+| NEW_SEQUENCE | 4 | 4 | 4 |
+| NEW_STATE_ORACLE | 3 | 3 | 2 |
+| NEW_SECURITY_ORACLE | 2 | 1 | 3 |
+| NEW_SCHEMA_ORACLE | 1 | 1 | 1 |
+| NEW_PERSISTENCE_ORACLE | 1 | 3 | 1 |
+| NEW_ISOLATION_ORACLE | 1 | 2 | 4 |
+| NEW_RECOVERY_ORACLE | 1 | 1 | 2 |
+| NEW_CONSISTENCY_ORACLE | 4 | 2 | 4 |
+| NEW_RISK_FOCUS | 1 | 3 | 1 |
 
-For every candidate the student later accepts or modifies:
+Counts are non-exclusive because one candidate may add multiple deltas.
 
-1. Compare its logical objective with TC-API-001–TC-API-129.
-2. Compare its TB and EP traceability.
-3. Compare actor, state relation, sequence, security objective, and oracle.
-4. Confirm that at least one declared coverage delta remains after modification.
-5. Reclassify as `DUPLICATE` if no meaningful delta remains; otherwise retain as `POTENTIALLY_NEW`.
+## 9. Technique Diversity
 
-## Student Extension Authorship Record
+| Feature | Primary Technique | Count | Candidate IDs |
+| --- | --- | ---: | --- |
+| FR-02 | Risk-Based Testing | 1 | STUDENT-FR02-01 |
+| FR-02 | Sequence Testing | 1 | STUDENT-FR02-02 |
+| FR-02 | Error Guessing | 1 | STUDENT-FR02-03 |
+| FR-02 | Contract Testing | 1 | STUDENT-FR02-04 |
+| FR-02 | Security Testing | 1 | STUDENT-FR02-05 |
+| FR-02 | Robustness Testing | 1 | STUDENT-FR02-06 |
+| FR-02 | Pairwise / Interaction Testing | 1 | STUDENT-FR02-07 |
+| FR-02 | State Transition Testing | 1 | STUDENT-FR02-08 |
+| FR-09 | Sequence Testing | 1 | STUDENT-FR09-01 |
+| FR-09 | State Transition Testing | 1 | STUDENT-FR09-02 |
+| FR-09 | Error Guessing | 1 | STUDENT-FR09-03 |
+| FR-09 | Pairwise / Interaction Testing | 1 | STUDENT-FR09-04 |
+| FR-09 | Contract Testing | 1 | STUDENT-FR09-05 |
+| FR-09 | Robustness Testing | 1 | STUDENT-FR09-06 |
+| FR-09 | Risk-Based Testing | 1 | STUDENT-FR09-07 |
+| FR-09 | Security Testing | 1 | STUDENT-FR09-08 |
+| FR-18 | Sequence Testing | 1 | STUDENT-FR18-01 |
+| FR-18 | Security Testing | 1 | STUDENT-FR18-02 |
+| FR-18 | Error Guessing | 1 | STUDENT-FR18-03 |
+| FR-18 | State Transition Testing | 1 | STUDENT-FR18-04 |
+| FR-18 | Risk-Based Testing | 1 | STUDENT-FR18-05 |
+| FR-18 | Robustness Testing | 1 | STUDENT-FR18-06 |
+| FR-18 | Contract Testing | 1 | STUDENT-FR18-07 |
+| FR-18 | Pairwise / Interaction Testing | 1 | STUDENT-FR18-08 |
 
-| Candidate Slot | Date Reviewed | Candidate Origin | Student Adoption Decision | Student Modification / Authorship Note | Later AI Validation Allowed? |
-| --- | --- | --- | --- | --- | --- |
-| To be completed after review | PENDING | AI_ASSISTED_CANDIDATE | PENDING STUDENT DECISION | PENDING STUDENT DECISION | YES |
+Each feature uses eight distinct primary techniques; no technique exceeds the maximum of two candidates.
 
-## Extension Status
+## 10. Blocker Analysis
+
+| Candidate ID | Existing Blocker IDs | Blocked/limited aspect | Execution Feasibility |
+| --- | --- | --- | --- |
+| STUDENT-FR02-01 | BLK-FR02-002, BLK-FR02-003, BLK-FR02-004 | lockout trigger, duration, and failure contract are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR02-02 | BLK-FR02-002, BLK-FR02-004 | attempt threshold and failure response contract are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR02-03 | BLK-FR02-004 | the first response status/schema is unspecified; the documented success oracle remains available for the second request. | READY_FOR_DATA_DESIGN |
+| STUDENT-FR02-04 | BLK-FR02-002, BLK-FR02-004, BLK-FR02-005 | failure-state setup and full user/error schemas are incomplete. | BLOCKED_BY_SPEC |
+| STUDENT-FR02-05 | BLK-FR02-002, BLK-FR02-003, BLK-FR02-004, BLK-ALL-001 | lockout and security mappings are unavailable. | BLOCKED_BY_SPEC |
+| STUDENT-FR02-06 | BLK-FR02-006 | JWT lifecycle and issuance relationships are unspecified. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR02-07 | BLK-FR02-001, BLK-FR02-005 | normalization rules and user identity schema are incomplete. | READY_FOR_DATA_DESIGN |
+| STUDENT-FR02-08 | BLK-FR02-002, BLK-FR02-003, BLK-FR02-006 | lockout setup/recovery and token lifecycle are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR09-01 | BLK-FR09-001, BLK-FR09-002, BLK-FR09-003, BLK-FR09-006 | creation validity, applicability, calculation, and responses are incomplete. | BLOCKED_BY_SPEC |
+| STUDENT-FR09-02 | BLK-FR09-002, BLK-FR09-005, BLK-FR09-006 | eligibility, usage persistence, and response details are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR09-03 | BLK-FR09-004, BLK-FR09-005, BLK-FR09-006 | identity authorization, usage effects, and failure response are undefined. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR09-04 | BLK-FR09-002, BLK-FR09-003, BLK-FR09-005, BLK-FR09-006 | eligibility, formula, usage, and response types are incomplete. | BLOCKED_BY_SPEC |
+| STUDENT-FR09-05 | BLK-FR09-001, BLK-FR09-006, BLK-FR09-007 | creation validity, response schema, and list role enforcement are incomplete. | BLOCKED_BY_SPEC |
+| STUDENT-FR09-06 | BLK-FR09-002, BLK-FR09-005, BLK-FR09-006 | eligibility, usage persistence, and response details are undefined. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR09-07 | BLK-FR09-002, BLK-FR09-005, BLK-FR09-006 | business-condition setup, usage, and response contracts are incomplete. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR09-08 | BLK-FR09-002, BLK-FR09-004, BLK-FR09-005, BLK-FR09-006, BLK-ALL-001 | identity, eligibility, usage, response, and SEC mappings are incomplete. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR18-01 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | valid transitions, persistence, and response contracts are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR18-02 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005, BLK-FR18-006 | transition setup and exact failure/success responses are incomplete. | BLOCKED_BY_SPEC |
+| STUDENT-FR18-03 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | source-to-target validity and response/persistence details are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR18-04 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | idempotence, transition, and response rules are undefined. | BLOCKED_BY_SPEC |
+| STUDENT-FR18-05 | BLK-FR18-001, BLK-FR18-005, BLK-ALL-001 | transition/response details and SEC mappings are incomplete. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR18-06 | BLK-FR18-001, BLK-FR18-004, BLK-FR18-005 | transition, snapshot, persistence, and response details are undefined. | NEEDS_TEST_DATA_REFINEMENT |
+| STUDENT-FR18-07 | BLK-FR18-001, BLK-FR18-005 | transition and response schemas are incomplete. | READY_FOR_DATA_DESIGN |
+| STUDENT-FR18-08 | BLK-FR18-005, BLK-FR18-006 | exact failure status/schema and list/update response details are incomplete. | READY_FOR_DATA_DESIGN |
+
+Blockers constrain oracle strength or setup. They are preserved and are not converted into requirements.
+
+## 11. Priority Ranking
+
+| Feature | Priority | Candidate ID | Risk / value focus | Duplicate Assessment | Feasibility |
+| --- | ---: | --- | --- | --- | --- |
+| FR-02 | 1 | STUDENT-FR02-01 | Account-state isolation across credentials and repeated requests. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-02 | 2 | STUDENT-FR02-02 | Cross-request failure-contract consistency during state evolution. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-02 | 3 | STUDENT-FR02-03 | Parser/error recovery followed by nominal authentication. | NON_DUPLICATE | READY_FOR_DATA_DESIGN |
+| FR-02 | 4 | STUDENT-FR02-04 | Success-contract consistency after prior authentication failures. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | BLOCKED_BY_SPEC |
+| FR-02 | 5 | STUDENT-FR02-06 | Concurrent successful-login response and token consistency. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-02 | 6 | STUDENT-FR02-08 | Token issuance relationship across account-state recovery. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-02 | 7 | STUDENT-FR02-05 | Authorization-header × account-state security interaction on login. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-02 | 8 | STUDENT-FR02-07 | Credential-representation × returned-identity consistency. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | READY_FOR_DATA_DESIGN |
+| FR-09 | 1 | STUDENT-FR09-01 | Coupon management-to-application lifecycle persistence. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-09 | 2 | STUDENT-FR09-05 | Coupon-management read-after-write persistence and identity correlation. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-09 | 3 | STUDENT-FR09-02 | Interleaved cross-user usage-state isolation. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | BLOCKED_BY_SPEC |
+| FR-09 | 4 | STUDENT-FR09-03 | Identity-mismatch failure recovery and side-effect isolation. | NON_DUPLICATE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-09 | 5 | STUDENT-FR09-06 | Coordinated duplicate-application risk and persistence. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-09 | 6 | STUDENT-FR09-04 | Total-amount variation × repeated-use state and response consistency. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-09 | 7 | STUDENT-FR09-08 | Authorization/identity × business-condition precedence. | NON_DUPLICATE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-09 | 8 | STUDENT-FR09-07 | Cross-condition business-failure response consistency. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-18 | 1 | STUDENT-FR18-02 | Unauthorized mutation isolation within an authorized operation sequence. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-18 | 2 | STUDENT-FR18-01 | Sequential multi-order mutation isolation and persistence. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-18 | 3 | STUDENT-FR18-03 | Validation-failure recovery and state continuity. | NON_DUPLICATE | BLOCKED_BY_SPEC |
+| FR-18 | 4 | STUDENT-FR18-07 | Path-to-response-to-list resource identity consistency. | NON_DUPLICATE | READY_FOR_DATA_DESIGN |
+| FR-18 | 5 | STUDENT-FR18-08 | Authorization × target/non-target mutation isolation. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | READY_FOR_DATA_DESIGN |
+| FR-18 | 6 | STUDENT-FR18-06 | Concurrent read/update cross-request consistency. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | NEEDS_TEST_DATA_REFINEMENT |
+| FR-18 | 7 | STUDENT-FR18-04 | Read-before/read-after consistency for same-state mutation. | PARTIAL_OVERLAP_BUT_ADDS_VALUE | BLOCKED_BY_SPEC |
+| FR-18 | 8 | STUDENT-FR18-05 | Multi-Admin actor consistency across read and mutation operations. | NON_DUPLICATE | NEEDS_TEST_DATA_REFINEMENT |
+
+Priority 1 is the strongest AI recommendation within each feature. Ranking does not constitute student adoption.
+
+## 12. Recommended Five Per Feature
 
 ```text
-AI-ASSISTED EXTENSION CANDIDATE GENERATION: COMPLETE
-STUDENT CANDIDATE ADOPTION: PENDING
-STUDENT-ADDED TEST EXTENSION: NOT YET SATISFIED
+FR-02 Recommended Five:
+STUDENT-FR02-01
+STUDENT-FR02-02
+STUDENT-FR02-03
+STUDENT-FR02-04
+STUDENT-FR02-06
+
+FR-09 Recommended Five:
+STUDENT-FR09-01
+STUDENT-FR09-05
+STUDENT-FR09-02
+STUDENT-FR09-03
+STUDENT-FR09-06
+
+FR-18 Recommended Five:
+STUDENT-FR18-02
+STUDENT-FR18-01
+STUDENT-FR18-03
+STUDENT-FR18-07
+STUDENT-FR18-08
 ```
 
+These are AI recommendations for student review only.
+
+## 13. Authorship Boundary
+
+```text
+All 24 candidates are AI_ASSISTED_CANDIDATE.
+
+None is labeled HUMAN_ADDED.
+
+Student adoption/modification is still required.
+```
+
+The worksheet slot labels are not adopted test IDs and do not establish student authorship.
+
+## 14. Validation
+
+| Validation Item | Result |
+| --- | --- |
+| 24/24 slots populated | PASS |
+| No `STUDENT TO COMPLETE` remains in candidate fields | PASS |
+| Only Student Adoption Decision and Student Adoption Reason remain pending in candidate slots | PASS |
+| Every candidate cites at least one existing TC-API ID | PASS |
+| All closest TC IDs exist in TC-API-001–TC-API-129 | PASS |
+| All cited TB IDs exist in the 36-item verified basis | PASS |
+| All cited EP IDs exist, or existing-interaction/no-new-EP wording is used | PASS |
+| All cited blocker IDs exist | PASS |
+| No new requirement ID fabricated | PASS |
+| No new EP ID fabricated | PASS |
+| No BVA boundary claimed | PASS |
+| No concrete test data generated | PASS |
+| No API executed and no implementation inspected | PASS |
+| Existing testcase design, audit worksheet, and coverage matrix unchanged | PASS |
+| Candidate Origin is AI_ASSISTED_CANDIDATE for 24/24 | PASS |
+| Duplicate Risk is LOW or MEDIUM for 24/24 | PASS |
+| Duplicate-rejected candidates remaining | 0 |
+| Cross-candidate pairs requiring replacement | 0 |
+
+## 15. Current Status
+
+```text
+AI TEST GENERATION: COMPLETE
+AI TEST QUOTA: COMPLETE
+STUDENT HUMAN AUDIT: COMPLETE
+HUMAN AUDIT CORRECTIONS: COMPLETE
+EXTENSION REASSESSMENT: COMPLETE
+
+AI-ASSISTED EXTENSION CANDIDATES: COMPLETE
+STUDENT CANDIDATE ADOPTION: PENDING
+STUDENT-ADDED EXTENSION: NOT YET SATISFIED
+
+CONCRETE TEST DATA DESIGN: NOT STARTED
+POSTMAN IMPLEMENTATION: NOT STARTED
+API EXECUTION: NOT STARTED
+```
+
+## 16. Machine-Usable Summary
+
+```text
+PROMPT_010_SUMMARY
+
+Candidates generated:
+FR-02:
+8
+FR-09:
+8
+FR-18:
+8
+
+Recommended five:
+FR-02:
+STUDENT-FR02-01, STUDENT-FR02-02, STUDENT-FR02-03, STUDENT-FR02-04, STUDENT-FR02-06
+FR-09:
+STUDENT-FR09-01, STUDENT-FR09-05, STUDENT-FR09-02, STUDENT-FR09-03, STUDENT-FR09-06
+FR-18:
+STUDENT-FR18-02, STUDENT-FR18-01, STUDENT-FR18-03, STUDENT-FR18-07, STUDENT-FR18-08
+
+Duplicate-rejected candidates remaining:
+0
+
+AI-assisted candidates:
+24
+
+Human-added accepted tests:
+0
+
+Student candidate adoption:
+PENDING
+
+Next required phase:
+STUDENT REVIEW AND ADOPTION OF EXTENSION CANDIDATES
+```

@@ -17,6 +17,7 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 007 — Prepare human audit worksheet | 2026-08-29 11:00:58 +07:00 | `prompts/Prompt-007-prepare-human-audit-worksheet.md` | `analysis/human-audit-worksheet.md` | Prompt verified line-for-line after newline normalization: 857 lines |
 | Prompt 008 — Apply human audit decisions and normalize audit status | 2026-08-29 15:30:58 +07:00 | `prompts/Prompt-008-apply-human-audit-decisions.md` | `analysis/human-audit-worksheet.md`; `analysis/test-case-design.md`; `analysis/test-coverage-matrix.md`; `analysis/human-audit-application-summary.md` | Prompt verified line-for-line after newline normalization: 860 lines |
 | Prompt 009 — Human extension reassessment | 2026-08-29 15:43:23 +07:00 | `prompts/Prompt-009-human-extension-reassessment.md` | `analysis/student-extension-reassessment.md`; `analysis/student-extension-worksheet.md` | Prompt verified line-for-line after newline normalization: 829 lines |
+| Prompt 010 — Populate AI-assisted extension candidates | 2026-08-29 16:25:48 +07:00 | `prompts/Prompt-010-populate-extension-candidates.md` | `analysis/student-extension-worksheet.md`; `analysis/ai-assisted-extension-candidate-analysis.md` | Prompt verified line-for-line after newline normalization: 1,225 lines |
 
 ## Declaration
 
