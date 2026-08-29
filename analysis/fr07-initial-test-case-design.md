@@ -3,11 +3,17 @@
 ```text
 FR-07 PRE-HUMAN-AUDIT SUITE:
 FINALIZED BY PROMPT 016
+
+FR-07 STUDENT HUMAN REVIEW:
+COMPLETE
+
+FR-07 HUMAN-AUDIT NORMALIZATION:
+CORRECTIONS APPLIED
 ```
 
 ## 1. Executive Summary
 
-The finalized pre-human-audit FR-07 suite contains **35** sequential AI-generated logical testcases, `TC-API-130` through `TC-API-164`. Prompt 016 retained all 34 initial cases and added one independently valuable blocked interaction case for `INT-FR07-005`. All 35 are in scope and quota eligible, producing **35 / 35 — PASS**.
+The normalized post-human-audit FR-07 suite contains **35** sequential AI-generated logical testcases, `TC-API-130` through `TC-API-164`. Prompt 016 retained all 34 initial cases and added one independently valuable blocked interaction case for `INT-FR07-005`. Human review finalized 29 VALID and 6 INCOMPLETE decisions; all 35 remain active, in scope, and quota eligible, producing **35 / 35 — PASS**.
 
 Classification is 5 POSITIVE, 0 NEGATIVE, 5 CONDITIONAL, and 25 EXPLORATORY. Readiness is 5 READY, 6 BLOCKED, and 24 EXPLORATORY_ONLY. All 36 EPs are accounted for: 27 directly covered, 3 covered through interactions, and 6 represented by blocked cases. Of 11 interactions, 6 are covered, 1 partial, and 4 blocked; the previously unrepresented blocked `INT-FR07-005` now has a dedicated case but remains blocked by specification gaps. All 13 TBs and 12 blockers are accounted for.
 
@@ -1513,7 +1519,89 @@ No further testcase ID is reserved or pre-generated after TC-API-164.
 | FR-09 not reactivated | PASS |
 | FR-08 checkout not absorbed | PASS |
 
-## 17. Current Project Status
+## 17. Prompt 017 Human Audit Application
+
+Student-owned decisions, reasons, and corrections are copied verbatim from the completed FR-07 worksheet. `Applied` records only the implementation outcome: `NOT_REQUIRED` or `BLOCKED`.
+
+| Test ID | Decision | Reason | Correction | Applied | Final Classification | Final Readiness |
+| --- | --- | --- | --- | --- | --- | --- |
+| TC-API-130 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-131 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-132 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-133 | VALID | The testcase objective and hard oracle are explicitly supported by the verified requirements; unspecified details are not asserted. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-134 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | POSITIVE | READY |
+| TC-API-135 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-136 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-137 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-138 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-139 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-140 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-141 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-142 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-143 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-144 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-145 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-146 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-147 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-148 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-149 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-150 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-151 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-152 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-153 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-154 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-155 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-156 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-157 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | EXPLORATORY | BLOCKED |
+| TC-API-158 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+| TC-API-159 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-160 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-161 | VALID | The behavior is unspecified, but the testcase is intentionally exploratory, has a measurable observation goal, and does not invent a deterministic oracle. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-162 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-163 | VALID | The testcase partially overlaps a broader case but isolates a distinct contract/oracle and therefore provides independent verification value. | NO_CHANGE | NOT_REQUIRED | EXPLORATORY | EXPLORATORY_ONLY |
+| TC-API-164 | INCOMPLETE | The testcase concept is valid, but the required precondition or state cannot yet be reproducibly established from the available specification. | COMPLETE | BLOCKED | CONDITIONAL | BLOCKED |
+
+### COMPLETE decisions that remain blocked
+
+| Test ID | Information or setup required before execution |
+| --- | --- |
+| TC-API-154 | Authoritative body-`id`-to-resource mapping plus a reproducible fixture proving the referenced resource exists. |
+| TC-API-155 | Authoritative body-`id`-to-resource mapping plus a reproducible fixture proving the referenced resource does not exist. |
+| TC-API-156 | Authoritative token-to-Cart ownership mapping plus reproducible same-authentication-context Cart state. |
+| TC-API-157 | Two reproducible authentication contexts, an authoritative ownership/access rule, and an allowed observation basis for cross-context disclosure comparison. |
+| TC-API-158 | Authoritative definitions of first/later access plus reproducible Cart creation, reset, lifetime, and persistence setup. |
+| TC-API-164 | Authoritative body-`id` resource linkage, reproducible existing-resource availability/stock state, and a selected number-shaped quantity class; no stock outcome is presumed. |
+
+All six concepts remain active, `CONDITIONAL` or `EXPLORATORY` as originally classified, and `BLOCKED`. The completion application makes the missing execution dependencies explicit; it does not invent acceptance, rejection, HTTP status, response schema, ownership, lifecycle, persistence, product, quantity, or stock rules.
+
+Human-audit application totals:
+
+```text
+Student decisions:
+VALID: 29
+INVALID: 0
+INCOMPLETE: 6
+
+Corrections:
+NO_CHANGE: 29
+COMPLETE: 6
+
+Application outcome:
+NOT_REQUIRED: 29
+BLOCKED: 6
+
+Active testcase IDs:
+35
+
+Removed testcase IDs:
+0
+
+Quota:
+35 / 35 — PASS
+```
+
+
+## 18. Current Project Status
 
 ```text
 POOL B:
@@ -1541,7 +1629,10 @@ FR-07 QUOTA GAP CLOSURE:
 COMPLETE
 
 FR-07 HUMAN AUDIT:
-NOT STARTED
+COMPLETE
+
+FR-07 HUMAN AUDIT CORRECTIONS:
+COMPLETE — 29 NO_CHANGE; 6 COMPLETE/BLOCKED
 
 FR-02:
 PRESERVED — 35 / 35
@@ -1553,10 +1644,10 @@ FR-09:
 SUPERSEDED — HISTORICAL ONLY
 ```
 
-## 18. Machine-Usable Summary
+## 19. Machine-Usable Summary
 
 ```text
-PROMPT_015_SUMMARY
+FR07_NORMALIZED_SUITE_SUMMARY
 
 Existing maximum historical testcase ID:
 TC-API-129
@@ -1645,8 +1736,30 @@ New testcase added by Prompt 016:
 TC-API-164
 
 Human audit readiness:
-READY_FOR_HUMAN_AUDIT
+COMPLETE
 
-Next required prompt:
-PROMPT 016 — FR-07 SCOPE, QUOTA, AND TECHNIQUE GAP CLOSURE
+Human decisions:
+VALID: 29
+INVALID: 0
+INCOMPLETE: 6
+
+Corrections:
+NO_CHANGE: 29
+COMPLETE: 6
+
+Correction application:
+NOT_REQUIRED: 29
+BLOCKED: 6
+
+Active testcase IDs:
+35
+
+Removed testcase IDs:
+0
+
+Student human review:
+COMPLETE
+
+Next required phase:
+STUDENT HUMAN-ADDED TEST EXTENSION FOR FR-07
 ```

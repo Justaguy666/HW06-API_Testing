@@ -3,9 +3,15 @@
 ```text
 FR-07 PRE-HUMAN-AUDIT SUITE:
 FINALIZED BY PROMPT 016
+
+FR-07 STUDENT HUMAN REVIEW:
+COMPLETE
+
+FR-07 HUMAN-AUDIT NORMALIZATION:
+CORRECTIONS APPLIED
 ```
 
-This artifact is the coverage-focused companion to `analysis/fr07-initial-test-case-design.md`. It includes the retained Prompt 015 suite plus TC-API-164.
+This artifact is the coverage-focused companion to `analysis/fr07-initial-test-case-design.md`. It includes the retained Prompt 015 suite plus TC-API-164 and records the applied Prompt 017 human-audit decisions.
 
 ## Coverage Baseline
 
@@ -214,6 +220,58 @@ All 35 cases are IN_SCOPE, AI_GENERATED, and directly test FR-07 behavior. Readi
 
 No further testcase ID is reserved or pre-generated after TC-API-164.
 
+## 16. Prompt 017 Human-Audit Coverage
+
+This section is authoritative for the active FR-07 testcase disposition after student review. Human correction `COMPLETE` refines or records the missing execution dependency; it does not create a specification rule or make a blocked case executable.
+
+### 16.1 Active testcase disposition
+
+| Testcase Disposition | Count | Test IDs |
+| --- | ---: | --- |
+| COVERED | 5 | TC-API-130–TC-API-134 |
+| BLOCKED | 6 | TC-API-154–TC-API-158, TC-API-164 |
+| DEFERRED_EXPLORATORY | 24 | TC-API-135–TC-API-153, TC-API-159–TC-API-163 |
+| REMOVED_AFTER_HUMAN_AUDIT | 0 | NONE |
+| **TOTAL** | **35** | TC-API-130–TC-API-164 |
+
+### 16.2 Human decisions and correction application
+
+| Audit Item | Count | Test IDs / Result |
+| --- | ---: | --- |
+| VALID | 29 | All except TC-API-154–TC-API-158 and TC-API-164 |
+| INVALID | 0 | NONE |
+| INCOMPLETE | 6 | TC-API-154–TC-API-158, TC-API-164 |
+| NO_CHANGE / NOT_REQUIRED | 29 | Retained without design correction |
+| COMPLETE / BLOCKED | 6 | Missing setup made explicit; readiness remains BLOCKED |
+| Removed | 0 | NONE |
+
+### 16.3 COMPLETE decisions that remain blocked
+
+| Test ID | Missing execution dependency | Coverage effect |
+| --- | --- | --- |
+| TC-API-154 | Authoritative body-`id` resource mapping and reproducible existing-resource fixture | Retains blocked resource-existence coverage |
+| TC-API-155 | Authoritative body-`id` resource mapping and reproducible non-existing-resource fixture | Retains blocked missing-resource coverage |
+| TC-API-156 | Authoritative token-to-Cart mapping and same-context Cart-state fixture | Retains blocked ownership coverage |
+| TC-API-157 | Two auth contexts, ownership/access rule, and allowed disclosure comparison basis | Retains blocked cross-context security coverage |
+| TC-API-158 | First/later definitions and reproducible creation/reset/lifetime/persistence setup | Retains blocked lifecycle coverage |
+| TC-API-164 | Resource linkage, availability/stock state, and selected number-shaped quantity class | Retains blocked INT-FR07-005 interaction coverage |
+
+### 16.4 Coverage and quota after audit
+
+| Coverage Family | Total | Accounted | Result |
+| --- | ---: | ---: | --- |
+| EP | 36 | 36 | PASS |
+| Interaction | 11 | 11 | PASS |
+| TB | 13 | 13 | PASS |
+| FR-07 blocker | 12 | 12 | PASS |
+| BVA testcase | 0 | 0 | NOT_APPLICABLE |
+
+| Feature | Before Human Audit | Active After Human Audit | Minimum Required | Result |
+| --- | ---: | ---: | ---: | --- |
+| FR-07 | 35 | 35 | 35 | PASS |
+
+No EP, interaction, TB item, blocker, or testcase is removed. Classification and readiness totals remain 5 POSITIVE, 0 NEGATIVE, 5 CONDITIONAL, 25 EXPLORATORY; 5 READY, 6 BLOCKED, and 24 EXPLORATORY_ONLY.
+
 ## Coverage Integrity
 
 - Every testcase is `AI_GENERATED`, `IN_SCOPE`, and quota eligible.
@@ -221,3 +279,5 @@ No further testcase ID is reserved or pre-generated after TC-API-164.
 - No supporting, cross-feature, out-of-scope, or ambiguous case is counted.
 - Blocked/observational cases do not receive invented deterministic oracles.
 - No FR-08, FR-09, implementation, execution, concrete payload, or BVA case is included.
+- Student human review is complete; all 35 decisions and corrections are recorded in the normalized design suite.
+- The six `COMPLETE` corrections remain BLOCKED because the authoritative setup/rules are absent.
