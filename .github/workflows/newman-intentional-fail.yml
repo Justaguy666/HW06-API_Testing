@@ -1,0 +1,105 @@
+name: HW06 Newman Intentional Failure Demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  newman-intentional-fail:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository and SUT submodule
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install backend dependencies
+        working-directory: eshop-sut/backend
+        run: npm ci
+
+      - name: Build and validate derived CI assets
+        run: |
+          node postman/ci/build-ci-collections.js
+          node postman/ci/validate-ci-assets.js
+          node postman/validation/validate-postman-build.js
+
+      - name: Start EShop SUT with ephemeral CI fixture reset
+        working-directory: eshop-sut/backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          node server.js > "$RUNNER_TEMP/eshop-backend.log" 2>&1 &
+          echo "SUT_PID=$!" >> "$GITHUB_ENV"
+
+      - name: Wait for SUT readiness
+        run: node scripts/ci/wait-for-sut.js
+
+      - name: Build private runtime Postman environment
+        env:
+          STUDENT_ID: ${{ secrets.STUDENT_ID }}
+          CI_POSTMAN_ENV_PATH: ${{ runner.temp }}/HW06-CI.runtime.postman_environment.json
+        run: node scripts/ci/build-postman-ci-environment.js
+
+      - name: Run intentional Newman failure and preserve reports
+        id: newman
+        shell: bash
+        env:
+          STUDENT_ID: ${{ secrets.STUDENT_ID }}
+          CI_POSTMAN_ENV_PATH: ${{ runner.temp }}/HW06-CI.runtime.postman_environment.json
+        run: |
+          mkdir -p reports/ci/intentional-fail
+          set +e
+          npx --yes newman@6.2.2 run postman/ci/HW06-CI-Intentional-Fail.postman_collection.json \
+            -e "$CI_POSTMAN_ENV_PATH" \
+            --reporters cli,json,junit \
+            --reporter-json-export "$RUNNER_TEMP/intentional.raw.json" \
+            --reporter-junit-export "$RUNNER_TEMP/intentional.raw.xml" \
+            --export-environment "$RUNNER_TEMP/intentional.post-run.environment.json" \
+            --color off 2>&1 | tee "$RUNNER_TEMP/intentional.raw.cli.txt"
+          newman_exit=${PIPESTATUS[0]}
+          set -e
+          echo "newman_exit=$newman_exit" >> "$GITHUB_OUTPUT"
+          node scripts/ci/sanitize-newman-reports.js \
+            --raw-json "$RUNNER_TEMP/intentional.raw.json" \
+            --raw-junit "$RUNNER_TEMP/intentional.raw.xml" \
+            --raw-cli "$RUNNER_TEMP/intentional.raw.cli.txt" \
+            --runtime-environment "$RUNNER_TEMP/intentional.post-run.environment.json" \
+            --output-dir reports/ci/intentional-fail \
+            --mode INTENTIONAL_FAIL \
+            --newman-exit "$newman_exit"
+          exit 0
+
+      - name: Upload intentional-fail Newman reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hw06-newman-intentional-fail
+          path: reports/ci/intentional-fail/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Mark the verified intentional demonstration red
+        if: always()
+        shell: bash
+        env:
+          NEWMAN_EXIT: ${{ steps.newman.outputs.newman_exit }}
+        run: |
+          if [[ -z "$NEWMAN_EXIT" ]]; then
+            echo "Newman did not execute; this is not valid intentional-failure evidence."
+            exit 1
+          fi
+          if [[ "$NEWMAN_EXIT" -eq 0 ]]; then
+            echo "The CI_DEMO_ONLY assertion unexpectedly passed."
+            exit 1
+          fi
+          echo "Newman returned $NEWMAN_EXIT because the CI_DEMO_ONLY assertion failed as designed."
+          exit 1

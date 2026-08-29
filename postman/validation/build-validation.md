@@ -21,9 +21,9 @@ PASS
 | Logical testcase IDs accounted in traceability | 122 |
 | Executable testcase units | 114 |
 | Blocked logical tests documented | 8 |
-| Total HTTP request items | 148 |
+| Total HTTP request items | 152 |
 | Testcase HTTP request items | 137 |
-| Supporting setup request items | 11 |
+| Supporting setup request items | 15 |
 | Environment variables | 25 |
 | AI_GENERATED executable units | 98 |
 | HUMAN_ADDED executable units | 16 |

@@ -1,0 +1,55 @@
+{
+  "info": {
+    "_postman_id": "hw06-ci-intentional-fail-demo",
+    "name": "HW06 CI — Intentional Failure Demo",
+    "description": "CI_DEMO_ONLY — NO_LOGICAL_TC_ID\n\nTHIS FAILURE IS INTENTIONAL.\n\nIt is not a SUT defect.\n\nIt exists solely to demonstrate that the GitHub Actions Newman pipeline correctly becomes red when a test assertion fails.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (!pm.environment.get(\"base_url\")) console.log(\"[SETUP] base_url is not configured\");",
+          "if (!pm.environment.get(\"student_id\")) console.log(\"[SETUP] student_id is not configured\");",
+          "if (!pm.environment.get(\"run_id\")) pm.environment.set(\"run_id\", String(Date.now()));",
+          "const runId=pm.environment.get(\"run_id\");",
+          "if (!pm.environment.get(\"unassociated_email\")) pm.environment.set(\"unassociated_email\", \"hw06-unregistered+\"+runId+\"@example.invalid\");",
+          "if (!pm.environment.get(\"wrong_password\")) pm.environment.set(\"wrong_password\", \"Wrong-\"+runId+\"!\");"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "[CI-DEMO-ONLY] GET products with intentional assertion failure",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"[CI-DEMO-FAIL] Intentional CI failure demonstration\", function () {",
+              "    pm.expect(true, \"Intentional failure required by HW06 CI demonstration\").to.eql(false);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Student-Id",
+            "value": "{{student_id}}",
+            "type": "text"
+          }
+        ],
+        "description": "CI_DEMO_ONLY\nNO_LOGICAL_TC_ID\n\nTHIS FAILURE IS INTENTIONAL.\nIt is not a SUT defect.\nIt exists solely to demonstrate that the GitHub Actions Newman pipeline correctly becomes red when a test assertion fails.\nThe safe public GET products request is derived from the canonical collection.",
+        "url": "{{base_url}}/api/products"
+      },
+      "response": []
+    }
+  ]
+}

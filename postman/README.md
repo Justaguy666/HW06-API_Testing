@@ -71,7 +71,7 @@ Static plaintext secret count: `0`.
 
 ## Setup sequence
 
-The collection contains 11 supporting HTTP request items:
+The collection contains 15 supporting HTTP request items:
 
 1. Register primary user.
 2. Login primary user.
@@ -83,7 +83,11 @@ The collection contains 11 supporting HTTP request items:
 8. Register wrong-role user.
 9. Login wrong-role user.
 10. Login Admin using private credentials.
-11. Discover existing/current/multiple-order context and derive an absent order candidate.
+11. Add a discovered Product to the secondary-user Cart.
+12. Checkout a secondary-user order fixture through the documented API.
+13. Add a discovered Product to the wrong-role normal-user Cart.
+14. Checkout a second attributable order fixture through the documented API.
+15. Discover existing/current/multiple-order context and derive an absent order candidate.
 
 Unavailable SETUP-012–014 are documented in setup traceability and are not implemented as fake endpoints.
 
@@ -116,7 +120,7 @@ TC-API-092, TC-API-093, TC-API-118, TC-API-121, TC-API-127, TC-API-128, TC-API-1
 
 ## X-Student-Id policy
 
-Every one of the 148 HTTP request definitions—including all 11 setup requests and 137 testcase step requests—contains:
+Every one of the 152 HTTP request definitions—including all 15 setup requests and 137 testcase step requests—contains:
 
 ```text
 X-Student-Id: {{student_id}}

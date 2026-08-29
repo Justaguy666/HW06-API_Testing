@@ -10,9 +10,9 @@
 | SETUP-006 | 00 - Setup / FR-07 Setup / [SETUP-006] Product requests | existing_product_id, name, price | Resource-bound FR-07 tests | IMPLEMENTED |
 | SETUP-007 | 00 - Setup / FR-07 Setup / [SETUP-007] Verify Missing Product Candidate | missing_product_id after evidence | TC-API-155 | IMPLEMENTED |
 | SETUP-008 | 00 - Setup primary/secondary registration and login sequence | fresh user token/context | TC-API-156–161 | COMPOSED_FROM_IMPLEMENTED_SETUP |
-| SETUP-009 | 00 - Setup / FR-18 Setup / [SETUP-009] Discover Existing Orders | existing_order_id, current_order_status | Existing-order FR-18 tests | IMPLEMENTED |
+| SETUP-009 | 00 - Setup / FR-18 Setup / [SETUP-009] Add Product to Secondary Cart → Checkout Secondary Order Fixture → Discover Existing Orders | existing_order_id, current_order_status | Existing-order FR-18 tests | IMPLEMENTED_AFTER_TRIAGE_FIX_001 |
 | SETUP-010 | Integrated into [SETUP-009] Admin-list absence derivation | missing_order_id | TC-API-058 | IMPLEMENTED |
-| SETUP-011 | Integrated into [SETUP-009] first/second order discovery | existing_order_id, second_order_id | TC-API-117 | RUNTIME_GUARD |
+| SETUP-011 | 00 - Setup / FR-18 Setup / [SETUP-011] Add Product to Wrong-Role User Cart → Checkout Wrong-Role User Order Fixture → [SETUP-009] Discover Existing Orders | existing_order_id, second_order_id | TC-API-117 | IMPLEMENTED_AFTER_TRIAGE_FIX_001 |
 | SETUP-012 | No request — unavailable empty-order setup | NONE | TC-API-118 | UNAVAILABLE |
 | SETUP-013 | No request — unavailable exact lock/unlock setup | NONE | TC-API-092–093 | UNAVAILABLE |
 | SETUP-014 | No request — unavailable guaranteed transition/reset | NONE | TC-API-121, 127–128 | UNAVAILABLE |

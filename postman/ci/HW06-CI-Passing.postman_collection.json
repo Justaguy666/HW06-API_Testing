@@ -1,0 +1,353 @@
+{
+  "info": {
+    "_postman_id": "hw06-ci-passing-regression-sample",
+    "name": "HW06 CI — Passing Regression Sample",
+    "description": "This is a representative CI regression subset.\n\nIt does not replace the authoritative 114-test execution.\n\nKnown confirmed SUT defects are intentionally excluded from the all-pass demonstration and remain documented separately.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (!pm.environment.get(\"base_url\")) console.log(\"[SETUP] base_url is not configured\");",
+          "if (!pm.environment.get(\"student_id\")) console.log(\"[SETUP] student_id is not configured\");",
+          "if (!pm.environment.get(\"run_id\")) pm.environment.set(\"run_id\", String(Date.now()));",
+          "const runId=pm.environment.get(\"run_id\");",
+          "if (!pm.environment.get(\"unassociated_email\")) pm.environment.set(\"unassociated_email\", \"hw06-unregistered+\"+runId+\"@example.invalid\");",
+          "if (!pm.environment.get(\"wrong_password\")) pm.environment.set(\"wrong_password\", \"Wrong-\"+runId+\"!\");"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "cart_snapshot_before",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cart_snapshot_after",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "orders_snapshot_1",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "orders_snapshot_2",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "00 - Setup",
+      "description": "Documented supporting setup requests. Setup items do not count toward the 114 executable testcase units.",
+      "item": [
+        {
+          "name": "FR-02 Setup",
+          "item": [
+            {
+              "name": "[SETUP-002] Register Primary User",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const runId = pm.environment.get(\"run_id\") || String(Date.now());",
+                      "if (!pm.environment.get(\"user_email\")) pm.environment.set(\"user_email\", \"hw06-user+\" + runId + \"@example.invalid\");",
+                      "if (!pm.environment.get(\"user_password\")) pm.environment.set(\"user_password\", \"Hw06-\" + runId + \"!Aa1\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "description": "Setup ID: SETUP-002\nPurpose: Create a fresh normal account\nProduces: user_email, user_password\nSupporting setup only; does not count as a logical testcase.\nEvery request includes X-Student-Id: {{student_id}}.",
+                "url": "{{base_url}}/api/register",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"HW06 User {{run_id}}\",\"email\":\"{{user_email}}\",\"password\":\"{{user_password}}\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "[SETUP-003] Login Primary User",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json=null; try { json=pm.response.json(); } catch(e) { json=null; }",
+                      "const token=json && (json.token || json.access_token); if (typeof token === \"string\" && token) pm.environment.set(\"user_token\", token);",
+                      "console.log(\"[SETUP] user_token populated\", Boolean(token));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "description": "Setup ID: SETUP-003\nPurpose: Authenticate primary user\nProduces: user_token\nSupporting setup only; does not count as a logical testcase.\nEvery request includes X-Student-Id: {{student_id}}.",
+                "url": "{{base_url}}/api/login",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-02 - Login and Lockout",
+      "item": [
+        {
+          "name": "Deterministic",
+          "item": [
+            {
+              "name": "[TC-API-001] Verify successful login for an existing account-associated matching credential pair",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const __obs_TC_API_001 = {",
+                      "  status: pm.response.code,",
+                      "  responseTime: pm.response.responseTime,",
+                      "  contentType: pm.response.headers.get(\"Content-Type\") || \"ABSENT\",",
+                      "  bodyLength: (pm.response.text() || \"\").length",
+                      "};",
+                      "console.log(\"[OBS][TC-API-001]\", JSON.stringify(__obs_TC_API_001));",
+                      "pm.test(\"[TC-API-001] response object is available\", function () {",
+                      "  pm.expect(pm.response).to.exist;",
+                      "  pm.expect(pm.response.code).to.be.a(\"number\");",
+                      "});",
+                      "let json = null;",
+                      "try { json = pm.response.json(); } catch (e) { json = null; }",
+                      "pm.test(\"[TC-API-001] documented successful-login status is 200\", function () { pm.response.to.have.status(200); });",
+                      "pm.test(\"[TC-API-001] successful login returns token and user information\", function () { pm.expect(json).to.be.an(\"object\"); pm.expect(json).to.have.property(\"token\"); pm.expect(json).to.have.property(\"user\"); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "description": "Canonical Test ID: TC-API-001\nTest ID: TC-API-001\nFeature: FR-02\nOrigin: AI_GENERATED\nExecution Class: EXECUTABLE_WITH_RUNTIME_SETUP\n\nLogical Objective: Verify successful login for an existing account-associated matching credential pair.\n\nTB Refs: TB-FR02-004, TB-FR02-005, TB-FR02-006\nEP Refs: EP-FR02-001, EP-FR02-006, EP-FR02-011, EP-FR02-014\nINT Refs: NONE\nBlocker Refs: BLK-FR02-005, BLK-FR02-006, BLK-ALL-001\n\nDATA IDs: DATA-SHARED-001–003, DATA-SHARED-005, DATA-FR02-001\nSETUP IDs: SETUP-001, SETUP-002\n\nAssertion Strategy: Setup + supported hard assertions; observe unspecified layers\nExploratory: NO",
+                "url": "{{base_url}}/api/login",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-07 - Cart",
+      "item": [
+        {
+          "name": "GET Cart",
+          "item": [
+            {
+              "name": "[TC-API-130] GET Cart endpoint transport contract",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const __obs_TC_API_130 = {",
+                      "  status: pm.response.code,",
+                      "  responseTime: pm.response.responseTime,",
+                      "  contentType: pm.response.headers.get(\"Content-Type\") || \"ABSENT\",",
+                      "  bodyLength: (pm.response.text() || \"\").length",
+                      "};",
+                      "console.log(\"[OBS][TC-API-130]\", JSON.stringify(__obs_TC_API_130));",
+                      "pm.test(\"[TC-API-130] response object is available\", function () {",
+                      "  pm.expect(pm.response).to.exist;",
+                      "  pm.expect(pm.response.code).to.be.a(\"number\");",
+                      "});",
+                      "pm.test(\"[TC-API-130] request uses documented GET Cart operation\", function () { pm.expect(pm.request.method).to.eql(\"GET\"); pm.expect(pm.request.url.getPath()).to.eql(\"/api/cart\"); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "description": "Canonical Test ID: TC-API-130\nTest ID: TC-API-130\nFeature: FR-07\nOrigin: AI_GENERATED\nExecution Class: EXECUTABLE_WITH_RUNTIME_SETUP\n\nLogical Objective: Verify that the documented Cart retrieval operation is addressed through the specified GET method and `/api/cart` path.\n\nTB Refs: TB-FR07-001, TB-FR07-002\nEP Refs: EP-FR07-001, EP-FR07-032\nINT Refs: INT-FR07-001\nBlocker Refs: BLK-FR07-008, BLK-FR07-011\n\nDATA IDs: DATA-SHARED-001–003, DATA-FR07-001, DATA-FR07-012\nSETUP IDs: SETUP-001–003\n\nAssertion Strategy: Setup + supported hard assertions; observe unspecified layers\nExploratory: NO",
+                "url": "{{base_url}}/api/cart"
+              },
+              "response": []
+            },
+            {
+              "name": "[TC-API-173] Observe the response Content-Type contract for GET Cart",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const __obs_TC_API_173 = {",
+                      "  status: pm.response.code,",
+                      "  responseTime: pm.response.responseTime,",
+                      "  contentType: pm.response.headers.get(\"Content-Type\") || \"ABSENT\",",
+                      "  bodyLength: (pm.response.text() || \"\").length",
+                      "};",
+                      "console.log(\"[OBS][TC-API-173]\", JSON.stringify(__obs_TC_API_173));",
+                      "pm.test(\"[TC-API-173] response object is available\", function () {",
+                      "  pm.expect(pm.response).to.exist;",
+                      "  pm.expect(pm.response.code).to.be.a(\"number\");",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}",
+                    "type": "text"
+                  }
+                ],
+                "description": "Canonical Test ID: TC-API-173\nTest ID: TC-API-173\nFeature: FR-07\nOrigin: HUMAN_ADDED\nExecution Class: EXECUTABLE_EXPLORATORY\n\nLogical Objective: Record the actual response media-type / Content-Type representation independently from response-body observations.\n\nTB Refs: TB-FR07-003, TB-FR07-011\nEP Refs: EP-FR07-032\nINT Refs: NONE\nBlocker Refs: BLK-FR07-008, BLK-FR07-012\n\nDATA IDs: DATA-FR07-001, DATA-FR07-012, DATA-SHARED-006\nSETUP IDs: SETUP-001–003\n\nAssertion Strategy: Transport completion + observational capture only\nExploratory: YES\n\nOrigin: HUMAN_ADDED\nStudent Proposal ID: TC-PROP-FR07-03",
+                "url": "{{base_url}}/api/cart"
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-18 - Admin Order Management",
+      "item": [
+        {
+          "name": "List Orders",
+          "item": [
+            {
+              "name": "[TC-API-048] Verify unauthenticated caller cannot access system-wide orders",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const __obs_TC_API_048 = {",
+                      "  status: pm.response.code,",
+                      "  responseTime: pm.response.responseTime,",
+                      "  contentType: pm.response.headers.get(\"Content-Type\") || \"ABSENT\",",
+                      "  bodyLength: (pm.response.text() || \"\").length",
+                      "};",
+                      "console.log(\"[OBS][TC-API-048]\", JSON.stringify(__obs_TC_API_048));",
+                      "pm.test(\"[TC-API-048] response object is available\", function () {",
+                      "  pm.expect(pm.response).to.exist;",
+                      "  pm.expect(pm.response.code).to.be.a(\"number\");",
+                      "});",
+                      "pm.test(\"[TC-API-048] unauthenticated caller does not obtain a successful protected operation\", function () { pm.expect(pm.response.code).to.not.be.within(200, 299); });"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Student-Id",
+                    "value": "{{student_id}}",
+                    "type": "text"
+                  }
+                ],
+                "description": "Canonical Test ID: TC-API-048\nTest ID: TC-API-048\nFeature: FR-18\nOrigin: AI_GENERATED\nExecution Class: EXECUTABLE_DETERMINISTIC\n\nLogical Objective: Verify unauthenticated caller cannot access system-wide orders.\n\nTB Refs: TB-FR18-003\nEP Refs: EP-FR18-003\nINT Refs: NONE\nBlocker Refs: BLK-FR18-006, BLK-ALL-001\n\nDATA IDs: DATA-SHARED-001–005\nSETUP IDs: SETUP-001\n\nAssertion Strategy: Hard supported SEMANTIC/SECURITY assertions; observe unspecified status/schema\nExploratory: NO",
+                "url": "{{base_url}}/api/admin/orders"
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
