@@ -12,6 +12,7 @@ Each prompt artifact below preserves the exact submitted prompt. Each output ent
 | Prompt 002 — Verification and normalization | 2026-08-29 09:23:56 +07:00 | `prompts/Prompt-002-verify-normalize-requirement-analysis.md` | `analysis/verified-test-basis.md` | Prompt verified line-for-line: 420 lines |
 | Prompt 003 — Domain modeling and equivalence partitioning | 2026-08-29 09:32:46 +07:00 | `prompts/Prompt-003-domain-modeling-equivalence-partitioning.md` | `analysis/domain-model.md` | Prompt verified line-for-line: 696 lines |
 | Prompt 004 — Boundary Value Analysis | 2026-08-29 09:58:40 +07:00 | `prompts/Prompt-004-boundary-value-analysis.md` | `analysis/boundary-value-analysis.md` | Prompt verified line-for-line: 1,084 lines |
+| Prompt 005 — Requirement-driven test-case design | 2026-08-29 10:16:31 +07:00 | `prompts/Prompt-005-test-case-design.md` | `analysis/test-case-design.md`; `analysis/test-coverage-matrix.md` | Prompt verified line-for-line: 1,017 lines |
 
 ## Declaration
 
