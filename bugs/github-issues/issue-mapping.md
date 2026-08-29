@@ -2,9 +2,11 @@
 
 Repository: `Justaguy666/HW06-API_Testing`
 
-GitHub CLI status: `GH_NOT_AVAILABLE`  
-Issue creation status: `GITHUB_ISSUE_CREATION_BLOCKED`  
-Exact failure: the `gh` executable is not installed or is not available on `PATH`. `gh --version` and `gh auth status` failed, and an explicit `gh issue create` attempt for DEFECT-001 also exited with code 1 because PowerShell could not resolve the `gh` command. No request reached GitHub, so DEFECT-002 and DEFECT-003 were not redundantly attempted with the same missing executable.
+GitHub CLI status: `GH_AVAILABLE_AUTHENTICATED`
+
+GitHub CLI installation: `INSTALLED_BY_PROMPT_028B`
+
+Issue creation status: `COMPLETE`
 
 Planned issue titles:
 
@@ -14,8 +16,8 @@ Planned issue titles:
 
 | Defect ID | Issue Created? | Issue Number | Issue URL | Creation Status | Screenshot Status |
 | --------- | -------------- | ------------ | --------- | --------------- | ----------------- |
-| DEFECT-001 | NO | PENDING | PENDING | GITHUB_ISSUE_CREATION_BLOCKED — GH_NOT_AVAILABLE | COMPLETE |
-| DEFECT-002 | NO | PENDING | PENDING | GITHUB_ISSUE_CREATION_BLOCKED — GH_NOT_AVAILABLE | COMPLETE |
-| DEFECT-003 | NO | PENDING | PENDING | GITHUB_ISSUE_CREATION_BLOCKED — GH_NOT_AVAILABLE | COMPLETE |
+| DEFECT-001 | YES | #1 | https://github.com/Justaguy666/HW06-API_Testing/issues/1 | CREATED | COMPLETE |
+| DEFECT-002 | YES | #2 | https://github.com/Justaguy666/HW06-API_Testing/issues/2 | CREATED | COMPLETE |
+| DEFECT-003 | YES | #3 | https://github.com/Justaguy666/HW06-API_Testing/issues/3 | CREATED | COMPLETE |
 
-Required human action: install GitHub CLI, authenticate with issue-write permission for the detected repository, then create exactly one issue from each `bugs/github-issues/DEFECT-00X-issue-body.md` file. Do not create issues for non-defect triage findings.
+Duplicate audit before publication found zero matching issues. Exactly three new issues were created; no non-defect triage finding was published.

@@ -2,6 +2,20 @@
 
 This directory contains submission-quality reports for exactly three human-reviewed confirmed defects: two SUT defects and one documentation defect.
 
+```text
+Confirmed defects:
+3
+
+GitHub issues:
+3 / 3
+
+Screenshot evidence:
+3 / 3
+
+Bug reporting:
+COMPLETE
+```
+
 | Defect | Type | Severity | Report | Screenshot |
 | --- | --- | --- | --- | --- |
 | DEFECT-001 | SECURITY | HIGH | `bugs/reports/DEFECT-001-broken-admin-order-access-control.md` | COMPLETE |
@@ -19,7 +33,13 @@ This directory contains submission-quality reports for exactly three human-revie
 
 ## GitHub status
 
-The valid remote `Justaguy666/HW06-API_Testing` was detected, but GitHub CLI is unavailable. Both CLI/auth checks and an explicit DEFECT-001 `gh issue create` command failed because PowerShell could not resolve `gh`; the result is `GITHUB_ISSUE_CREATION_BLOCKED`. No request reached GitHub, and no issue number or URL is fabricated.
+GitHub CLI 2.98.0 was installed by Prompt 028B and authenticated as repository owner `Justaguy666`. Duplicate audit found zero existing matches, then exactly three issues were created:
+
+- DEFECT-001 → [#1](https://github.com/Justaguy666/HW06-API_Testing/issues/1)
+- DEFECT-002 → [#2](https://github.com/Justaguy666/HW06-API_Testing/issues/2)
+- DEFECT-003 → [#3](https://github.com/Justaguy666/HW06-API_Testing/issues/3)
+
+Publication status: `BUG_REPORTING_COMPLETE`.
 
 ## Evidence and redaction policy
 

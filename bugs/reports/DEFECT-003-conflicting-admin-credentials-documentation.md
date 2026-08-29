@@ -78,9 +78,7 @@ TRIAGE-006
 
 ## GitHub Issue
 
-Issue Number: PENDING  
-Issue URL: PENDING  
-Creation Status: GITHUB_ISSUE_CREATION_BLOCKED — `gh` CLI is unavailable in the current environment.
+#3 — https://github.com/Justaguy666/HW06-API_Testing/issues/3
 
 ## AI Assistance Disclosure
 
