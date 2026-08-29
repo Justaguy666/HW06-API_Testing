@@ -1,0 +1,21 @@
+SANITIZED EXCERPT FROM GENUINE NEWMAN TRIAGE EVIDENCE
+Source: reports/newman/triage/tc-api-047/reproduction-cli.txt
+Context verified by reproduction-report.json: authenticated role=user (NON_ADMIN); token populated=true (token omitted)
+
+HW06 Triage — TC-API-047
+
+Iteration 1/2
+[TC-API-047] Verify non-Admin caller cannot access system-wide orders
+GET http://localhost:3000/api/admin/orders [200 OK]
+[OBS][TC-API-047] {"status":200,"contentType":"application/json; charset=utf-8"}
+FAILED: [TC-API-047] non-Admin caller does not obtain a successful protected operation
+
+Iteration 2/2
+[TC-API-047] Verify non-Admin caller cannot access system-wide orders
+GET http://localhost:3000/api/admin/orders [200 OK]
+[OBS][TC-API-047] {"status":200,"contentType":"application/json; charset=utf-8"}
+FAILED: [TC-API-047] non-Admin caller does not obtain a successful protected operation
+
+Reproduction: 2/2
+Sensitive values: OMITTED
+

@@ -1,0 +1,12 @@
+SANITIZED EXCERPT FROM GENUINE TARGETED NEWMAN VERIFICATION
+Source: reports/newman/triage/setup-009/post-fix/verification-cli.txt
+Context: authenticated role=user (NON_ADMIN); valid discovered order fixture; token and order identifier omitted
+
+[TC-API-055] Verify non-Admin caller cannot update order status
+PUT http://localhost:3000/api/admin/orders/:id/status [200 OK]
+[OBS][TC-API-055] {"status":200,"contentType":"application/json; charset=utf-8"}
+FAILED: [TC-API-055] non-Admin caller does not obtain a successful protected operation
+
+Reproduction: 1/1 targeted verification
+Sensitive values: OMITTED
+
